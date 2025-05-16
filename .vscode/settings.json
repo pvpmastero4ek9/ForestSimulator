@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "ForesttSimulator.sln"
+    "dotnet.defaultSolution": "ForestSimulator.sln"
 }
