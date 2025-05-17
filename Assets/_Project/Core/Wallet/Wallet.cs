@@ -8,12 +8,7 @@ namespace Core.Wallets
     {
         public Dictionary<CurrencyType, Currency> _currencys = new();
 
-        private void Start()
-        {
-            Wallett();
-        }
-
-        public void Wallett()
+        public Wallet()
         {
             foreach (CurrencyType currencyType in Enum.GetValues(typeof(CurrencyType)))
             {
