@@ -14,7 +14,7 @@ namespace UI.Wallets
 
         private void OnEnable()
         {
-            if (didStart)
+            if (!didStart)
             {
                 UpdateInformation();
             }
