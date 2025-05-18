@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1278273928700111498
+--- !u!1001 &2336779699969204604
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
       propertyPath: m_LocalScale.y
@@ -18,35 +18,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.43
+      value: 5.5884247
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.939
+      value: 0.67426
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.35
+      value: 7.805818
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5000001
+      value: 0.49999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.50000024
+      value: -0.50000006
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.49999985
+      value: -0.50000006
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.4999998
+      value: -0.50000006
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -62,10 +62,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
       propertyPath: m_Name
-      value: "\u043C\u0430\u0448\u0438\u043D\u0430 \u0444\u0431\u0445"
+      value: Car
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4988895866404228101}
   m_SourcePrefab: {fileID: 100100000, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
+--- !u!1 &3219089741447109677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f8d275b5f74095448b7c85049d2a880d, type: 3}
+  m_PrefabInstance: {fileID: 2336779699969204604}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4988895866404228101
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3219089741447109677}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.060637962, y: 0.14443481, z: 0.050326306}
+  m_Center: {x: -0.0000000022924862, y: 0.002373343, z: 0.010318201}
