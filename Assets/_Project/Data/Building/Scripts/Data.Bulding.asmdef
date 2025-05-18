@@ -1,9 +1,8 @@
 {
-    "name": "Core.Building",
-    "rootNamespace": "Core.Building",
+    "name": "Data.Bulding",
+    "rootNamespace": "",
     "references": [
-        "GUID:20669b6dd456c7941ababc233f1ba27f",
-        "GUID:4116ba5d6456ec44ea82b765c0a54621"
+        "GUID:20669b6dd456c7941ababc233f1ba27f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
