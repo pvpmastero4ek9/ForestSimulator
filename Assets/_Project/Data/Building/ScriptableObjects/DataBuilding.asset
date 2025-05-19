@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: DataBuilding
   m_EditorClassIdentifier: 
   <BuildingName>k__BackingField: Tent
-  <BuildingPrefab>k__BackingField: {fileID: 0}
+  <BuildingPrefab>k__BackingField: {fileID: 3108769267366489753, guid: 6d095be3f72d76e418689e9774fe0a29, type: 3}
   <CostList>k__BackingField:
   - ResourceType: 0
-    Amount: 0
+    Amount: 1
   - ResourceType: 1
-    Amount: 0
+    Amount: 1
