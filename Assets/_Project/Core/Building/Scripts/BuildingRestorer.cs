@@ -1,19 +1,19 @@
 using UnityEngine;
 
-namespace UI.Building
+namespace Core.Building
 {
-    public class ConstructionBuild : MonoBehaviour
+    public class BuildingRestorer : MonoBehaviour
     {
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-
+        
         }
 
         // Update is called once per frame
         void Update()
         {
-
+        
         }
     }
 }

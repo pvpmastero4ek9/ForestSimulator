@@ -1,10 +1,8 @@
 {
-    "name": "Ui.Building",
-    "rootNamespace": "Ui.Building",
+    "name": "Core.Interfaces",
+    "rootNamespace": "Core.Interfaces",
     "references": [
-        "GUID:b0c850478d68c134b8019b15b2ed3732",
-        "GUID:20669b6dd456c7941ababc233f1ba27f",
-        "GUID:d998f7f172f82394992287067948f590"
+        "GUID:b0c850478d68c134b8019b15b2ed3732"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
