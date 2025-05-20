@@ -1,9 +1,8 @@
 {
-    "name": "Core.Interfaces",
-    "rootNamespace": "Core.Interfaces",
+    "name": "Data.PlayerInventory",
+    "rootNamespace": "Data.PlayerInventory",
     "references": [
-        "GUID:b0c850478d68c134b8019b15b2ed3732",
-        "GUID:4116ba5d6456ec44ea82b765c0a54621"
+        "GUID:9fe931347b76824408560e4cfaaa87a9"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -15,9 +15,9 @@ namespace Core.Building
 
         public bool CanAfford(List<ResourceCost> costs)
         {
-            foreach (var cost in costs)
+            foreach (ResourceCost cost in costs)
             {
-                if (_wallet.GetCurrency(cost.CurrencyType).Value < cost.Amount)
+                if (_wallet.GetCurrency(cost.Type).Value < cost.Amount)
                     return false;
             }
             return true;
@@ -27,7 +27,7 @@ namespace Core.Building
         {
             foreach (var cost in costs)
             {
-                var currency = _wallet.GetCurrency(cost.CurrencyType);
+                var currency = _wallet.GetCurrency(cost.Type);
                 currency.Value -= cost.Amount;
             }
         }

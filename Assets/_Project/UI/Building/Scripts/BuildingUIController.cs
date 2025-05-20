@@ -1,7 +1,8 @@
+using System;
+using Data.Building;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Zenject;
-using Core.Interfaces;
 
 namespace UI.Building
 {
@@ -28,7 +29,7 @@ namespace UI.Building
 
         private void ShowBuildingInfo(DataBuilding data)
         {
-            infoPanelView.Show(data);
+            // infoPanelView.Show(data);
         }
     }
 }

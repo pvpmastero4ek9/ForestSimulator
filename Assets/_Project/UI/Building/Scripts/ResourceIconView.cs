@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Core.Wallets;
+using Mono.Cecil;
 
 namespace UI.Building
 {
@@ -12,8 +13,8 @@ namespace UI.Building
 
         public void Setup(ResourceType type, int amount)
         {
-            iconImage.sprite = ResourceIconDatabase.GetIcon(type); // например, через ScriptableObject или статик
-            amountText.text = amount.ToString();
+            // iconImage.sprite = ResourceIconDatabase.GetIcon(type); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ ScriptableObject пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+            // amountText.text = amount.ToString();
         }
     }
 }

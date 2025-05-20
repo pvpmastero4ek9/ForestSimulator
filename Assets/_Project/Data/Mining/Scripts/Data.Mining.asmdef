@@ -1,10 +1,7 @@
 {
-    "name": "Core.Interfaces",
-    "rootNamespace": "Core.Interfaces",
-    "references": [
-        "GUID:b0c850478d68c134b8019b15b2ed3732",
-        "GUID:4116ba5d6456ec44ea82b765c0a54621"
-    ],
+    "name": "Data.Mining",
+    "rootNamespace": "Data.Mining",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

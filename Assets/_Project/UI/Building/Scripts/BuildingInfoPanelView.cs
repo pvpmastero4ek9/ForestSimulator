@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Core.Building;
-using UnityEngine.UIElements;
+using Data.Building;
 
 namespace UI.Building
 {
@@ -16,19 +16,19 @@ namespace UI.Building
 
         public void Show(DataBuilding data)
         {
-            nameText.text = data.BuildingName;
+            nameText.text = data.Title;
             descriptionText.text = data.Description;
 
             foreach (Transform child in resourceListParent)
                 Destroy(child.gameObject);
 
-            foreach (var cost in data.Costs)
+            foreach (ResourceCost cost in data.Cost)
             {
                 var icon = Instantiate(resourceIconPrefab, resourceListParent);
-                icon.GetComponent<ResourceIconView>().Setup(cost.Type, cost.Amount);
+                // icon.GetComponent<ResourceIconView>().Setup(cost.Type, cost.Amount);
             }
 
-            buildButton.interactable = data.CanBuild;
+            // buildButton.interactable = data.CanBuild;
         }
     }
 }
