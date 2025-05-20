@@ -1,5 +1,6 @@
 using UnityEngine;
 using Zenject;
+using Data.Building;
 
 namespace Core.Building
 {

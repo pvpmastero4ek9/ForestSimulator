@@ -1,6 +1,6 @@
 {
-    "name": "Data.Bulding",
-    "rootNamespace": "",
+    "name": "Data.Building",
+    "rootNamespace": "Data.Building",
     "references": [
         "GUID:20669b6dd456c7941ababc233f1ba27f"
     ],

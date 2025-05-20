@@ -7,9 +7,9 @@ namespace Core.Building
     //public class BuildingInstaller : MonoInstaller
     //{
         //public override void InstallBindings()
-       // {
-          //  Container.Bind<BuildingPlacer>().AsSingle();
-         //   Container.Bind<BuildingCostChecker>().AsSingle().WithArguments(Container.Resolve<Wallet>());
-       // }
-   // }
+        //{
+            //Container.Bind<BuildingPlacer>().AsSingle();
+            //Container.Bind<BuildingCostChecker>().AsSingle().WithArguments(Container.Resolve<Wallet>());
+        //}
+    //}
 }

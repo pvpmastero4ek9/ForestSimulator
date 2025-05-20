@@ -1,8 +1,12 @@
-using System;
-using Core.Building;
+using Data.Building;
 using UnityEngine.UIElements;
 
-public interface IBuildingSelectionService
+namespace Core.Interfaces
 {
-    event Action<DataBuilding> OnBuildingSelected;
+    public interface IBuildingSelectionService
+    {
+        DataBuilding SelectedBuilding { get; }
+        void SelectBuilding(DataBuilding buildingData);
+        void ClearSelection();
+    }
 }
