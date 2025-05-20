@@ -1539,18 +1539,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1841258858363112917, guid: d07f6e7c23bdf174fb16646afbe20582, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: aa47ed7e1710cda49a799ebf3a062eb4, type: 2}
-    - target: {fileID: 1841258858363112917, guid: d07f6e7c23bdf174fb16646afbe20582, type: 3}
-      propertyPath: m_AnimatePhysics
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841258858363112917, guid: d07f6e7c23bdf174fb16646afbe20582, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2147056437586109575, guid: d07f6e7c23bdf174fb16646afbe20582, type: 3}
       propertyPath: m_Name
       value: Player
