@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 
 namespace Data.Mining
 {
-    [SerializeField]
+    [Serializable]
     public class Tool
     {
         public string ToolName;
