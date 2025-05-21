@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb93952174ef6846bfc7e3326a49e33, type: 3}
   m_Name: DataBuilding
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   <BuildingName>k__BackingField: Tent
   <BuildingPrefab>k__BackingField: {fileID: 3108769267366489753, guid: 6d095be3f72d76e418689e9774fe0a29, type: 3}
   <CostList>k__BackingField:
@@ -19,3 +20,15 @@ MonoBehaviour:
     Amount: 1
   - ResourceType: 1
     Amount: 1
+=======
+  <Title>k__BackingField: "\u041F\u0430\u043B\u0430\u0442\u043A\u0430"
+  <Description>k__BackingField: "\u0421\u0442\u0430\u0440\u0442\u043E\u0432\u0430\u044F
+    \u043F\u043E\u0441\u0442\u0440\u043E\u0439\u043A\u0430"
+  <BuildingPrefab>k__BackingField: {fileID: 3108769267366489753, guid: 6d095be3f72d76e418689e9774fe0a29, type: 3}
+  <Icon>k__BackingField: {fileID: -1647812042, guid: 107ac908c1b68cd4c89a9269ab167fee, type: 3}
+  <Cost>k__BackingField:
+  - Type: 0
+    Amount: 0
+  - Type: 1
+    Amount: 0
+>>>>>>> Stashed changes

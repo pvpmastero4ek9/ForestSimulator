@@ -4,7 +4,10 @@
     "references": [
         "GUID:20669b6dd456c7941ababc233f1ba27f",
         "GUID:4116ba5d6456ec44ea82b765c0a54621",
+<<<<<<< Updated upstream
         "GUID:d998f7f172f82394992287067948f590",
+=======
+>>>>>>> Stashed changes
         "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
     ],
     "includePlatforms": [],

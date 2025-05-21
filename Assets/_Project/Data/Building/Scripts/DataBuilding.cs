@@ -4,7 +4,7 @@ using Core.Wallets;
 
 namespace Data.Building
 {
-    [CreateAssetMenu(menuName = "Core/Building/Building Data")]
+    [CreateAssetMenu(menuName = "Building/Building Data")]
     public class DataBuilding : ScriptableObject
     {
         [field: SerializeField] public string Title { get; private set; }

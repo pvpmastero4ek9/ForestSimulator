@@ -1,23 +1,25 @@
 using UnityEngine;
+<<<<<<< Updated upstream
 using UnityEngine.UIElements;
 using Zenject;
 using Core.Interfaces;
+=======
+>>>>>>> Stashed changes
 
 namespace UI.Building
 {
-    public class BuildingUIController : MonoBehaviour
+    public class BuildUIController : MonoBehaviour, IBuildUIController
     {
-        [SerializeField] private BuildingInfoPanelView infoPanelView;
-        private IBuildingSelectionService selectionService;
+        [SerializeField] private GameObject panel;
 
-        [Inject]
-        public void Construct(IBuildingSelectionService selectionService)
+        public void Show()
         {
-            this.selectionService = selectionService;
+            panel.SetActive(true);
         }
 
-        private void OnEnable()
+        public void Hide()
         {
+<<<<<<< Updated upstream
             selectionService.OnBuildingSelected += ShowBuildingInfo;
         }
 
@@ -29,6 +31,9 @@ namespace UI.Building
         private void ShowBuildingInfo(DataBuilding data)
         {
             infoPanelView.Show(data);
+=======
+            panel.SetActive(false);
+>>>>>>> Stashed changes
         }
     }
 }

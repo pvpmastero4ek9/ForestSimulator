@@ -2,18 +2,11 @@ using UnityEngine;
 
 namespace Core.Building
 {
-    public class BuildingRestorer : MonoBehaviour
+    public class BuildingRestorer
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        public void Restore(GameObject building)
         {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+            building.SetActive(true);
         }
     }
 }

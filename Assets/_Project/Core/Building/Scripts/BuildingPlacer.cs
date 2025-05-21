@@ -4,9 +4,9 @@ namespace Core.Building
 {
     public class BuildingPlacer
     {
-        public void PlaceBuilding(Vector3 position, GameObject prefab)
+        public GameObject PlaceBuilding(GameObject buildingPrefab, Vector3 position)
         {
-            Object.Instantiate(prefab, position, Quaternion.identity);
+            return Object.Instantiate(buildingPrefab, position, Quaternion.identity);
         }
     }
 }
