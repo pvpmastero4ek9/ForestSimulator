@@ -12,7 +12,7 @@ namespace Core.Mining
         [SerializeField] private MiningData _miningData;
         [SerializeField] private LayerMask _mineableMask;
 
-        public delegate void OnToolSelectedHandler(Tool tool, ResourceNode resourceNode);
+        public delegate void OnToolSelectedHandler(ResourceNode resourceNode);
         public event OnToolSelectedHandler OnToolSelected;
 
         private void Update()
@@ -31,7 +31,7 @@ namespace Core.Mining
                             ResourceNode resourceNode = hit.collider.GetComponent<ResourceNode>();
                             if (resourceNode.CanBeMined)
                             {
-                                OnToolSelected?.Invoke(tool, resourceNode);
+                                OnToolSelected?.Invoke(resourceNode);
                             }
                         }
                     }

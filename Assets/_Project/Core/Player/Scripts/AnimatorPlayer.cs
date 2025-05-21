@@ -11,12 +11,19 @@ namespace Core.Player
 
         public void PlayMiningStoneAnimation()
         {
-            _animatorPlayer.SetTrigger("MiningTrigger");
+            _animatorPlayer.SetBool("MiningTriggerStone", true);
+        }
+
+        public void PlayMiningWoodAnimation()
+        {
+            _animatorPlayer.SetBool("MiningTriggerWood", true);
+
         }
 
         public void StopAllAnimationMining()
         {
-            _animatorPlayer.SetTrigger("MiningTrigger");
+            _animatorPlayer.SetBool("MiningTriggerStone", false);
+            _animatorPlayer.SetBool("MiningTriggerWood", false);
         }
 
         public void ResourceExtraction()

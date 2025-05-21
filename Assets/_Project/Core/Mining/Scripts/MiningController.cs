@@ -7,9 +7,11 @@ namespace Core.Mining
 {
     public class MiningController : MonoBehaviour
     {
+        private const float DistanceResource = 1.5f;
         [SerializeField] private CheckerResourceClick _checkerResourceClick;
-        [SerializeField] private AutoMoveToResource _autoMoveToResource;
+        [SerializeField] private AutoMove _autoMoveToResource;
         [SerializeField] private AnimatorPlayer _animatorPlayer;
+        [SerializeField] private RewardDistributor _rewardDistributor;
         private ResourceNode _resourceNode;
 
         private void OnEnable()
@@ -24,11 +26,13 @@ namespace Core.Mining
             _animatorPlayer.HitedResource -= ResourceExtraction;
         }
 
-        private void HandleMining(Tool tool, ResourceNode resourceNode)
+        private void HandleMining(ResourceNode resourceNode)
         {
             _resourceNode = resourceNode;
+            StopAllCoroutines();
+
             _autoMoveToResource.MoveTo(resourceNode.GetPosition());
-            StartCoroutine(MineSequence(tool));
+            StartCoroutine(MineSequence());
         }
 
         private void ResourceExtraction()
@@ -40,20 +44,33 @@ namespace Core.Mining
         private void StopMine()
         {
             _animatorPlayer.StopAllAnimationMining();
+            _rewardDistributor.GetReward(_resourceNode.CurrencyType, _resourceNode.RewardAmount);
         }
 
-        private IEnumerator MineSequence(Tool tool)
+        private IEnumerator MineSequence()
         {
-            while (Vector3.Distance(_autoMoveToResource.GetPosition(), _resourceNode.GetPosition()) > 2f)
+            while (Vector3.Distance(_autoMoveToResource.GetPosition(), _resourceNode.GetPosition()) > DistanceResource)
                 yield return null;
 
             _autoMoveToResource.Stop();
-            _animatorPlayer.PlayMiningStoneAnimation();
+            PlayAnimation();
 
             while (_resourceNode.Durability > 0)
                 yield return null;
 
             StopMine();
+        }
+
+        private void PlayAnimation()
+        {
+            if (_resourceNode.CurrencyType == Wallets.CurrencyType.stone)
+            {
+                _animatorPlayer.PlayMiningStoneAnimation();
+            }
+            else if (_resourceNode.CurrencyType == Wallets.CurrencyType.wood)
+            {
+                _animatorPlayer.PlayMiningWoodAnimation();
+            }
         }
     }
 }
