@@ -147,4 +147,4 @@ MonoBehaviour:
   <CurrencyType>k__BackingField: 1
   <RewardAmount>k__BackingField: 10
   <Durability>k__BackingField: 3
-  RecoveryTimeMinutes: 0.1
+  RecoveryTimeMinutes: 1

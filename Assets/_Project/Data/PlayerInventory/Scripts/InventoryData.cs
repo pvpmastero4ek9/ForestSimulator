@@ -10,7 +10,10 @@ namespace Data.PlayerInventory
     {
         private const int LengthInventoryArray = 3;
         [SerializeField] private Tool[] _inventoryArray = new Tool[LengthInventoryArray];
-        public List<Tool> InventoryArray => _inventoryArray.ToList();
+        public List<Tool> InventoryList => _inventoryArray.ToList();
+
+        public delegate void AddedToolHandler(Tool tool);
+        public event AddedToolHandler AddedTool;
 
         public void AddTool(Tool tool)
         {
@@ -19,6 +22,7 @@ namespace Data.PlayerInventory
                 if (_inventoryArray[i].ToolName == "")
                 {
                     _inventoryArray[i] = tool;
+                    AddedTool?.Invoke(tool);
                     break;
                 }
             }

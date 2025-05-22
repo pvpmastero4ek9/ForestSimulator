@@ -16,7 +16,7 @@ namespace Core.Mining
 
         [field: SerializeField] private float RecoveryTimeMinutes = 1;
         private BoxCollider _boxCollider;
-        private CountdownTimer _countdownTimer = new();
+        public CountdownTimer CountdownTimer { get; private set; } = new();
 
         private void Start()
         {
@@ -43,7 +43,7 @@ namespace Core.Mining
         public async void StartTimer()
         {
             DateTime dateTime = DateTime.Now + TimeSpan.FromMinutes(RecoveryTimeMinutes);
-            await _countdownTimer.WaitUntil(dateTime, Recovery);
+            await CountdownTimer.WaitUntil(dateTime, Recovery);
         }
 
         public void Recovery()

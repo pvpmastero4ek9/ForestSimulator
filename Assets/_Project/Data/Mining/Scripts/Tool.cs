@@ -9,5 +9,6 @@ namespace Data.Mining
         public string ToolName;
         public GameObject Tool_PREFAB;
         public LayerMask LayerMask;
+        public Sprite Icon;
     }
 }
