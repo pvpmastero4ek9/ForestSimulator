@@ -883,11 +883,8 @@ GameObject:
   - component: {fileID: 1072397868}
   - component: {fileID: 1072397867}
   - component: {fileID: 1072397866}
-<<<<<<< Updated upstream
   - component: {fileID: 1072397865}
-=======
   - component: {fileID: 1072397870}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: BuildPoint
   m_TagString: Untagged
@@ -895,7 +892,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< Updated upstream
+
 --- !u!114 &1072397865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,8 +906,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildingData: {fileID: 0}
-=======
->>>>>>> Stashed changes
 --- !u!64 &1072397866
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1013,8 +1008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e64db635f8aeba4aa5a1fcb60bfea13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-=======
   buildingPreview: {fileID: 101227577}
 --- !u!1 &1193581115
 GameObject:
@@ -1080,7 +1073,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1001 &1496962128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1277,8 +1269,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1727269806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,7 +1419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfcf017baba34e64d9d56033556dc868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> Stashed changes
 --- !u!4 &1940811682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890255731639674272, guid: 5cc497f22c9b0dc459f0689ed5266762, type: 3}
@@ -1768,7 +1757,7 @@ PrefabInstance:
       addedObject: {fileID: 1727269807}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cc497f22c9b0dc459f0689ed5266762, type: 3}
-<<<<<<< Updated upstream
+
 --- !u!1001 &6583383628898855707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1826,8 +1815,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e199ea9ead314d43988fe3c3a0d575b, type: 3}
-=======
->>>>>>> Stashed changes
+
 --- !u!1001 &6808432343326466436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1971,9 +1959,6 @@ SceneRoots:
   - {fileID: 2113370252}
   - {fileID: 364577565}
   - {fileID: 1072397869}
-<<<<<<< Updated upstream
   - {fileID: 6583383628898855707}
-=======
   - {fileID: 1193581117}
   - {fileID: 1815252481}
->>>>>>> Stashed changes
