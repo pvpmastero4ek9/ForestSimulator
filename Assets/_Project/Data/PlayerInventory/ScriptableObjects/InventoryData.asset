@@ -12,3 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acad36b5aa70c3b44882077e4efbf3c7, type: 3}
   m_Name: InventoryData
   m_EditorClassIdentifier: 
+  _inventoryArray:
+  - ToolName: 
+    Tool_PREFAB: {fileID: 0}
+    LayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    Icon: {fileID: 0}
+  - ToolName: 
+    Tool_PREFAB: {fileID: 0}
+    LayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    Icon: {fileID: 0}
+  - ToolName: 
+    Tool_PREFAB: {fileID: 0}
+    LayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    Icon: {fileID: 0}
