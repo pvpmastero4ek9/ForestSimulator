@@ -7,7 +7,7 @@ namespace Data.PlayerInventory
     {
         [SerializeField] private MiningData _miningData;
         [SerializeField] private InventoryData _inventoryData;
-        private void Start()
+        private void OnEnable()
         {
             _inventoryData.ClearAllSlots();
             _inventoryData.AddTool(_miningData.ToolsList[0]);

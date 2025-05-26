@@ -21,7 +21,7 @@ namespace Data.PlayerInventory
         {
             for (var i = 0; i < _inventoryArray.Length; i++)
             {
-                if (_inventoryArray[i].ToolName == "")
+                if (_inventoryArray[i].ToolName == null)
                 {
                     _inventoryArray[i] = tool;
                     AddedTool?.Invoke(tool);

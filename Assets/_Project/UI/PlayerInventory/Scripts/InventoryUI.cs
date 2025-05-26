@@ -12,19 +12,20 @@ namespace UI.PlayerInventory
 
         private void OnEnable()
         {
-            if (!didStart)
-            {
-                UpdateInventiryOnStart();
-            }
-            _inventoryData.AddedTool += UpdateInventiryUI;
+            _inventoryData.AddedTool += UpdateInventoryUI;
+        }
+
+        private void Start()
+        {
+            UpdateInventiryOnStart();  
         }
 
         private void OnDisable()
         {
-            _inventoryData.AddedTool -= UpdateInventiryUI;
+            _inventoryData.AddedTool -= UpdateInventoryUI;
         }
 
-        private void UpdateInventiryUI(Tool tool)
+        private void UpdateInventoryUI(Tool tool)
         {
             foreach (InventoryContainerUI el in _inventoryContainerList)
             {
