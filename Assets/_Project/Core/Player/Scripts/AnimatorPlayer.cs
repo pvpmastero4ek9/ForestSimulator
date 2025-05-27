@@ -17,13 +17,18 @@ namespace Core.Player
         public void PlayMiningWoodAnimation()
         {
             _animatorPlayer.SetBool("MiningTriggerWood", true);
+        }
 
+        public void PlayMiningBranchAnimation()
+        {
+            _animatorPlayer.SetBool("MiningTriggerBranch", true);
         }
 
         public void StopAllAnimationMining()
         {
             _animatorPlayer.SetBool("MiningTriggerStone", false);
             _animatorPlayer.SetBool("MiningTriggerWood", false);
+            _animatorPlayer.SetBool("MiningTriggerBranch", false);
         }
 
         public void ResourceExtraction()

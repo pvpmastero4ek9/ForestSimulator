@@ -10,8 +10,6 @@ namespace Data.PlayerInventory
         private void OnEnable()
         {
             _inventoryData.ClearAllSlots();
-            _inventoryData.AddTool(_miningData.ToolsList[0]);
-            _inventoryData.AddTool(_miningData.ToolsList[1]);
         }
     }
 }

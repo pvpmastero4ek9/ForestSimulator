@@ -29,9 +29,10 @@ namespace UI.PlayerInventory
         {
             foreach (InventoryContainerUI el in _inventoryContainerList)
             {
-                if (el.Icon == null)
+                if (el.Icon.sprite == null)
                 {
                     el.Icon.sprite = tool.Icon;
+                    break;
                 }
             }
         }

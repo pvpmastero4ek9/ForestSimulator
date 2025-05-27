@@ -71,6 +71,10 @@ namespace Core.Mining
             {
                 _animatorPlayer.PlayMiningWoodAnimation();
             }
+            else if (_resourceNode.CurrencyType == Wallets.CurrencyType.branch)
+            {
+                _animatorPlayer.PlayMiningBranchAnimation();
+            }
         }
     }
 }

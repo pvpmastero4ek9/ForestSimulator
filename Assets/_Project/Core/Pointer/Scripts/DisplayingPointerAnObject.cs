@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -8,7 +9,7 @@ namespace Core.Pointer
         [SerializeField] private Sprite _iconObject;
         [Inject] private CreaterPointer _createrPointer;
 
-        void Start()
+        public void CreatePointer()
         {
             _createrPointer.CreatePointer(transform, _iconObject);
         }

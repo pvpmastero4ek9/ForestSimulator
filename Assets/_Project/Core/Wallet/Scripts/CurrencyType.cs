@@ -6,7 +6,7 @@ namespace Core.Wallets
     {
         stone,
         wood,
-        sticks,
+        branch,
         coal, 
         fish
     }

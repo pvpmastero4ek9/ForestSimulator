@@ -9,5 +9,10 @@ namespace Data.Mining
     {
         [SerializeField] private List<Tool> _toolsList;
         public List<Tool> ToolsList => _toolsList.ToList();
+
+        public Tool GetTool(string toolName)
+        {
+            return _toolsList.FirstOrDefault(x => x.ToolName == toolName);
+        }
     }
 }

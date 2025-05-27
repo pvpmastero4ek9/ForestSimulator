@@ -7,6 +7,7 @@ namespace Core.Mining
 {
     public class CheckerResourceClick : MonoBehaviour
     {
+        private const string ResourceExceptionName = "Branch";
         [SerializeField] private float _range = 3f;
         [SerializeField] private InventoryData _inventoryData;
         [SerializeField] private MiningData _miningData;
@@ -25,8 +26,7 @@ namespace Core.Mining
                     int hitLayerMask = hit.collider.gameObject.layer;
                     if (((1 << hitLayerMask) & _mineableMask.value) != 0)
                     {
-                        Tool tool = _miningData.ToolsList.FirstOrDefault(x => (x.LayerMask.value & (1 << hitLayerMask)) != 0);
-                        if (_inventoryData.IsToolInInventory(tool.ToolName))
+                        if (CheckingForExcludedResource(hitLayerMask) || CheckingTool(hitLayerMask))
                         {
                             ResourceNode resourceNode = hit.collider.GetComponent<ResourceNode>();
                             if (resourceNode.CanBeMined)
@@ -36,7 +36,22 @@ namespace Core.Mining
                         }
                     }
                 }
-            }   
+            }
+        }
+
+        private bool CheckingTool(int hitLayerMask)
+        {
+            Tool tool = _miningData.ToolsList.FirstOrDefault(x => (x.LayerMask.value & (1 << hitLayerMask)) != 0);
+            if (_inventoryData.IsToolInInventory(tool.ToolName))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool CheckingForExcludedResource(int hitLayerMask)
+        {
+            return hitLayerMask == LayerMask.NameToLayer(ResourceExceptionName);
         }
     }
 }
