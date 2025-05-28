@@ -1045,6 +1045,10 @@ PrefabInstance:
       propertyPath: _currencyType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5654628035109813881, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
+      propertyPath: _currencyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6223807326808631312, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
       propertyPath: _currencyType
       value: 2
@@ -1075,7 +1079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493584463639247918, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 118.22697
       objectReference: {fileID: 0}
     - target: {fileID: 8493584463639247918, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1503,7 +1507,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Resource Container (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 174024180449594145, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3851382051187253222, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
+      propertyPath: _currencyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5654628035109813881, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
       propertyPath: _currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -1537,7 +1549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493584463639247918, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 118.22697
       objectReference: {fileID: 0}
     - target: {fileID: 8493584463639247918, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1624,6 +1636,7 @@ GameObject:
   - component: {fileID: 1692936535}
   - component: {fileID: 1692936537}
   - component: {fileID: 1692936538}
+  - component: {fileID: 1692936539}
   m_Layer: 5
   m_Name: Resources Info
   m_TagString: Untagged
@@ -1650,9 +1663,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -176.84045, y: -41.277588}
-  m_SizeDelta: {x: 354.6809, y: 82.5551}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -41.277588}
+  m_SizeDelta: {x: 0, y: 82.5551}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &1692936537
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1682,11 +1695,25 @@ MonoBehaviour:
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
+  m_ChildControlWidth: 0
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1692936539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692936534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1001 &1783553188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1785,6 +1812,7 @@ GameObject:
   - component: {fileID: 1815252477}
   - component: {fileID: 1815252482}
   - component: {fileID: 1815252483}
+  - component: {fileID: 1815252484}
   m_Layer: 0
   m_Name: Mining
   m_TagString: Untagged
@@ -1880,6 +1908,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc5e8954d5e6e140bb76cdbc2c5f303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1815252484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815252476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328299b07db6cfa4b8bd604cb581f7de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sound: {fileID: 0}
 --- !u!4 &1940811682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5890255731639674272, guid: 5cc497f22c9b0dc459f0689ed5266762, type: 3}
@@ -1981,6 +2022,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Resource Container
       objectReference: {fileID: 0}
+    - target: {fileID: 174024180449594145, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6223807326808631312, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
       propertyPath: _currencyType
       value: 0
@@ -2011,7 +2056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8493584463639247918, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 118.22697
       objectReference: {fileID: 0}
     - target: {fileID: 8493584463639247918, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
       propertyPath: m_SizeDelta.y

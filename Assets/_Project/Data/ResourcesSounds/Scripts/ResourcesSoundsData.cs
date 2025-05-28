@@ -11,9 +11,17 @@ namespace Data.ResourcesSounds
         [SerializedDictionary("CurrencyType", "Sounds")]
         [SerializeField] private SerializedDictionary<CurrencyType, List<AudioClip>> ResourcesSoundsDictionary;
 
+        [SerializedDictionary("CurrencyType", "SoundsBreaking")]
+        [SerializeField] private SerializedDictionary<CurrencyType, AudioClip> ResourcesSoundsBreakingDictionary;
+
         public AudioClip GetResourceRandomSound(CurrencyType currencyType)
         {
             return ResourcesSoundsDictionary[currencyType][Random.Range(0, ResourcesSoundsDictionary[currencyType].Count)];
+        }
+
+        public AudioClip GetResourceSoundBreaking(CurrencyType currencyType)
+        {
+            return ResourcesSoundsBreakingDictionary[currencyType];
         }
     }
 }

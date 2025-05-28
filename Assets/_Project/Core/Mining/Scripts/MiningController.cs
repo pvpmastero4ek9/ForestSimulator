@@ -47,6 +47,7 @@ namespace Core.Mining
         {
             _animatorPlayer.StopAllAnimationMining();
             _rewardDistributor.GetReward(_resourceNode.CurrencyType, _resourceNode.RewardAmount);
+            _createrSounds.CreateSoundBreaking(_resourceNode.CurrencyType, _resourceNode.GetPosition());
         }
 
         private IEnumerator MineSequence()
