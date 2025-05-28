@@ -12,6 +12,7 @@ namespace Core.Mining
         [SerializeField] private AutoMove _autoMoveToResource;
         [SerializeField] private AnimatorPlayer _animatorPlayer;
         [SerializeField] private RewardDistributor _rewardDistributor;
+        [SerializeField] private CreaterSounds _createrSounds;
         private ResourceNode _resourceNode;
 
         private void OnEnable()
@@ -38,6 +39,7 @@ namespace Core.Mining
         private void ResourceExtraction()
         {
             _resourceNode.Mine();
+            _createrSounds.CreateSound(_resourceNode.CurrencyType, _resourceNode.GetPosition());
             //Здесь можно сделать эффект потряхивания камня
         }
 
