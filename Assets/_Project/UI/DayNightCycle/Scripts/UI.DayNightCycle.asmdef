@@ -1,0 +1,16 @@
+{
+    "name": "UI.DayNightCycle",
+    "rootNamespace": "UI.DayNightCycle",
+    "references": [
+        "GUID:2f2342e5c37583e4eac09ae16203541e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
