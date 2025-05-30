@@ -8,8 +8,8 @@ namespace Core.DayNightCycle
     {
         [SerializeField] private float _dayDuractionMinutes = 1f;
         [SerializeField] private float _nightDuractionMinutes = 1f;
-        private CountdownTimer _countdownTimer = new();
-        private DayPhase _currentPhase = DayPhase.Day;
+        public CountdownTimer CountdownTimer { get; private set; } = new();
+        public DayPhase CurrentPhase { get; private set; } = DayPhase.Day;
 
         public delegate void SwitchedPhaseHandler(DayPhase dayPhase);
         public event SwitchedPhaseHandler SwitchedPhase;
@@ -21,12 +21,12 @@ namespace Core.DayNightCycle
 
         private void StartDayNightCycle()
         {
-            SwitchPhase(_currentPhase);
+            SwitchPhase(CurrentPhase);
         }
 
         private void SwitchPhase(DayPhase phase)
         {
-            _currentPhase = phase;
+            CurrentPhase = phase;
 
             float duration = phase == DayPhase.Day ? _dayDuractionMinutes : _nightDuractionMinutes;
             DateTime endTime = DateTime.Now.AddMinutes(duration);
@@ -37,12 +37,12 @@ namespace Core.DayNightCycle
 
         private async void StartTimerPhase(DateTime endTime)
         {
-            await _countdownTimer.WaitUntil(endTime, OnPhaseEnd);
+            await CountdownTimer.WaitUntil(endTime, OnPhaseEnd);
         }
 
         private void OnPhaseEnd()
         {
-            DayPhase nextPhase = _currentPhase == DayPhase.Day ? DayPhase.Night : DayPhase.Day;
+            DayPhase nextPhase = CurrentPhase == DayPhase.Day ? DayPhase.Night : DayPhase.Day;
             SwitchPhase(nextPhase);
         }
     }

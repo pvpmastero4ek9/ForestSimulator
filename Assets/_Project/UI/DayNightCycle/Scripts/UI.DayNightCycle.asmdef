@@ -2,7 +2,8 @@
     "name": "UI.DayNightCycle",
     "rootNamespace": "UI.DayNightCycle",
     "references": [
-        "GUID:2f2342e5c37583e4eac09ae16203541e"
+        "GUID:2f2342e5c37583e4eac09ae16203541e",
+        "GUID:83d55e32ade50184c986e4b9e7c55bc3"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
