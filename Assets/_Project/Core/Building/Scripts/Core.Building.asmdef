@@ -3,7 +3,6 @@
     "rootNamespace": "Core.Building",
     "references": [
         "GUID:4116ba5d6456ec44ea82b765c0a54621",
-        "GUID:8f1f6609ea940b64488daacba3f64101",
         "GUID:20669b6dd456c7941ababc233f1ba27f"
     ],
     "includePlatforms": [],

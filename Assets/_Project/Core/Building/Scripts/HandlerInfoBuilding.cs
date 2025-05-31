@@ -1,55 +1,74 @@
-using System;
-using System.Collections.Generic;
 using Data.Building;
+using Core.Wallets;
+using Zenject;
+using System.Collections.Generic;
 
 namespace Core.Building
 {
-    public class HandlerInfoBuilding
+    public class HandlerInfoBuilding : IBuildingStateManager
     {
-        private readonly BuildingData _buildingData;
+        private readonly IBuildingData _buildingData;
+        private readonly IWalletService _walletService;
+        private readonly IResourceChecker _resourceChecker;
 
-        public event Action<BuildingInfo> OnStateChanged;
-
-        public HandlerInfoBuilding(BuildingData buildingData)
+        [Inject]
+        public HandlerInfoBuilding(IBuildingData buildingData, IWalletService walletService, IResourceChecker resourceChecker)
         {
             _buildingData = buildingData;
+            _walletService = walletService;
+            _resourceChecker = resourceChecker;
         }
 
-        public void ChangeState(string title, BuildingState newState)
+        public BuildingState GetCurrentState(string name)
         {
-            _buildingData.ChangeState(title, newState);
+            BuildingInfo info = _buildingData.GetByName(name);
+            return info != null ? info.State : BuildingState.Notbuilt;
+        }
 
-            BuildingInfo building = _buildingData.GetByTitle(title);
-            if (building != null)
+        public void ChangeState(string name)
+        {
+            BuildingInfo info = _buildingData.GetByName(name);
+            if (info == null) return;
+
+            BuildingState currentState = info.State;
+            if (!_resourceChecker.HasEnoughResources(name, currentState))
             {
-                OnStateChanged?.Invoke(building);
+                UnityEngine.Debug.Log("Not enough resources to change state for " + name);
+                return;
             }
-        }
 
-        public void ApplyDamage(string title, int damage)
-        {
-            _buildingData.ApplyDamage(title, damage);
-
-            BuildingInfo building = _buildingData.GetByTitle(title);
-            if (building != null)
+            BuildingState newState = currentState;
+            switch (currentState)
             {
-                OnStateChanged?.Invoke(building);
+                case BuildingState.Notbuilt:
+                    newState = BuildingState.Built;
+                    SpendResources(name);
+                    break;
+                case BuildingState.Built:
+                    newState = BuildingState.Repaired;
+                    SpendResources(name);
+                    break;
+                case BuildingState.Repaired:
+                    newState = BuildingState.Destroyed;
+                    break;
+                default:
+                    newState = BuildingState.Destroyed;
+                    break;
             }
+            info.State = newState;
         }
 
-        public BuildingInfo GetInfo(string title)
+        private void SpendResources(string name)
         {
-            return _buildingData.GetByTitle(title);
-        }
+            BuildingInfo info = _buildingData.GetByName(name);
+            if (info == null) return;
 
-        public List<BuildingInfo> GetAll()
-        {
-            return _buildingData.GetAll();
-        }
-
-        public void Replace(BuildingInfo oldInfo, BuildingInfo newInfo)
-        {
-            _buildingData.Replace(oldInfo, newInfo);
+            foreach (KeyValuePair<CurrencyType, int> costEntry in info.Cost)
+            {
+                CurrencyType currencyType = costEntry.Key;
+                int amount = costEntry.Value;
+                _walletService.Spend(currencyType, amount);
+            }
         }
     }
 }
