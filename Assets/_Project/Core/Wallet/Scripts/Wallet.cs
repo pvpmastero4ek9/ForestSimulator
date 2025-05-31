@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Core.Wallets
 {
-    public class Wallet
+    public class Wallet : MonoBehaviour
     {
         public Dictionary<CurrencyType, Currency> _currencys = new();
 

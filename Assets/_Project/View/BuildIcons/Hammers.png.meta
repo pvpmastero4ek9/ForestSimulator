@@ -170,7 +170,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    sprites: []
     outline: []
     customData: 
     physicsShape: []
@@ -186,7 +185,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Hammers_0: -2912068887014230298
-    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -20,10 +20,10 @@ namespace UI.Pointer
             _target = _pointerContainer.Target;
             _icon.sprite = _pointerContainer.SpriteIcon;
         }
-
+        
         private void Update()
         {
-            if (_target != null && _target.gameObject.activeSelf)
+            if (_target != null)
             {
                 Vector3 worldPosition = _target.position + _offset;
                 Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPosition);
@@ -32,10 +32,6 @@ namespace UI.Pointer
                 screenPos.y += floatY;
 
                 _rectTransform.position = screenPos;
-            }
-            else
-            {
-                Destroy(gameObject);
             }
         }
     }

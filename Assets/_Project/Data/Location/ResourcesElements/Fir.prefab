@@ -66,11 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2bb8f139d78bcfb41a9fa16bd3a8509b, type: 3}
       propertyPath: m_Name
-      value: Fir
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 2bb8f139d78bcfb41a9fa16bd3a8509b, type: 3}
-      propertyPath: m_Layer
-      value: 8
+      value: Elka
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -79,15 +75,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2bb8f139d78bcfb41a9fa16bd3a8509b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4959935423762422281}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2bb8f139d78bcfb41a9fa16bd3a8509b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9144265357614275394}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2bb8f139d78bcfb41a9fa16bd3a8509b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2381861891702748432}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2bb8f139d78bcfb41a9fa16bd3a8509b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8130603842416898072}
   m_SourcePrefab: {fileID: 100100000, guid: 2bb8f139d78bcfb41a9fa16bd3a8509b, type: 3}
 --- !u!1 &4420615759440805607 stripped
 GameObject:
@@ -115,54 +102,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1463261, y: 1.1877445, z: 6.587226}
   m_Center: {x: 0.021607399, y: -0.0015085936, z: 2.2937083}
---- !u!114 &9144265357614275394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4420615759440805607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
---- !u!114 &2381861891702748432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4420615759440805607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd0a70e94e13404a84dbbe61234aa9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <CurrencyType>k__BackingField: 1
-  <RewardAmount>k__BackingField: 10
-  <Durability>k__BackingField: 3
-  RecoveryTimeMinutes: 1
---- !u!114 &8130603842416898072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4420615759440805607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a078034ccf9ef4494ad160156103a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _resourceNode: {fileID: 2381861891702748432}
-  _canvas: {fileID: 0}
-  _timer_PREFAB: {fileID: 3144311986443698738, guid: 7996849736a46e044a31fc4091ac6f4b, type: 3}

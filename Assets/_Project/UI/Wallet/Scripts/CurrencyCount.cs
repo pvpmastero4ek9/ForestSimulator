@@ -16,22 +16,18 @@ namespace UI.Wallets
         {
             if (!didStart)
             {
-                _currency.ChangedValue += UpdateInformation;
                 UpdateInformation();
             }
+            _currency.ChangedValue += UpdateInformation;
+        }
+
+        private void OnDisable()
+        {
+            _currency.ChangedValue -= UpdateInformation;
         }
 
         private void UpdateInformation()
         {
-            if (_currency.Value == 0)
-            {
-                gameObject.SetActive(false);
-            }
-            else
-            {
-                gameObject.SetActive(true);
-            }
-
             _text.text = _currency.Value.ToString();
         }
     }
