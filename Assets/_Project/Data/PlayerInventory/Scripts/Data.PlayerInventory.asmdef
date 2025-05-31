@@ -1,0 +1,16 @@
+{
+    "name": "Data.PlayerInventory",
+    "rootNamespace": "Data.PlayerInventory",
+    "references": [
+        "GUID:9fe931347b76824408560e4cfaaa87a9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

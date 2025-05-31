@@ -1,0 +1,17 @@
+{
+    "name": "UI.Mining",
+    "rootNamespace": "UI.Mining",
+    "references": [
+        "GUID:00f4efdc412873c4c8484fe63c36c58d",
+        "GUID:83d55e32ade50184c986e4b9e7c55bc3"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
