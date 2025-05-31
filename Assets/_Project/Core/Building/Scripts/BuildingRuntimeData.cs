@@ -20,35 +20,40 @@ namespace Core.Building
 
         private void InitializeFromTemplate()
         {
-            foreach (var building in _templateData.Buildings)
+            foreach (BuildingInfo building in _templateData.Buildings)
             {
                 _runtimeBuildings[building.Name] = new BuildingInfo
                 {
                     Name = building.Name,
+                    Prefab = building.Prefab,
                     Description = building.Description,
                     Reward = building.Reward,
                     State = building.State,
-                    Health = building.Health
+                    Health = building.Health,
+                    Costs = new List<ResourceCost>(building.Costs) // Копируем список
                 };
             }
         }
 
         public BuildingInfo GetByName(string name)
         {
-            if (_runtimeBuildings.TryGetValue(name, out var building))
+            BuildingInfo building;
+            if (_runtimeBuildings.TryGetValue(name, out building))
             {
                 return building;
             }
-            var template = _templateData.GetByName(name);
+            BuildingInfo template = _templateData.Buildings.FirstOrDefault(b => b.Name == name);
             if (template != null)
             {
                 _runtimeBuildings[name] = new BuildingInfo
                 {
                     Name = template.Name,
+                    Prefab = template.Prefab,
                     Description = template.Description,
                     Reward = template.Reward,
                     State = template.State,
-                    Health = template.Health
+                    Health = template.Health,
+                    Costs = new List<ResourceCost>(template.Costs) // Копируем список
                 };
                 return _runtimeBuildings[name];
             }
@@ -61,17 +66,19 @@ namespace Core.Building
             {
                 _runtimeBuildings[info.Name] = new BuildingInfo();
             }
-            var existing = _runtimeBuildings[info.Name];
+            BuildingInfo existing = _runtimeBuildings[info.Name];
             existing.Name = info.Name;
+            existing.Prefab = info.Prefab;
             existing.Description = info.Description;
             existing.Reward = info.Reward;
             existing.State = info.State;
             existing.Health = info.Health;
+            existing.Costs = new List<ResourceCost>(info.Costs); 
         }
 
         public void ChangeState(string name, BuildingState newState)
         {
-            var building = GetByName(name);
+            BuildingInfo building = GetByName(name);
             if (building != null)
             {
                 building.State = newState;

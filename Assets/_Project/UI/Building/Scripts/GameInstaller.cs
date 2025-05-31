@@ -14,7 +14,6 @@ public class GameInstaller : MonoInstaller
         Container.Bind<IBuildingData>().To<BuildingRuntimeData>().AsSingle();
         Container.Bind<IResourceChecker>().To<InsufficientResourcesChecking>().AsSingle();
         Container.Bind<IBuildingStateManager>().To<HandlerInfoBuilding>().AsSingle();
-        Container.Bind<IConstructBuilding>().To<ConstructBuilding>().AsSingle();
         Container.Bind<IWalletService>().To<WalletService>().AsSingle();
     }
 }

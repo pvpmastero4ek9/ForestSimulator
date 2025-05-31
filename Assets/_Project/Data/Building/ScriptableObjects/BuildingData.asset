@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildings:
   - Name: Palatka
-    Prefab: {fileID: 0}
+    Prefab: {fileID: 3108769267366489753, guid: 6d095be3f72d76e418689e9774fe0a29, type: 3}
     Description: Eden Zdanitse
     Reward: 50
     State: 0
     Health: 100
+    Costs:
+    - ResourceType: 1
+      Amount: 1

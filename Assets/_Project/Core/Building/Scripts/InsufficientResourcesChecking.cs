@@ -3,6 +3,7 @@ using Core.Wallets;
 using Zenject;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Core.Building
 {
@@ -14,19 +15,25 @@ namespace Core.Building
         [Inject]
         public InsufficientResourcesChecking(IWalletService walletService, IBuildingData buildingData)
         {
+            if (walletService == null) Debug.LogError("IWalletService is null");
+            if (buildingData == null) Debug.LogError("IBuildingData is null");
             _walletService = walletService;
             _buildingData = buildingData;
         }
 
         public bool HasEnoughResources(string buildingName, BuildingState state)
         {
-            // Если здание уже построено или разрушено, ресурсы не нужны
             if (state != BuildingState.Notbuilt && state != BuildingState.Repaired)
             {
                 return true;
             }
 
-            // Получаем информацию о здании
+            if (_buildingData == null)
+            {
+                Debug.LogError("BuildingData is null in InsufficientResourcesChecking");
+                return false;
+            }
+
             BuildingInfo buildingInfo = _buildingData.GetByName(buildingName);
             if (buildingInfo == null)
             {
@@ -34,8 +41,10 @@ namespace Core.Building
                 return false;
             }
 
-            // Проверяем стоимость
-            foreach (KeyValuePair<CurrencyType, int> costEntry in buildingInfo.Cost)
+           
+            var costDictionary = buildingInfo.Costs.ToDictionary(rc => rc.ResourceType, rc => rc.Amount);
+
+            foreach (KeyValuePair<CurrencyType, int> costEntry in costDictionary)
             {
                 CurrencyType currencyType = costEntry.Key;
                 int requiredAmount = costEntry.Value;

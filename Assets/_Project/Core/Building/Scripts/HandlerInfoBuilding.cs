@@ -2,6 +2,7 @@ using Data.Building;
 using Core.Wallets;
 using Zenject;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Core.Building
 {
@@ -63,7 +64,9 @@ namespace Core.Building
             BuildingInfo info = _buildingData.GetByName(name);
             if (info == null) return;
 
-            foreach (KeyValuePair<CurrencyType, int> costEntry in info.Cost)
+            var costDictionary = info.Costs.ToDictionary(rc => rc.ResourceType, rc => rc.Amount);
+
+            foreach (KeyValuePair<CurrencyType, int> costEntry in costDictionary)
             {
                 CurrencyType currencyType = costEntry.Key;
                 int amount = costEntry.Value;
