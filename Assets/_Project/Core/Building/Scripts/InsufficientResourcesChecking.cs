@@ -1,48 +1,27 @@
-using Data.Building;
 using Core.Wallets;
-using Zenject;
-using UnityEngine;
+using Data.Building;
 using System.Collections.Generic;
 
 namespace Core.Building
 {
-    public class InsufficientResourcesChecking : IResourceChecker
+    public class InsufficientResourcesChecking
     {
         private readonly IWalletService _walletService;
-        private readonly IBuildingData _buildingData;
+        private readonly BuildingContainerForUI _container;
 
-        [Inject]
-        public InsufficientResourcesChecking(IWalletService walletService, IBuildingData buildingData)
+        public InsufficientResourcesChecking(IWalletService walletService, BuildingContainerForUI container)
         {
             _walletService = walletService;
-            _buildingData = buildingData;
+            _container = container;
         }
 
-        public bool HasEnoughResources(string buildingName, BuildingState state)
+        public bool HasEnoughResources(string buildingTitle)
         {
-            // Если здание уже построено или разрушено, ресурсы не нужны
-            if (state != BuildingState.Notbuilt && state != BuildingState.Repaired)
+            List<ResourceCost> costs = _container.GetCosts(buildingTitle);
+            foreach (ResourceCost cost in costs)
             {
-                return true;
-            }
-
-            // Получаем информацию о здании
-            BuildingInfo buildingInfo = _buildingData.GetByName(buildingName);
-            if (buildingInfo == null)
-            {
-                Debug.LogError($"Building {buildingName} not found in BuildingData");
-                return false;
-            }
-
-            // Проверяем стоимость
-            foreach (KeyValuePair<CurrencyType, int> costEntry in buildingInfo.Cost)
-            {
-                CurrencyType currencyType = costEntry.Key;
-                int requiredAmount = costEntry.Value;
-                if (!_walletService.HasEnough(currencyType, requiredAmount))
-                {
+                if (!_walletService.HasEnough(cost.Type, cost.Amount))
                     return false;
-                }
             }
 
             return true;

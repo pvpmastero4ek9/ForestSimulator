@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Core.Wallets
@@ -20,6 +21,10 @@ namespace Core.Wallets
         public void Spend(CurrencyType type, int amount)
         {
             Currency currency = _wallet.GetCurrency(type);
+            if (currency.Value < amount)
+            {
+                throw new InvalidOperationException("Not enough currency");
+            }
             currency.Value -= amount;
         }
     }

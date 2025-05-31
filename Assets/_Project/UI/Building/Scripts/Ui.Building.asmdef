@@ -2,10 +2,9 @@
     "name": "Ui.Building",
     "rootNamespace": "Ui.Building",
     "references": [
-        "GUID:20669b6dd456c7941ababc233f1ba27f",
-        "GUID:4116ba5d6456ec44ea82b765c0a54621",
         "GUID:b0c850478d68c134b8019b15b2ed3732",
-        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
+        "GUID:20669b6dd456c7941ababc233f1ba27f",
+        "GUID:d998f7f172f82394992287067948f590"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

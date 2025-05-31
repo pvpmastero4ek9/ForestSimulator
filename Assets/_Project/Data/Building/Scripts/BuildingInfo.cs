@@ -1,19 +1,26 @@
 using System;
-using System.Collections.Generic;
-using Core.Wallets;
 using UnityEngine;
+using Core.Wallets;
 
 namespace Data.Building
 {
     [Serializable]
+    public class ResourceCost
+    {
+        public CurrencyType Type;
+        public int Amount;
+    }
+
+    [Serializable]
     public class BuildingInfo
     {
-        public string Name;
-        public GameObject Prefab; 
+        public string Title;
         public string Description;
-        public string Reward;
+        public GameObject Prefab;
+        public Sprite Icon;
         public BuildingState State;
-        public int Health;
-        public Dictionary<CurrencyType, int> Cost; 
+        public int MaxHealth;
+        public int CurrentHealth;
+        public ResourceCost[] Cost;
     }
 }

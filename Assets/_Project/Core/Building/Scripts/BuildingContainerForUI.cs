@@ -1,21 +1,36 @@
-using UnityEngine;
+using System.Collections.Generic;
+using Data.Building;
 
 namespace Core.Building
 {
-    public class BuildingContainerForUI : MonoBehaviour
+    public class BuildingContainerForUI
     {
-        [SerializeField] private Transform target;
-        [SerializeField] private Sprite spriteIcon;
+        private readonly List<BuildingInfo> _buildings;
 
-        public Transform Target => target;
-        public Sprite SpriteIcon => spriteIcon;
-
-        public delegate void PostTransferHandler(Transform target);
-        public event PostTransferHandler PostTransferred;
-
-        private void Start()
+        public BuildingContainerForUI(List<BuildingInfo> buildings)
         {
-            PostTransferred?.Invoke(target);
+            _buildings = buildings;
+        }
+
+        public BuildingInfo GetInfo(string title)
+        {
+            foreach (BuildingInfo info in _buildings)
+            {
+                if (info.Title == title)
+                    return info;
+            }
+            return null;
+        }
+
+        public List<ResourceCost> GetCosts(string title)
+        {
+            BuildingInfo info = GetInfo(title);
+            return info != null ? new List<ResourceCost>(info.Cost) : new List<ResourceCost>();
+        }
+
+        public List<BuildingInfo> GetAll()
+        {
+            return _buildings;
         }
     }
 }
