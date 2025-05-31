@@ -1,27 +1,48 @@
-using Core.Wallets;
 using Data.Building;
+using Core.Wallets;
+using Zenject;
+using UnityEngine;
 using System.Collections.Generic;
 
 namespace Core.Building
 {
-    public class InsufficientResourcesChecking
+    public class InsufficientResourcesChecking : IResourceChecker
     {
         private readonly IWalletService _walletService;
-        private readonly BuildingContainerForUI _container;
+        private readonly IBuildingData _buildingData;
 
-        public InsufficientResourcesChecking(IWalletService walletService, BuildingContainerForUI container)
+        [Inject]
+        public InsufficientResourcesChecking(IWalletService walletService, IBuildingData buildingData)
         {
             _walletService = walletService;
-            _container = container;
+            _buildingData = buildingData;
         }
 
-        public bool HasEnoughResources(string buildingTitle)
+        public bool HasEnoughResources(string buildingName, BuildingState state)
         {
-            List<ResourceCost> costs = _container.GetCosts(buildingTitle);
-            foreach (ResourceCost cost in costs)
+            // Если здание уже построено или разрушено, ресурсы не нужны
+            if (state != BuildingState.Notbuilt && state != BuildingState.Repaired)
             {
-                if (!_walletService.HasEnough(cost.Type, cost.Amount))
+                return true;
+            }
+
+            // Получаем информацию о здании
+            BuildingInfo buildingInfo = _buildingData.GetByName(buildingName);
+            if (buildingInfo == null)
+            {
+                Debug.LogError($"Building {buildingName} not found in BuildingData");
+                return false;
+            }
+
+            // Проверяем стоимость
+            foreach (KeyValuePair<CurrencyType, int> costEntry in buildingInfo.Cost)
+            {
+                CurrencyType currencyType = costEntry.Key;
+                int requiredAmount = costEntry.Value;
+                if (!_walletService.HasEnough(currencyType, requiredAmount))
+                {
                     return false;
+                }
             }
 
             return true;

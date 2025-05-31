@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Data.Building
 {
     public enum BuildingState
@@ -7,6 +5,6 @@ namespace Data.Building
         Notbuilt,
         Built,
         Repaired,
-        Destroyed,
+        Destroyed
     }
 }

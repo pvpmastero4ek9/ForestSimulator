@@ -1,21 +1,22 @@
 using UnityEngine;
+using System;
 
 namespace Core.Building
 {
     public class PlayerLocationChecker : MonoBehaviour
     {
-        [SerializeField] private float checkRadius = 3f;
-        [SerializeField] private LayerMask playerLayer;
-        [SerializeField] private CreaterInterfaceUI interfaceCreator;
+        [SerializeField] private string _buildingName;
 
-        private void Update()
+        public event Action OnPlayerEntered;
+
+        public string BuildingName => _buildingName;
+
+        private void OnTriggerEnter(Collider other)
         {
-            //Collider[] hits = Physics.OverlapSphere(transform.position, checkRadius, playerLayer);
-            //if (hits.Length > 0)
-            //{
-                //interfaceCreator.ShowInterface();
-                //enabled = false;
-            //}
+            if (other.CompareTag("Player"))
+            {
+                OnPlayerEntered?.Invoke();
+            }
         }
     }
 }

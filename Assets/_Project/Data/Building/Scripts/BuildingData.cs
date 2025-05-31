@@ -1,51 +1,19 @@
 using System.Collections.Generic;
+using UnityEngine;
+using System.Linq;
 
 namespace Data.Building
 {
-    public class BuildingData
+    [CreateAssetMenu(fileName = "BuildingData", menuName = "Building/BuildingData", order = 1)]
+    public class BuildingData : ScriptableObject
     {
-        private readonly List<BuildingInfo> _allBuildings = new();
+        [SerializeField] private List<BuildingInfo> _buildings = new();
 
-        public List<BuildingInfo> GetAll()
-        {
-            return _allBuildings;
-        }
+        public IReadOnlyList<BuildingInfo> Buildings => _buildings.AsReadOnly();
 
-        public BuildingInfo GetByTitle(string title)
+        public BuildingInfo GetByName(string name)
         {
-            return _allBuildings.Find(b => b.Title == title);
-        }
-
-        public void Replace(BuildingInfo oldInfo, BuildingInfo newInfo)
-        {
-            int index = _allBuildings.IndexOf(oldInfo);
-            if (index != -1)
-            {
-                _allBuildings[index] = newInfo;
-            }
-        }
-
-        public void ChangeState(string title, BuildingState newState)
-        {
-            BuildingInfo info = GetByTitle(title);
-            if (info != null)
-            {
-                info.State = newState;
-            }
-        }
-
-        public void ApplyDamage(string title, int damage)
-        {
-            BuildingInfo info = GetByTitle(title);
-            if (info != null)
-            {
-                info.CurrentHealth -= damage;
-            }
-        }
-
-        public void Add(BuildingInfo building)
-        {
-            _allBuildings.Add(building);
+            return _buildings.FirstOrDefault(building => building.Name == name);
         }
     }
 }
