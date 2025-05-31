@@ -1,16 +1,18 @@
+// Ui.Building/CreaterInterfaceUI.cs
 using Core.Building;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Building
+namespace Ui.Building
 {
-    public class CreaterInterfaceUI : MonoBehaviour
+    public class CreaterInterfaceUI : MonoBehaviour, IUIController
     {
         [SerializeField] private GameObject _interfacePrefab;
         [SerializeField] private Transform _parent;
-        [SerializeField] private BuildingContainerForUI _buildingContainer;
+        [SerializeField] private BuildingContainerForUI _buildingContainer; // Для данных, если нужно
 
         private DiContainer _container;
+        private GameObject _currentInterface;
 
         [Inject]
         private void Construct(DiContainer container)
@@ -18,19 +20,31 @@ namespace UI.Building
             _container = container;
         }
 
-        private void Start()
+        public void CreateUI()
         {
-            _buildingContainer.PostTransferred += Create;
+            if (_currentInterface != null)
+            {
+                Destroy(_currentInterface);
+            }
+            _currentInterface = _container.InstantiatePrefab(_interfacePrefab, _parent);
         }
 
-        private void Create(Transform target)
+        public void HideUI()
         {
-            GameObject instance = _container.InstantiatePrefab(_interfacePrefab, _parent);
+            if (_currentInterface != null)
+            {
+                Destroy(_currentInterface);
+                _currentInterface = null;
+            }
         }
 
         private void OnDestroy()
         {
-            _buildingContainer.PostTransferred -= Create;
+            if (_currentInterface != null)
+            {
+                Destroy(_currentInterface);
+                _currentInterface = null;
+            }
         }
     }
 }

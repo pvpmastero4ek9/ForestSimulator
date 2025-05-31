@@ -4,18 +4,11 @@ namespace Core.Building
 {
     public class BuildingContainerForUI : MonoBehaviour
     {
-        [SerializeField] private Transform target;
-        [SerializeField] private Sprite spriteIcon;
+        [SerializeField] private Transform _target;
+        [SerializeField] private Sprite _spriteIcon;
 
-        public Transform Target => target;
-        public Sprite SpriteIcon => spriteIcon;
-
-        public delegate void PostTransferHandler(Transform target);
-        public event PostTransferHandler PostTransferred;
-
-        private void Start()
-        {
-            PostTransferred?.Invoke(target);
-        }
+        
+        public Transform Target => _target;
+        public Sprite SpriteIcon => _spriteIcon;
     }
 }

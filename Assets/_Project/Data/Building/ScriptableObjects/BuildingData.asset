@@ -20,5 +20,7 @@ MonoBehaviour:
     State: 0
     Health: 100
     Costs:
+    - ResourceType: 0
+      Amount: 1
     - ResourceType: 1
       Amount: 1

@@ -3,6 +3,7 @@ using Core.Wallets;
 using Zenject;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Events;
 
 namespace Core.Building
 {
@@ -12,12 +13,15 @@ namespace Core.Building
         private readonly IWalletService _walletService;
         private readonly IResourceChecker _resourceChecker;
 
+        public UnityEvent<string, BuildingState> OnStateChanged { get; private set; } // Реализация свойства
+
         [Inject]
         public HandlerInfoBuilding(IBuildingData buildingData, IWalletService walletService, IResourceChecker resourceChecker)
         {
             _buildingData = buildingData;
             _walletService = walletService;
             _resourceChecker = resourceChecker;
+            OnStateChanged = new UnityEvent<string, BuildingState>();
         }
 
         public BuildingState GetCurrentState(string name)
@@ -29,7 +33,11 @@ namespace Core.Building
         public void ChangeState(string name)
         {
             BuildingInfo info = _buildingData.GetByName(name);
-            if (info == null) return;
+            if (info == null)
+            {
+                UnityEngine.Debug.LogError($"BuildingInfo for {name} not found");
+                return;
+            }
 
             BuildingState currentState = info.State;
             if (!_resourceChecker.HasEnoughResources(name, currentState))
@@ -57,6 +65,8 @@ namespace Core.Building
                     break;
             }
             info.State = newState;
+            UnityEngine.Debug.Log($"State changed to {newState} for building {name}");
+            OnStateChanged?.Invoke(name, newState);
         }
 
         private void SpendResources(string name)
@@ -65,7 +75,6 @@ namespace Core.Building
             if (info == null) return;
 
             var costDictionary = info.Costs.ToDictionary(rc => rc.ResourceType, rc => rc.Amount);
-
             foreach (KeyValuePair<CurrencyType, int> costEntry in costDictionary)
             {
                 CurrencyType currencyType = costEntry.Key;
