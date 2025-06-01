@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildingData: {fileID: 11400000, guid: a9dc90fbf8d8d0a4caf74357d1bad389, type: 2}
+  _uiController: {fileID: 0}
 --- !u!1 &3421242118459540575
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,6 +230,8 @@ Transform:
   - {fileID: 5715054581716504555}
   - {fileID: 828309750619582812}
   - {fileID: 903523092547885515}
+  - {fileID: 4445180865472768027}
+  - {fileID: 5162103647480489153}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8234001927175053516
@@ -249,6 +252,9 @@ MonoBehaviour:
   - {fileID: 610935808934415637}
   - {fileID: 6852003715060337528}
   - {fileID: 1990831742520374779}
+  - {fileID: 5449754458546211889}
+  - {fileID: 8979900774205392764}
+  - {fileID: 571905503612336231}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -266,6 +272,53 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames: []
+--- !u!1 &4182874216588508457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5162103647480489153}
+  - component: {fileID: 571905503612336231}
+  m_Layer: 0
+  m_Name: PlayerInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5162103647480489153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4182874216588508457}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5890255731639674272}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &571905503612336231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4182874216588508457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef09b63cce0cf94c9cf06bbc0044c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _infoPlayer:
+    AutoMove: {fileID: 0}
+    AnimatorPlayer: {fileID: 0}
 --- !u!1 &7007376574609930859
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,3 +364,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourcesSoundsData: {fileID: 11400000, guid: b0fc3821ab57e8547891d47ff33fabe1, type: 2}
+--- !u!1 &7723941292336310221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4445180865472768027}
+  - component: {fileID: 8979900774205392764}
+  - component: {fileID: 8515038435868360392}
+  - component: {fileID: 7807333337310618386}
+  m_Layer: 0
+  m_Name: Fishing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4445180865472768027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7723941292336310221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5890255731639674272}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8979900774205392764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7723941292336310221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0a84f646dd0104f901d4fce6cf2bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameFishing: {fileID: 7807333337310618386}
+--- !u!114 &8515038435868360392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7723941292336310221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e2999f1a2a4d348b984df9cf9bed85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui_PREFAB: {fileID: 8013808430618556504, guid: a2fe15dcff658354da78a40ef66f65a8, type: 3}
+  _canvasForPrefab: {fileID: 0}
+--- !u!114 &7807333337310618386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7723941292336310221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a427ddf5d3e2032449bc6e0ce15f1cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wateBeforeFishingInSeconds: 5
+  _wateRechargeGameInSeconds: 2

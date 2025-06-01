@@ -2,15 +2,18 @@ using UnityEngine;
 using Core.Player;
 using Data.Mining;
 using System.Collections;
+using Zenject;
 
 namespace Core.Mining
 {
     public class MiningController : MonoBehaviour
     {
         private const float DistanceResource = 1.5f;
+        [Inject] private InfoPlayer _infoPlayer;
+        private AutoMove _autoMoveToResource => _infoPlayer.AutoMove;
+        private AnimatorPlayer _animatorPlayer => _infoPlayer.AnimatorPlayer;
+
         [SerializeField] private CheckerResourceClick _checkerResourceClick;
-        [SerializeField] private AutoMove _autoMoveToResource;
-        [SerializeField] private AnimatorPlayer _animatorPlayer;
         [SerializeField] private RewardDistributor _rewardDistributor;
         [SerializeField] private CreaterSounds _createrSounds;
         [SerializeField] private CreaterEffects _createrEffects;
