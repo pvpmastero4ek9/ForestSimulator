@@ -13,6 +13,7 @@ namespace Core.Building
         private IBuildingData _buildingData;
         private IBuildingStateManager _stateManager;
         private GameObject _currentBuilding;
+        private bool _isPlayerInside;
 
         [Inject]
         private void Construct(IUIController uiController, IBuildingData buildingData, IBuildingStateManager stateManager)
@@ -20,9 +21,6 @@ namespace Core.Building
             _uiController = uiController;
             _buildingData = buildingData;
             _stateManager = stateManager;
-            Debug.Log("UIController injected: " + (_uiController != null));
-            Debug.Log("BuildingData injected: " + (_buildingData != null));
-            Debug.Log("StateManager injected: " + (_stateManager != null));
         }
 
         private void Start()
@@ -38,8 +36,9 @@ namespace Core.Building
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && !_isPlayerInside)
             {
+                _isPlayerInside = true;
                 Debug.Log("Player entered trigger for " + _buildingName);
                 _uiController?.CreateUI();
             }
@@ -47,8 +46,10 @@ namespace Core.Building
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && _isPlayerInside)
             {
+                _isPlayerInside = false;
+                Debug.Log("Player exited trigger for " + _buildingName);
                 _uiController?.HideUI();
             }
         }
