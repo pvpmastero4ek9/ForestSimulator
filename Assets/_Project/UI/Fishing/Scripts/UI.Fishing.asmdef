@@ -1,7 +1,8 @@
 {
-    "name": "Core.Player",
-    "rootNamespace": "Core.Player",
+    "name": "UI.Fishing",
+    "rootNamespace": "UI.Fishing",
     "references": [
+        "GUID:c0b0564a71a4de545b78d97abc2872f9",
         "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
     ],
     "includePlatforms": [],
