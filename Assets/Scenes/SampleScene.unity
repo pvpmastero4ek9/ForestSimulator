@@ -624,8 +624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe41bb1b2a6764842b0da40c318a29c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _spriteIcon: {fileID: 0}
 --- !u!1001 &547537244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1001,7 +999,7 @@ PrefabInstance:
     - target: {fileID: 5380140466085686705, guid: 15da8d62bc4643f4bb497dedf6358bbf, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1675935381}
+      objectReference: {fileID: 1502276592}
     - target: {fileID: 6266493849613049833, guid: 15da8d62bc4643f4bb497dedf6358bbf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.65
@@ -1121,7 +1119,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -1133,7 +1131,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072397864}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1207,7 +1205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildingName: Palatka
-  _buildingContainer: {fileID: 0}
+  _buildingContainer: {fileID: 523403054}
 --- !u!65 &1072397871
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1594,13 +1592,13 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8493584463639247918, guid: f15b1ff37ff307c4185eb1e213c7fda6, type: 3}
   m_PrefabInstance: {fileID: 1396866574}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &1675935381
+--- !u!43 &1502276592
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterVolume--2182
+  m_Name: WaterVolume--159374
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3253,6 +3251,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233eb4d20bd3b064789c116088c4cac7, type: 3}
+--- !u!4 &6808432343326466437 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3569454472866673455, guid: 233eb4d20bd3b064789c116088c4cac7, type: 3}
+  m_PrefabInstance: {fileID: 6808432343326466436}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8269827812639684453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3272,7 +3275,7 @@ PrefabInstance:
     - target: {fileID: 4393744567288328142, guid: 4bd3a722eef29c247957e92a4985ca50, type: 3}
       propertyPath: _target
       value: 
-      objectReference: {fileID: 1256978464}
+      objectReference: {fileID: 6808432343326466437}
     - target: {fileID: 8829551958730276114, guid: 4bd3a722eef29c247957e92a4985ca50, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
