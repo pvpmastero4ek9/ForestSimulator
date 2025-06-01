@@ -1,4 +1,3 @@
-// Ui.Building/CreaterInterfaceUI.cs
 using Core.Building;
 using UnityEngine;
 using Zenject;
@@ -9,7 +8,7 @@ namespace Ui.Building
     {
         [SerializeField] private GameObject _interfacePrefab;
         [SerializeField] private Transform _parent;
-        [SerializeField] private BuildingContainerForUI _buildingContainer; // Для данных, если нужно
+        [SerializeField] private BuildingContainerForUI _buildingContainer; 
 
         private DiContainer _container;
         private GameObject _currentInterface;

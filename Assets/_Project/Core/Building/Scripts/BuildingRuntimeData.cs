@@ -30,7 +30,7 @@ namespace Core.Building
                     Reward = building.Reward,
                     State = building.State,
                     Health = building.Health,
-                    Costs = new List<ResourceCost>(building.Costs) // Копируем список
+                    Costs = new List<ResourceCost>(building.Costs) 
                 };
             }
         }
@@ -53,7 +53,7 @@ namespace Core.Building
                     Reward = template.Reward,
                     State = template.State,
                     Health = template.Health,
-                    Costs = new List<ResourceCost>(template.Costs) // Копируем список
+                    Costs = new List<ResourceCost>(template.Costs) 
                 };
                 return _runtimeBuildings[name];
             }

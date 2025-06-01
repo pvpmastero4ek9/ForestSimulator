@@ -39,7 +39,6 @@ namespace Core.Building
             if (other.CompareTag("Player") && !_isPlayerInside)
             {
                 _isPlayerInside = true;
-                Debug.Log("Player entered trigger for " + _buildingName);
                 _uiController?.CreateUI();
             }
         }
@@ -49,7 +48,6 @@ namespace Core.Building
             if (other.CompareTag("Player") && _isPlayerInside)
             {
                 _isPlayerInside = false;
-                Debug.Log("Player exited trigger for " + _buildingName);
                 _uiController?.HideUI();
             }
         }
@@ -81,7 +79,6 @@ namespace Core.Building
             }
             if (info.Prefab == null)
             {
-                Debug.LogError($"Prefab for building {info.Name} is null");
                 return;
             }
             _currentBuilding = Instantiate(info.Prefab, transform.position, transform.rotation);

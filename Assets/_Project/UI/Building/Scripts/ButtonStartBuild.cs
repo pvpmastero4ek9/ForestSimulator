@@ -23,7 +23,6 @@ namespace UI.Building
         {
             if (_resourcesChecker == null || _handlerInfo == null)
             {
-                Debug.LogError("Dependencies not injected for ButtonStartBuild");
                 return;
             }
 
@@ -32,10 +31,6 @@ namespace UI.Building
             if (_resourcesChecker.HasEnoughResources(_buildingName, currentState))
             {
                 _handlerInfo.ChangeState(_buildingName);
-            }
-            else
-            {
-                Debug.Log("Not enough resources to build or repair");
             }
         }
     }

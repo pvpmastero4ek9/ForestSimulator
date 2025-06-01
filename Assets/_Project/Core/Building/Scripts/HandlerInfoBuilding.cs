@@ -35,14 +35,12 @@ namespace Core.Building
             BuildingInfo info = _buildingData.GetByName(name);
             if (info == null)
             {
-                UnityEngine.Debug.LogError($"BuildingInfo for {name} not found");
                 return;
             }
 
             BuildingState currentState = info.State;
             if (!_resourceChecker.HasEnoughResources(name, currentState))
             {
-                UnityEngine.Debug.Log("Not enough resources to change state for " + name);
                 return;
             }
 
