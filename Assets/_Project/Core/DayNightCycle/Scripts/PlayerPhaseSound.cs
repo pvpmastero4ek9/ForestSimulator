@@ -6,8 +6,8 @@ namespace Core.DayNightCycle
     public class PlayerPhaseSound : MonoBehaviour
     {
         [SerializeField] private DayNightCycle _dayNightCycle;
-        [SerializeField] private AudioClip _daySound;
-        [SerializeField] private AudioClip _nightSound;
+        [SerializeField] private AudioSource _daySound;
+        [SerializeField] private AudioSource _nightSound;
 
         private void OnEnable()
         {
@@ -21,8 +21,11 @@ namespace Core.DayNightCycle
 
         private void PlayPhaseSound(DayPhase dayPhase)
         {
-            AudioClip audioClip = dayPhase == DayPhase.Day ? _daySound : _nightSound;
-            AudioSource.PlayClipAtPoint(audioClip, transform.position);
+            AudioSource audioClip = dayPhase == DayPhase.Day ? _daySound : _nightSound;
+            AudioSource audioClipOpposite = dayPhase == DayPhase.Day ? _nightSound : _daySound;
+
+            audioClipOpposite.Stop();
+            audioClip.Play();
         }
     }
 }
