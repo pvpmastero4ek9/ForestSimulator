@@ -46,6 +46,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildingData: {fileID: 11400000, guid: a9dc90fbf8d8d0a4caf74357d1bad389, type: 2}
   _uiController: {fileID: 0}
+--- !u!1 &2452448542290298004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2570551419849199304}
+  - component: {fileID: 4960553756466579121}
+  m_Layer: 0
+  m_Name: NavMeshSurface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2570551419849199304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452448542290298004}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5890255731639674272}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4960553756466579121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2452448542290298004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5982cfec6fb5804f93a4b7b0d261ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _navMeshSurface: {fileID: 0}
 --- !u!1 &3421242118459540575
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +277,7 @@ Transform:
   - {fileID: 903523092547885515}
   - {fileID: 4445180865472768027}
   - {fileID: 5162103647480489153}
+  - {fileID: 2570551419849199304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8234001927175053516
@@ -255,6 +301,7 @@ MonoBehaviour:
   - {fileID: 5449754458546211889}
   - {fileID: 8979900774205392764}
   - {fileID: 571905503612336231}
+  - {fileID: 4960553756466579121}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -438,4 +485,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wateBeforeFishingInSeconds: 5
-  _wateRechargeGameInSeconds: 2

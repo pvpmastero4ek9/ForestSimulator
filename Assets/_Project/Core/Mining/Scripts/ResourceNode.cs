@@ -3,6 +3,8 @@ using UnityEngine;
 using ListExtentions;
 using System;
 
+using UnityEngine.AI;
+
 namespace Core.Mining
 {
     public class ResourceNode : MonoBehaviour
@@ -10,8 +12,8 @@ namespace Core.Mining
         [field: SerializeField] public CurrencyType CurrencyType { get; private set; }
         [field: SerializeField] public int RewardAmount { get; private set; }
         [field: SerializeField] private int _startDurability = 3;
-        public delegate void DestroyedResourceHandler();
-        public event DestroyedResourceHandler DestroyedResource;
+        public event Action DestroyedResource;
+        public event Action RecoveredResource;
         public bool CanBeMined { get; private set; } = true;
         public int Durability { get; private set; }
 
@@ -46,6 +48,8 @@ namespace Core.Mining
         {
             gameObject.SetActive(true);
             CanBeMined = true;
+
+            RecoveredResource?.Invoke();
         }
 
         public Vector3 GetPosition() => transform.position;
