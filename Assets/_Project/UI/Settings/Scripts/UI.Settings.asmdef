@@ -1,0 +1,16 @@
+{
+    "name": "UI.Settings",
+    "rootNamespace": "UI.Settings",
+    "references": [
+        "GUID:a0f3b6a8cdcf366469c880cee11ba275"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
