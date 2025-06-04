@@ -1,0 +1,22 @@
+{
+    "name": "UI.UnlockLocations",
+    "rootNamespace": "UI.UnlockLocations",
+    "references": [
+        "GUID:d525ad6bd40672747bde77962f1c401e",
+        "GUID:52bd960a7d786714cb950d0f5f703f55",
+        "GUID:20669b6dd456c7941ababc233f1ba27f",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:38e7ba8d81011c94fbf78c38eccce207",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:403f632b7d32ab14c96c1199ed45c6bc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
