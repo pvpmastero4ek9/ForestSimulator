@@ -98,7 +98,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 78b6e353250a11a45bc0d4bc0ed8033c, type: 2}
+  - {fileID: 2100000, guid: cf7b2a2a4b5c2bb409c794db9d64ff3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -206,151 +206,6 @@ Transform:
   - {fileID: 8169756751144432989}
   m_Father: {fileID: 6604383480021662777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4298390735666203412
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1687644165300305618}
-  - component: {fileID: 5749468413210344329}
-  - component: {fileID: 1918883275876174084}
-  - component: {fileID: 2766814657968317299}
-  - component: {fileID: 4343925182746679252}
-  - component: {fileID: 4866484668484786492}
-  m_Layer: 0
-  m_Name: BuildPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1687644165300305618
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4298390735666203412}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.99, y: 0.3, z: -3.056}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 6604383480021662777}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5749468413210344329
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4298390735666203412}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1918883275876174084
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4298390735666203412}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2766814657968317299
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4298390735666203412}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &4343925182746679252
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4298390735666203412}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10, y: 2.220446e-16, z: 10}
-  m_Center: {x: 0.0000038146973, y: 0, z: -0.0000038146973}
---- !u!114 &4866484668484786492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4298390735666203412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81617720490732349bda8b8c79621044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buildingName: Palatka
 --- !u!1 &5402559878540499808
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +242,6 @@ Transform:
   - {fileID: 8754233649273609352}
   - {fileID: 6304031925481271930}
   - {fileID: 29740619905470750}
-  - {fileID: 1687644165300305618}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5491384523362463317
@@ -1835,20 +1689,12 @@ PrefabInstance:
       value: Tent
       objectReference: {fileID: 0}
     - target: {fileID: 8433570895194065834, guid: 6d095be3f72d76e418689e9774fe0a29, type: 3}
-      propertyPath: m_Size.y
-      value: 0.9156341
-      objectReference: {fileID: 0}
-    - target: {fileID: 8433570895194065834, guid: 6d095be3f72d76e418689e9774fe0a29, type: 3}
       propertyPath: m_Size.z
       value: 3.7157447
       objectReference: {fileID: 0}
     - target: {fileID: 8433570895194065834, guid: 6d095be3f72d76e418689e9774fe0a29, type: 3}
       propertyPath: m_Center.x
       value: 0.004317852
-      objectReference: {fileID: 0}
-    - target: {fileID: 8433570895194065834, guid: 6d095be3f72d76e418689e9774fe0a29, type: 3}
-      propertyPath: m_Center.y
-      value: 0.34853864
       objectReference: {fileID: 0}
     - target: {fileID: 8433570895194065834, guid: 6d095be3f72d76e418689e9774fe0a29, type: 3}
       propertyPath: m_Center.z
@@ -5159,6 +5005,10 @@ PrefabInstance:
       propertyPath: _timer_PREFAB
       value: 
       objectReference: {fileID: 3144311986443698738, guid: b1ff199849e98c147b44d70854a24543, type: 3}
+    - target: {fileID: 6239487249203805515, guid: f51c5b26ffabe9a44be70db7c578ae34, type: 3}
+      propertyPath: _startDurability
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6239487249203805515, guid: f51c5b26ffabe9a44be70db7c578ae34, type: 3}
       propertyPath: RecoveryTimeMinutes
       value: 1.3

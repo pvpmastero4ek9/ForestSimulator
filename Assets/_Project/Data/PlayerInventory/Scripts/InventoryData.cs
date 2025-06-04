@@ -2,7 +2,6 @@ using UnityEngine;
 using Data.Mining;
 using System.Linq;
 using System.Collections.Generic;
-using Unity.Android.Gradle.Manifest;
 
 namespace Data.PlayerInventory
 {

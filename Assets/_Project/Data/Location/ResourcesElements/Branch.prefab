@@ -65,6 +65,9 @@ PrefabInstance:
       addedObject: {fileID: 7743589033520254846}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8a6d91bcccb29434a8a1f676dc37c0a7, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5433294598115766923}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8a6d91bcccb29434a8a1f676dc37c0a7, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1360267721550284035}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8a6d91bcccb29434a8a1f676dc37c0a7, type: 3}
       insertIndex: -1
@@ -94,8 +97,24 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8.182285, y: 13.921995, z: 0.62063956}
-  m_Center: {x: -0.1362035, y: -1.616263, z: 0.0000000071136155}
+  m_Size: {x: 0.7300001, y: 8.506683, z: 0.6206397}
+  m_Center: {x: 0.44000003, y: -4.323883, z: 0.0000000077115105}
+--- !u!208 &5433294598115766923
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8614267320872570068}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.36500004, y: 4.2533417, z: 0.31031984}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.44, y: -4.323883, z: 0.000000007711511}
+  m_TimeToStationary: 0.5
 --- !u!114 &1360267721550284035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrencyType>k__BackingField: 2
   <RewardAmount>k__BackingField: 10
-  <Durability>k__BackingField: 3
+  _startDurability: 3
   RecoveryTimeMinutes: 1
 --- !u!114 &914670619580000408
 MonoBehaviour:
