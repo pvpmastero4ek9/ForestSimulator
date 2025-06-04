@@ -4,11 +4,8 @@ namespace Core.Building
 {
     public class BuildingContainerForUI : MonoBehaviour
     {
-        [SerializeField] private Transform _target;
-        [SerializeField] private Sprite _spriteIcon;
-
-        
-        public Transform Target => _target;
-        public Sprite SpriteIcon => _spriteIcon;
+        [SerializeField] private string _buildingId;
+        public GameObject Target { get; set; } 
+        public string BuildingId => _buildingId; 
     }
 }
