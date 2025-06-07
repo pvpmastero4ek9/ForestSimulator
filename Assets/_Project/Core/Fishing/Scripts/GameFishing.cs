@@ -10,60 +10,68 @@ namespace Core.Fishing
 {
     public class GameFishing : MonoBehaviour
     {
+        private const float DividerWidth = 2f;
+        private const float SuccessZoneWidthRandomMin = 0.1f;
+        private const float SuccessZoneWidthRandomMax = 0.4f;
+        private const float SuccessZoneCenterValue = 0.5f;
+        private const float SpeedRandomMin = 1f;
+        private const float SpeedRandomMax = 2f;
+
         [Inject] private InfoPlayer _infoPlayer;
 
         public float SuccessZoneCenter { get; private set; }
         public float SuccessZoneWidth { get; private set; }
 
         private AnimatorPlayer _animatorPlayer => _infoPlayer.AnimatorPlayer;
+        private AutoMove _autoMove => _infoPlayer.AutoMove;
         private float _minValue;
-        private float _maxValue = 1f;
         private float _value;
-        private float _speed = 1f;
         private float _successMin;
         private float _successMax;
-        private float direction = 1f;
+        private bool _isFishing = true;
 
-        public bool IsRunning { get; private set; } = false;
         public event Action<float> OnValueChanged;
         public event Action OnSuccess;
         public event Action OnFail;
-
+        public event Action StopedFishing;
 
         [SerializeField] private float _wateBeforeFishingInSeconds;
+        [SerializeField] private float _maxValue = 1f;
+        [SerializeField] private float _speed = 1f;
+        [SerializeField] private float direction = 1f;
         private CountdownTimer _countdownTimer = new();
-        private CheckerClickInGameFishing _checkerClickInGameFishing = new();
 
         public delegate void StartedGameHandler();
         public event StartedGameHandler StartedGame;
 
-
         private void OnEnable()
         {
+            _autoMove.StopedAgent += StopFishing;
             _animatorPlayer.SwimedFallen += WateWishing;
-            _checkerClickInGameFishing.Clicked += Stop;
         }
 
         private void OnDisable()
         {
             _animatorPlayer.SwimedFallen -= WateWishing;
-            _checkerClickInGameFishing.Clicked -= Stop;
+            _autoMove.StopedAgent -= StopFishing;
         }
 
-        private void SetSuccessZone(float center, float width)
+        private void SetSuccessZone()
         {
-            SuccessZoneCenter = center;
-            SuccessZoneWidth = width;
+            float center = SuccessZoneCenterValue;
+            float width = UnityEngine.Random.Range(SuccessZoneWidthRandomMin, SuccessZoneWidthRandomMax);
 
+            SuccessZoneCenter = SuccessZoneCenterValue;
+            SuccessZoneWidth = UnityEngine.Random.Range(SuccessZoneWidthRandomMin, SuccessZoneWidthRandomMax);
 
-            _successMin = center - width / 2f;
-            _successMax = center + width / 2f;
+            _successMin = center - width / DividerWidth;
+            _successMax = center + width / DividerWidth;
         }
 
         private void SetDataFishing()
         {
-            SetSuccessZone(0.5f, UnityEngine.Random.Range(0.1f, 0.4f));
-            _speed = UnityEngine.Random.Range(1f, 2f);
+            SetSuccessZone();
+            _speed = UnityEngine.Random.Range(SpeedRandomMin, SpeedRandomMax);
         }
 
         private async void WateWishing()
@@ -74,28 +82,39 @@ namespace Core.Fishing
 
         private void StartGame()
         {
-            IsRunning = true;
+            _isFishing = true;
 
             SetDataFishing();
             StartCoroutine(GameCycle());
-            StartCoroutine(_checkerClickInGameFishing.CheckClick());
 
             StartedGame?.Invoke();
         }
 
-        private void Stop()
+        public void ActivateStopFishing()
         {
-            IsRunning = false;
+            _isFishing = false;
+            StopFishing();
+        }
 
-            if (_value >= _successMin && _value <= _successMax)
-                OnSuccess?.Invoke();
+        private void StopFishing()
+        {
+            if (!_isFishing)
+            {
+                if (_value >= _successMin && _value <= _successMax)
+                    OnSuccess?.Invoke();
+                else
+                    OnFail?.Invoke();
+            }
             else
-                OnFail?.Invoke();
+            {
+                StopAllCoroutines();
+                StopedFishing?.Invoke();
+            }
         }
 
         private IEnumerator GameCycle()
         {
-            while (IsRunning)
+            while (_isFishing)
             {
                 _value += direction * _speed * Time.deltaTime;
 

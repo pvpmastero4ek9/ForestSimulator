@@ -1,88 +1,81 @@
 using UnityEngine;
 using Core.Player;
-using Data.Mining;
 using System.Collections;
 using Zenject;
+using System;
 
 namespace Core.Mining
 {
     public class MiningController : MonoBehaviour
     {
-        private const float DistanceResource = 1.5f;
         [Inject] private InfoPlayer _infoPlayer;
-        private AutoMove _autoMoveToResource => _infoPlayer.AutoMove;
         private AnimatorPlayer _animatorPlayer => _infoPlayer.AnimatorPlayer;
+        private AutoMove _autoMoveToResource => _infoPlayer.AutoMove;
 
-        [SerializeField] private CheckerResourceClick _checkerResourceClick;
         [SerializeField] private RewardDistributor _rewardDistributor;
         [SerializeField] private CreaterSounds _createrSounds;
         [SerializeField] private CreaterEffects _createrEffects;
-        private ResourceNode _resourceNode;
+        public ResourceNode ResourceNode { get; private set; }
+
+        public event Action HandledMining;
 
         private void OnEnable()
         {
-            _checkerResourceClick.OnToolSelected += HandleMining;
+            _autoMoveToResource.StopedAgent += StopMine;
             _animatorPlayer.HitedResource += ResourceExtraction;
         }
 
         private void OnDisable()
         {
-            _checkerResourceClick.OnToolSelected -= HandleMining;
+            _autoMoveToResource.StopedAgent -= StopMine;
             _animatorPlayer.HitedResource -= ResourceExtraction;
         }
 
-        private void HandleMining(ResourceNode resourceNode)
+        public void HandleMining(ResourceNode resourceNode)
         {
-            _resourceNode = resourceNode;
+            Debug.Log("HandleMining");
+            ResourceNode = resourceNode;
             StopAllCoroutines();
 
-            _autoMoveToResource.MoveTo(resourceNode.GetPosition());
-            StartCoroutine(MineSequence());
+            StartCoroutine(WaitMined());
+            HandledMining?.Invoke();
         }
 
         private void ResourceExtraction()
         {
-            _resourceNode.Mine();
-            _createrSounds.CreateSound(_resourceNode.CurrencyType, _resourceNode.GetPosition());
-            _createrEffects.CreateEffect(_resourceNode.GetPosition(), _resourceNode.CurrencyType);
+            ResourceNode.Mine();
+            _createrSounds.CreateSound(ResourceNode.CurrencyType, ResourceNode.GetPosition());
+            _createrEffects.CreateEffect(ResourceNode.GetPosition(), ResourceNode.CurrencyType);
             //Здесь можно сделать эффект потряхивания камня
         }
 
         private void StopMine()
         {
+            StopAllCoroutines();
+
             _animatorPlayer.StopAllAnimationMining();
-            _rewardDistributor.GetReward(_resourceNode.CurrencyType, _resourceNode.RewardAmount);
-            _createrSounds.CreateSoundBreaking(_resourceNode.CurrencyType, _resourceNode.GetPosition());
+
+            if (ResourceNode == null) return;
+            if (!CheckResourceNodeCanBeMined())
+            {
+                _createrSounds.CreateSoundBreaking(ResourceNode.CurrencyType, ResourceNode.GetPosition());
+                _rewardDistributor.GetReward(ResourceNode.CurrencyType, ResourceNode.RewardAmount);
+
+                ResourceNode = null;
+            }
         }
 
-        private IEnumerator MineSequence()
+        private bool CheckResourceNodeCanBeMined()
         {
-            while (Vector3.Distance(_autoMoveToResource.GetPosition(), _resourceNode.GetPosition()) > DistanceResource)
-                yield return null;
+            return ResourceNode.CanBeMined;
+        }
 
-            _autoMoveToResource.Stop();
-            PlayAnimation();
-
-            while (_resourceNode.CanBeMined)
+        private IEnumerator WaitMined()
+        {
+            while (ResourceNode.CanBeMined)
                 yield return null;
 
             StopMine();
-        }
-
-        private void PlayAnimation()
-        {
-            if (_resourceNode.CurrencyType == Wallets.CurrencyType.stone)
-            {
-                _animatorPlayer.PlayMiningStoneAnimation();
-            }
-            else if (_resourceNode.CurrencyType == Wallets.CurrencyType.wood)
-            {
-                _animatorPlayer.PlayMiningWoodAnimation();
-            }
-            else if (_resourceNode.CurrencyType == Wallets.CurrencyType.branch)
-            {
-                _animatorPlayer.PlayMiningBranchAnimation();
-            }
         }
     }
 }

@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 7120096470870417875}
   - component: {fileID: 5228672618462213873}
   - component: {fileID: 7205328049011153121}
+  - component: {fileID: 8707241006130343357}
   m_Layer: 12
   m_Name: Grass
   m_TagString: Untagged
@@ -364,6 +365,26 @@ MonoBehaviour:
   boundingBoxOffset:
     m_Center: {x: 0, y: 0.25, z: 0}
     m_Extent: {x: 0, y: 0.25, z: 0}
+--- !u!154 &8707241006130343357
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568688557318645285}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_TerrainData: {fileID: 15600000, guid: 94c82e13e50612345b63b69713f0a00c, type: 2}
+  m_EnableTreeColliders: 1
 --- !u!1 &3599804646153326623
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,12 +745,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5243416, y: 0.20252836, z: 1}
-  m_Center: {x: -0.23782921, y: -0.39873582, z: 0}
+  m_Size: {x: 0.5243416, y: 0.30045253, z: 1}
+  m_Center: {x: -0.23782921, y: -0.34977373, z: 0}
 --- !u!54 &497889632660901021
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1026,12 +1047,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5243416, y: 0.20252836, z: 1}
-  m_Center: {x: -0.23782921, y: -0.39873582, z: 0}
+  m_Size: {x: 0.5243416, y: 0.5295899, z: 1}
+  m_Center: {x: -0.23782921, y: -0.23520505, z: 0}
 --- !u!54 &28489806275966464
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ namespace Core.Player
         [SerializeField] private Vector3 _transformMovement;
         [SerializeField] private float _speed = 7f;
         public float MoveX { get; private set; }
-        public float MoveY { get; private set; }
+        public float MoveZ { get; private set; }
         private Rigidbody _rigidbody;
 
         private void Start()
@@ -24,7 +24,7 @@ namespace Core.Player
         private void MovementLogic()
         {
             MoveX = Input.GetAxis("Horizontal");
-            MoveY = Input.GetAxis("Vertical");
+            MoveZ = Input.GetAxis("Vertical");
 
             Vector3 forward = _transformMovement.normalized;
 
@@ -32,7 +32,7 @@ namespace Core.Player
             Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
 
             // Комбинируем движение
-            Vector3 movementVector = (forward * MoveY + right * MoveX).normalized;
+            Vector3 movementVector = (forward * MoveZ + right * MoveX).normalized;
             RotateLogic(movementVector);
 
             Vector3 velocity = movementVector * _speed;

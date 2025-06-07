@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 9047215753395965149}
   - component: {fileID: 1136486371144004500}
   - component: {fileID: 3280784386634936839}
+  - component: {fileID: 4291660579043528700}
   m_Layer: 0
   m_Name: Fishing
   m_TagString: Untagged
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkerFishingClick: {fileID: 6661358369981529080}
+  _targetTowards: {fileID: 1405093860305366186}
 --- !u!114 &1136486371144004500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +275,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementToFishing: {fileID: 9047215753395965149}
+--- !u!114 &4291660579043528700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720734071196575055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c7a2839300c5c4f95ec19bc1e74c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1123658032907863918
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +475,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1088,6 +1102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4466129256657027455}
+  - component: {fileID: 3386514373450979308}
   m_Layer: 0
   m_Name: Tool
   m_TagString: Untagged
@@ -1111,6 +1126,20 @@ Transform:
   - {fileID: 6032623871445260997}
   m_Father: {fileID: 6266493849613049833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3386514373450979308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944952565716996769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fab02f460b1945449a74945de5c6118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementToFishing: {fileID: 9047215753395965149}
+  _fishingRod: {fileID: 6409748025567674495}
 --- !u!1 &9039402285105661733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,10 +1708,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8076911059895963664, guid: 1f9d66e991255b84e9232e0332551091, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3751602199600646308}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8889300256411716266, guid: 1f9d66e991255b84e9232e0332551091, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2951973747909144866}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f9d66e991255b84e9232e0332551091, type: 3}
 --- !u!4 &6032623871445260997 stripped
 Transform:
@@ -1694,19 +1720,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8889300256411716266, guid: 1f9d66e991255b84e9232e0332551091, type: 3}
   m_PrefabInstance: {fileID: 2571235026264689365}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2951973747909144866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6409748025567674495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fab02f460b1945449a74945de5c6118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movementToFishing: {fileID: 9047215753395965149}
 --- !u!1001 &2799586791900236570
 PrefabInstance:
   m_ObjectHideFlags: 0

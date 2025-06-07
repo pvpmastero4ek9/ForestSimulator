@@ -18,6 +18,7 @@ namespace Core.Fishing
             _animatorPlayer.EndedFailOrSuccessFishing += ActivateCastFishingrod;
             _gameFishing.OnFail += ActivateFailFishing;
             _gameFishing.OnSuccess += ActivateSuccessFishing;
+            _gameFishing.StopedFishing += StopFishingIdle;
         }
 
         private void OnDisable()
@@ -26,6 +27,7 @@ namespace Core.Fishing
             _animatorPlayer.EndedFailOrSuccessFishing -= ActivateCastFishingrod;
             _gameFishing.OnFail -= ActivateFailFishing;
             _gameFishing.OnSuccess -= ActivateSuccessFishing;
+            _gameFishing.StopedFishing -= StopFishingIdle;
         }
 
         private void ActivateCastFishingrod()
@@ -35,12 +37,20 @@ namespace Core.Fishing
 
         private void ActivateFailFishing()
         {
+            StopFishingIdle();
             _animatorPlayer.FailFishing();
         }
 
         private void ActivateSuccessFishing()
         {
+            StopFishingIdle();
             _animatorPlayer.SuccessFishing();
+        }
+
+        private void StopFishingIdle()
+        {
+            _animatorPlayer.IdleFishingStop();
+            _animatorPlayer.StartRun();
         }
     }
 }
