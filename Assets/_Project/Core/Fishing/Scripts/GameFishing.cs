@@ -12,7 +12,7 @@ namespace Core.Fishing
     {
         private const float DividerWidth = 2f;
         private const float SuccessZoneWidthRandomMin = 0.1f;
-        private const float SuccessZoneWidthRandomMax = 0.4f;
+        private const float SuccessZoneWidthRandomMax = 0.3f;
         private const float SuccessZoneCenterValue = 0.5f;
         private const float SpeedRandomMin = 1f;
         private const float SpeedRandomMax = 2f;
@@ -29,12 +29,14 @@ namespace Core.Fishing
         private float _successMin;
         private float _successMax;
         private bool _isFishing = true;
+        private bool _isEndFishing;
 
         public event Action<float> OnValueChanged;
         public event Action OnSuccess;
         public event Action OnFail;
         public event Action StopedFishing;
 
+        [SerializeField] private RewardDistributorFishing _rewardDistributorFishing;
         [SerializeField] private float _wateBeforeFishingInSeconds;
         [SerializeField] private float _maxValue = 1f;
         [SerializeField] private float _speed = 1f;
@@ -46,7 +48,6 @@ namespace Core.Fishing
 
         private void OnEnable()
         {
-            _autoMove.StopedAgent += StopFishing;
             _animatorPlayer.SwimedFallen += WateWishing;
         }
 
@@ -76,14 +77,17 @@ namespace Core.Fishing
 
         private async void WateWishing()
         {
+            _isFishing = true;
+            _autoMove.StopedAgent += StopFishing;
+
             DateTime dateTime = DateTime.Now + TimeSpan.FromSeconds(_wateBeforeFishingInSeconds);
             await _countdownTimer.WaitUntil(dateTime, StartGame);
         }
 
         private void StartGame()
         {
-            _isFishing = true;
-
+            if (_isFishing == false) return;
+            
             SetDataFishing();
             StartCoroutine(GameCycle());
 
@@ -92,24 +96,34 @@ namespace Core.Fishing
 
         public void ActivateStopFishing()
         {
-            _isFishing = false;
+            _isEndFishing = true;
             StopFishing();
         }
 
         private void StopFishing()
         {
-            if (!_isFishing)
+            if (_isEndFishing)
             {
                 if (_value >= _successMin && _value <= _successMax)
+                {
+                    _rewardDistributorFishing.GetCurrency(_speed);
                     OnSuccess?.Invoke();
+                }
                 else
+                {
                     OnFail?.Invoke();
+                }
+
+                _isEndFishing = false;
             }
             else
             {
                 StopAllCoroutines();
                 StopedFishing?.Invoke();
             }
+
+            _autoMove.StopedAgent -= StopFishing;
+            _isFishing = false;
         }
 
         private IEnumerator GameCycle()
