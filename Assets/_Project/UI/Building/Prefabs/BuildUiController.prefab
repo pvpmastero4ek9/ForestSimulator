@@ -52,6 +52,7 @@ MonoBehaviour:
   _interfacePrefab: {fileID: 5441244615559642437, guid: b1bda1e2b84b4d34dbbe0b8b6e821b1e, type: 3}
   _parent: {fileID: 0}
   _buildingContainer: {fileID: 4393744567288328142}
+  resourceSlotPrefab: {fileID: 8838472433142821246, guid: e352c4cfdac379f40b4a2535d54b3913, type: 3}
 --- !u!1 &6866070339976644622
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,5 +101,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe41bb1b2a6764842b0da40c318a29c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _spriteIcon: {fileID: -2912068887014230298, guid: 107ac908c1b68cd4c89a9269ab167fee, type: 3}
+  _buildingId: 

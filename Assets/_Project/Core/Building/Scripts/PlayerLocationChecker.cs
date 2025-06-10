@@ -8,15 +8,15 @@ namespace Core.Building
     {
         [SerializeField] private string _buildingName;
         [SerializeField] private BuildingContainerForUI _buildingContainer;
-        [SerializeField] private GameObject _buildIndicatorPrefab; // Префаб индикатора (например, прозрачная платформа)
-        [SerializeField] private Vector3 _buildOffset = new Vector3(0, 0, 2); // Смещение от игрока
+        [SerializeField] private GameObject _buildIndicatorPrefab;
+        [SerializeField] private Vector3 _buildOffset = new Vector3(0, 0, 2);
 
         private IUIController _uiController;
         private IBuildingData _buildingData;
         private IBuildingStateManager _stateManager;
         private GameObject _currentBuilding;
         private bool _isPlayerInside;
-        private GameObject _currentIndicator; // Текущий индикатор
+        private GameObject _currentIndicator;
 
         [Inject]
         private void Construct(IUIController uiController, IBuildingData buildingData, IBuildingStateManager stateManager)
@@ -57,7 +57,7 @@ namespace Core.Building
             {
                 _isPlayerInside = false;
                 Debug.Log("Player exited trigger for " + _buildingName);
-                _uiController?.HideUI();
+                _uiController?.HideUI(); // Убедимся, что UI скрывается при выходе
                 HideBuildIndicator();
             }
         }
@@ -72,7 +72,8 @@ namespace Core.Building
                 if (info != null)
                 {
                     SpawnBuilding(info);
-                    Destroy(gameObject); // Удаляем BuildPoint после постройки
+                    _uiController?.HideUI(); // Скрываем UI после постройки
+                    Destroy(gameObject); // Уничтожаем BuildPoint
                 }
             }
             else if (newState == BuildingState.Destroyed && _currentBuilding != null)
@@ -114,7 +115,7 @@ namespace Core.Building
             if (_currentIndicator != null)
             {
                 _currentBuilding = Instantiate(info.Prefab, _currentIndicator.transform.position, _currentIndicator.transform.rotation);
-                Destroy(_currentIndicator); // Удаляем индикатор после спавна
+                Destroy(_currentIndicator);
                 _currentIndicator = null;
             }
             else

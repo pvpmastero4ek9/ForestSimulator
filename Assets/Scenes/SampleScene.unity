@@ -3377,7 +3377,7 @@ PrefabInstance:
       objectReference: {fileID: 6808432343326466437}
     - target: {fileID: 4393744567288328142, guid: 4bd3a722eef29c247957e92a4985ca50, type: 3}
       propertyPath: _buildingId
-      value: 0
+      value: Palatka
       objectReference: {fileID: 0}
     - target: {fileID: 8829551958730276114, guid: 4bd3a722eef29c247957e92a4985ca50, type: 3}
       propertyPath: m_Pivot.x
