@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2d3ae2117264b794f961b09118e54e06
+guid: b2e7651bf77878447bb57d53a8ebd407
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SlimSlider_Orange_Frame_0
+      name: CoalOreIcon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1467
-        height: 213
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 264dae9b5d5f2ec4fb71f700324692f2
-      internalID: 263448463
+      spriteID: 0695042fc66c1684d91c3f2825170a1a
+      internalID: 1916805215
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: dee16120ff927ea438317b5b3601d4c2
+    spriteID: 632a771f859010447983c74222618b07
     internalID: 0
     vertices: []
     indices: 
@@ -184,7 +184,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SlimSlider_Orange_Frame_0: 263448463
+      CoalOreIcon_0: 1916805215
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

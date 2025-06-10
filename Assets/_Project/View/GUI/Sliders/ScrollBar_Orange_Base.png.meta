@@ -147,12 +147,34 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ScrollBar_Orange_Base_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1151
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88c7e6d0b2a65be4db7c0b144df225ab
+      internalID: 495750342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a66dbd0522512fb45b7b4f3f1667cdd9
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +183,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ScrollBar_Orange_Base_0: 495750342
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

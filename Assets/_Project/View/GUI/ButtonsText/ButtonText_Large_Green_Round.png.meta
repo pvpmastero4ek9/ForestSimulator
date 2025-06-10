@@ -147,12 +147,34 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ButtonText_Large_Green_Round_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1159
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13c6901d53a66334285b2789aa014fab
+      internalID: -989374200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3635c8f224766db46a7b7af70d6f1b25
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +183,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ButtonText_Large_Green_Round_0: -989374200
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

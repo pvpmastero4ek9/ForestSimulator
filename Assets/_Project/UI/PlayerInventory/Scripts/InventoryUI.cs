@@ -9,6 +9,7 @@ namespace UI.PlayerInventory
     {
         [SerializeField] private InventoryData _inventoryData;
         [SerializeField] private List<InventoryContainerUI> _inventoryContainerList;
+        [SerializeField] private Sprite _spriteNull;
 
         private void OnEnable()
         {
@@ -29,7 +30,7 @@ namespace UI.PlayerInventory
         {
             foreach (InventoryContainerUI el in _inventoryContainerList)
             {
-                if (el.Icon.sprite == null)
+                if (el.Icon.sprite == _spriteNull)
                 {
                     el.Icon.sprite = tool.Icon;
                     break;
@@ -41,6 +42,7 @@ namespace UI.PlayerInventory
         {
             for (var i = 0; i < _inventoryData.InventoryList.Count; i++)
             {
+                if (_inventoryData.InventoryList[i].Icon == null) return;
                 _inventoryContainerList[i].Icon.sprite = _inventoryData.InventoryList[i].Icon;
             }
         }

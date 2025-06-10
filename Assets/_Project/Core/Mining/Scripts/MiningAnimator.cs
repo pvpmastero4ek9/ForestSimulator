@@ -26,7 +26,7 @@ namespace Core.Mining
 
         public void PlayAnimation(CurrencyType currencyType)
         {
-            if (currencyType == CurrencyType.stone)
+            if (currencyType == CurrencyType.stone || currencyType == CurrencyType.coal || currencyType == CurrencyType.iron)
             {
                 _animatorPlayer.PlayMiningStoneAnimation();
             }
