@@ -19,6 +19,11 @@ namespace UI.Building
             _handlerInfo = handlerInfo;
         }
 
+        public void SetBuildingName(string buildingName)
+        {
+            _buildingName = buildingName;
+        }
+
         public void OnClick()
         {
             if (_resourcesChecker == null || _handlerInfo == null)

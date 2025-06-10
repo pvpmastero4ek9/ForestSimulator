@@ -21,6 +21,8 @@ MonoBehaviour:
     Health: 100
     Costs:
     - ResourceType: 0
-      Amount: 1
+      Amount: 10
     - ResourceType: 1
-      Amount: 1
+      Amount: 10
+    - ResourceType: 2
+      Amount: 10
