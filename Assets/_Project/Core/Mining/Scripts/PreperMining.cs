@@ -21,11 +21,13 @@ namespace Core.Mining
         private void OnEnable()
         {
             _checkerResourceClick.OnToolSelected += PrepForMining;
+            _autoMoveToResource.StopedAgent += StopProcess;
         }
 
         private void OnDisable()
         {
             _checkerResourceClick.OnToolSelected -= PrepForMining;
+            _autoMoveToResource.StopedAgent -= StopProcess;
         }
 
         private void PrepForMining(ResourceNode resourceNode)
@@ -57,6 +59,11 @@ namespace Core.Mining
         private void StartMining()
         {
             _miningController.HandleMining(_resourceNode);
+        }
+
+        private void StopProcess()
+        {
+            StopAllCoroutines();
         }
     }
 }
