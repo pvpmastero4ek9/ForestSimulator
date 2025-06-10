@@ -15,9 +15,9 @@ namespace Core.CamerasController
             _isReady = value;
         }
 
-        private void OnCollisionEnter(Collision collision)
+        void OnTriggerEnter(Collider other)
         {
-            if (collision.gameObject.tag == "Player" && _isReady)
+            if (other.gameObject.tag == "Player" && _isReady)
             {
                 _cameraController.ActivateCamera(_location);
             }

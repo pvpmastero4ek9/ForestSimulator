@@ -11,13 +11,14 @@ namespace UI.Fishing
         [SerializeField] private FishingGameUI ui_PREFAB;
         [SerializeField] private Canvas _canvasForPrefab;
 
-        private FishingGameUI _currentObj; 
+        private FishingGameUI _currentObj;
 
         private void OnEnable()
         {
             _gameFishing.StartedGame += ActivateVisualUI;
             _gameFishing.OnSuccess += StopVisualUI;
             _gameFishing.OnFail += StopVisualUI;
+            _gameFishing.StopedFishing += StopVisualUI;
         }
 
         private void OnDisable()
@@ -25,6 +26,7 @@ namespace UI.Fishing
             _gameFishing.StartedGame -= ActivateVisualUI;
             _gameFishing.OnSuccess -= StopVisualUI;
             _gameFishing.OnFail -= StopVisualUI;
+            _gameFishing.StopedFishing -= StopVisualUI;
         }
 
         private void ActivateVisualUI()
@@ -34,6 +36,7 @@ namespace UI.Fishing
 
         private void StopVisualUI()
         {
+            if (_currentObj == null) return;
             Destroy(_currentObj.gameObject);
         }
     }

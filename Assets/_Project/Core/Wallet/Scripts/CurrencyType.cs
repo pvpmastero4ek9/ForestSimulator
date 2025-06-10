@@ -7,7 +7,8 @@ namespace Core.Wallets
         stone,
         wood,
         branch,
-        coal, 
-        fish
+        coal,
+        fish,
+        iron
     }
 }

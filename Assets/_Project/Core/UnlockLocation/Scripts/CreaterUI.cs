@@ -1,12 +1,14 @@
 using UnityEngine;
+using Zenject;
 
 namespace Core.UnlockLocations
 {
     public class CreaterUI : MonoBehaviour
     {
+        [Inject] private Canvas _canvasSpawn;
+
         [SerializeField] private CheckerPlayerTouch _checkerPlayerTouch;
         [SerializeField] private UnlockLocationContainerForUI _unlockLocationUI_PREFAB;
-        [SerializeField] private Canvas _canvasSpawn;
         [SerializeField] private InfoUnlockLocation _infoUnlockLocation;
         [SerializeField] private UnlockLocation _unlockLocation;
         private UnlockLocationContainerForUI _currentObjectUI;

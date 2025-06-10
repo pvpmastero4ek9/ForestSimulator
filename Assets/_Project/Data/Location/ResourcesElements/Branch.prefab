@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 44.963
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8a6d91bcccb29434a8a1f676dc37c0a7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8a6d91bcccb29434a8a1f676dc37c0a7, type: 3}
       propertyPath: m_Name
       value: Branch
@@ -71,7 +75,7 @@ PrefabInstance:
       addedObject: {fileID: 1360267721550284035}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8a6d91bcccb29434a8a1f676dc37c0a7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 914670619580000408}
+      addedObject: {fileID: 3874149745350012053}
   m_SourcePrefab: {fileID: 100100000, guid: 8a6d91bcccb29434a8a1f676dc37c0a7, type: 3}
 --- !u!1 &8614267320872570068 stripped
 GameObject:
@@ -131,7 +135,7 @@ MonoBehaviour:
   <RewardAmount>k__BackingField: 10
   _startDurability: 3
   RecoveryTimeMinutes: 1
---- !u!114 &914670619580000408
+--- !u!114 &3874149745350012053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,9 +144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8614267320872570068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a078034ccf9ef4494ad160156103a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e9680a0c785d5c4f98df11f9e42a72d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _resourceNode: {fileID: 1360267721550284035}
-  _canvas: {fileID: 0}
-  _timer_PREFAB: {fileID: 3144311986443698738, guid: 7996849736a46e044a31fc4091ac6f4b, type: 3}

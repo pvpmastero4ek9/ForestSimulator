@@ -1,14 +1,29 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Core.Player
 {
     public class AnimatorPlayer : MonoBehaviour
     {
         [SerializeField] private Animator _animatorPlayer;
+        [SerializeField] private NavMeshAgent _agent;
         public event Action HitedResource;
         public event Action SwimedFallen;
         public event Action EndedFailOrSuccessFishing;
+
+        private void Update()
+        {
+            if (!_agent.isStopped)
+            {
+                _animatorPlayer.SetFloat("MoveX", 0.5f);
+            }
+            else
+            {
+                _animatorPlayer.SetFloat("MoveX", Input.GetAxis("Horizontal")); 
+                _animatorPlayer.SetFloat("MoveZ", Input.GetAxis("Vertical")); 
+            }
+        }
 
         public void PlayMiningStoneAnimation()
         {
@@ -40,6 +55,16 @@ namespace Core.Player
             _animatorPlayer.SetTrigger("SuccessFishing");
         }
 
+        public void IdleFishing()
+        {
+            _animatorPlayer.SetBool("FishingIdle", true);
+        }
+
+        public void IdleFishingStop()
+        {
+            _animatorPlayer.SetBool("FishingIdle", false);
+        }
+
         public void EndFailOrSuccessFishing()
         {
             EndedFailOrSuccessFishing?.Invoke();
@@ -47,6 +72,7 @@ namespace Core.Player
 
         public void SwimFallen()
         {
+            IdleFishing();
             SwimedFallen?.Invoke();
         }
 
@@ -55,6 +81,11 @@ namespace Core.Player
             _animatorPlayer.SetBool("MiningTriggerStone", false);
             _animatorPlayer.SetBool("MiningTriggerWood", false);
             _animatorPlayer.SetBool("MiningTriggerBranch", false);
+        }
+
+        public void StartRun()
+        {
+            _animatorPlayer.SetTrigger("Run");
         }
 
         public void ResourceExtraction()

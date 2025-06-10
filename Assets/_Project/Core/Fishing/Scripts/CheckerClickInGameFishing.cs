@@ -1,12 +1,28 @@
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 namespace Core.Fishing
 {
-    public class CheckerClickInGameFishing
+    public class CheckerClickInGameFishing : MonoBehaviour
     {
-        public delegate void ClickedHandler();
-        public event ClickedHandler Clicked;
+        [Inject] private GameFishing _gameFishing;
+
+        private void OnEnable()
+        {
+            _gameFishing.StartedGame += OnStartFishing;
+            _gameFishing.StopedFishing += StopCheckClick;
+        }
+
+        private void OnDisable()
+        {
+            _gameFishing.StartedGame -= OnStartFishing;
+            _gameFishing.StopedFishing -= StopCheckClick;
+        }
+
+        private void OnStartFishing() => StartCoroutine(CheckClick());
+
+        private void StopCheckClick() => StopAllCoroutines();
 
         public IEnumerator CheckClick()
         {
@@ -15,7 +31,12 @@ namespace Core.Fishing
                 yield return null;
             }
 
-            Clicked?.Invoke();
+            StopFishing();
+        }
+
+        private void StopFishing()
+        {
+            _gameFishing.ActivateStopFishing();
         }
     }
 }

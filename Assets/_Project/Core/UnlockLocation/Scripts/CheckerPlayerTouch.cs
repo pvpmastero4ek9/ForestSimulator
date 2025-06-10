@@ -8,17 +8,17 @@ namespace Core.UnlockLocations
         public event Action TouchedPlayer;
         public event Action EndTouchedPlayer;
 
-        void OnCollisionEnter(Collision collision)
+        void OnTriggerEnter(Collider other)
         {
-            if (collision.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Player")
             {
                 TouchedPlayer?.Invoke();
             }
         }
 
-        void OnCollisionExit(Collision collision)
+        void OnTriggerExit(Collider other)
         {
-            if (collision.gameObject.tag == "Player")
+            if (other.gameObject.tag == "Player")
             {
                 EndTouchedPlayer?.Invoke();
             }

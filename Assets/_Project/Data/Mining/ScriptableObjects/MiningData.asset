@@ -23,5 +23,5 @@ MonoBehaviour:
     Tool_PREFAB: {fileID: 7892546752452394169, guid: 1bb4fd399dc42284fb24b1147db5082d, type: 3}
     LayerMask:
       serializedVersion: 2
-      m_Bits: 128
+      m_Bits: 49280
     Icon: {fileID: 1510614253, guid: 4ee361dd1ebaf924da86cbf6e5d47812, type: 3}
