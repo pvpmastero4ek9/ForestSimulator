@@ -2,12 +2,16 @@ using UnityEngine;
 using Core.Wallets;
 using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 
 namespace Data.ResourcesSounds
 {
     [CreateAssetMenu(fileName = "ResourcesSoundsData", menuName = "ResourcesSounds/ResourcesSoundsData")]
     public class ResourcesSoundsData : ScriptableObject
     {
+        [SerializeField] private AudioMixerGroup _outputMixerGroup;
+        public AudioMixerGroup OutputMixerGroup => _outputMixerGroup;
+
         [SerializedDictionary("CurrencyType", "Sounds")]
         [SerializeField] private SerializedDictionary<CurrencyType, List<AudioClip>> ResourcesSoundsDictionary;
 

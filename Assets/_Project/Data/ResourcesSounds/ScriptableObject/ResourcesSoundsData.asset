@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58eff4703c900c54c83305ce8f0165fb, type: 3}
   m_Name: ResourcesSoundsData
   m_EditorClassIdentifier: 
+  _outputMixerGroup: {fileID: -5970749884356112155, guid: 8ac79ae854ff7594fb3e7d404b0b07e2, type: 2}
   ResourcesSoundsDictionary:
     _serializedList:
     - Key: 0
