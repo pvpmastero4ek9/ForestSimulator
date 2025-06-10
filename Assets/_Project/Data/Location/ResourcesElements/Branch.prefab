@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrencyType>k__BackingField: 2
-  <RewardAmount>k__BackingField: 10
+  <RewardAmount>k__BackingField: 5
   _startDurability: 3
   RecoveryTimeMinutes: 1
 --- !u!114 &3874149745350012053

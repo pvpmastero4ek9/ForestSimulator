@@ -33,7 +33,6 @@ namespace Core.Mining
 
         public void HandleMining(ResourceNode resourceNode)
         {
-            Debug.Log("HandleMining");
             ResourceNode = resourceNode;
             StopAllCoroutines();
 

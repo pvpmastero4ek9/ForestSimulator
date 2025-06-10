@@ -19,6 +19,9 @@ namespace Core.Tutorial
 
         private int _elementsTutorialIndex;
 
+        private GameObject _stone;
+        private GameObject _tree;
+
         private void Update()
         {
             if (_elementsTutorialIndex == 0)
@@ -37,14 +40,15 @@ namespace Core.Tutorial
             }
             else if (_elementsTutorialIndex == 2)
             {
-                GameObject stone = _objectsTutotialDictionary[GameObjectDestinationName.Stone];
-                stone.GetComponent<DisplayingPointerAnObject>().CreatePointer();
+                _stone = _objectsTutotialDictionary[GameObjectDestinationName.Stone];
+                _stone.GetComponent<DisplayingPointerAnObject>().CreatePointer();
                 _elementsTutorialIndex++;
             }
             else if (_elementsTutorialIndex == 3)
             {
                 if (_wallet.GetCurrency(CurrencyType.stone).Value > 0)
                 {
+                    _stone.GetComponent<DisplayingPointerAnObject>().DelitePointer();
                     _elementsTutorialIndex++;
                 }
             }
@@ -64,14 +68,15 @@ namespace Core.Tutorial
             }
             else if (_elementsTutorialIndex == 6)
             {
-                GameObject tree = _objectsTutotialDictionary[GameObjectDestinationName.Tree];
-                tree.GetComponent<DisplayingPointerAnObject>().CreatePointer();
+                _tree = _objectsTutotialDictionary[GameObjectDestinationName.Tree];
+                _tree.GetComponent<DisplayingPointerAnObject>().CreatePointer();
                 _elementsTutorialIndex++;
             }
             else if (_elementsTutorialIndex == 7)
             {
                 if (_wallet.GetCurrency(CurrencyType.wood).Value > 0)
                 {
+                    _tree.GetComponent<DisplayingPointerAnObject>().DelitePointer();
                     _elementsTutorialIndex++;
                 }
             }
