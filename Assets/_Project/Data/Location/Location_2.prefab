@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gurgleSound: {fileID: 8760904390244143107}
+  _positionSound: {fileID: 1405093860305366186}
 --- !u!1 &1123658032907863918
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +878,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -5970749884356112155, guid: 8ac79ae854ff7594fb3e7d404b0b07e2, type: 2}
   m_audioClip: {fileID: 8300000, guid: 17372609073ca01438580bdaddab852d, type: 3}
   m_Resource: {fileID: 8300000, guid: 17372609073ca01438580bdaddab852d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

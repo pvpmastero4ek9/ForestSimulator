@@ -3735,10 +3735,6 @@ PrefabInstance:
       propertyPath: _canvas
       value: 
       objectReference: {fileID: 735697196}
-    - target: {fileID: 1999500202298228694, guid: 233eb4d20bd3b064789c116088c4cac7, type: 3}
-      propertyPath: _canvasSpawn
-      value: 
-      objectReference: {fileID: 78710688}
     - target: {fileID: 2013317437752687019, guid: 233eb4d20bd3b064789c116088c4cac7, type: 3}
       propertyPath: _canvas
       value: 
