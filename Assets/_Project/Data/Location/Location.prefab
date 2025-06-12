@@ -1424,9 +1424,9 @@ MonoBehaviour:
     CoastUnlockDictionary:
       _serializedList:
       - Key: 0
-        Value: 95
+        Value: 35
       - Key: 1
-        Value: 250
+        Value: 70
   _unlockLocation: {fileID: 6647677298129980146}
 --- !u!114 &6647677298129980146
 MonoBehaviour:
@@ -1566,8 +1566,8 @@ Transform:
   m_GameObject: {fileID: 8803711308097913479}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -7.731, y: 13.112265, z: -19.890848}
-  m_LocalScale: {x: 0.15999998, y: 1, z: 21}
+  m_LocalPosition: {x: -18.32, y: 13.112265, z: -19.89}
+  m_LocalScale: {x: 0.15999998, y: 1, z: 42.14266}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5777710254776059394}

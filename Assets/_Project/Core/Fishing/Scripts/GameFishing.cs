@@ -48,6 +48,7 @@ namespace Core.Fishing
 
         private void OnEnable()
         {
+            _autoMove.StopedAgent += StopFishing;
             _animatorPlayer.SwimedFallen += WateWishing;
         }
 
@@ -78,7 +79,6 @@ namespace Core.Fishing
         private async void WateWishing()
         {
             _isFishing = true;
-            _autoMove.StopedAgent += StopFishing;
 
             DateTime dateTime = DateTime.Now + TimeSpan.FromSeconds(_wateBeforeFishingInSeconds);
             await _countdownTimer.WaitUntil(dateTime, StartGame);
@@ -122,7 +122,6 @@ namespace Core.Fishing
                 StopedFishing?.Invoke();
             }
 
-            _autoMove.StopedAgent -= StopFishing;
             _isFishing = false;
         }
 
