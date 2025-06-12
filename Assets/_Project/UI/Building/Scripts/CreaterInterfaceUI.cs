@@ -40,30 +40,30 @@ namespace Ui.Building
 
             BuildingInfo buildingInfo = _buildingData.GetByName(buildingId);
 
-            Transform buildUIPanel = _currentInterface.transform.Find("BuildUIPanel");
+            //Transform buildUIPanel = _currentInterface.transform.Find("BuildUIPanel");
 
             
-            TMP_Text titleText = buildUIPanel.Find("TitleText")?.GetComponent<TMP_Text>();
-            if (titleText != null)
-            {
-                titleText.text = buildingInfo.Name;
-                titleText.enabled = true; 
-            }
+            //TMP_Text titleText = buildUIPanel.Find("TitleText")?.GetComponent<TMP_Text>();
+            //if (titleText != null)
+            //{
+                //titleText.text = buildingInfo.Name;
+                //titleText.enabled = true; 
+            //}
 
            
-            Transform resourceContainer = buildUIPanel.Find("ResourceContainer");
+            //Transform resourceContainer = buildUIPanel.Find("ResourceContainer");
             
-            ClearAndUpdateResources(resourceContainer, buildingInfo);
+            //ClearAndUpdateResources(resourceContainer, buildingInfo);
 
-            Button buildButton = buildUIPanel.Find("Button")?.GetComponent<Button>();
-            if (buildButton != null)
-            {
-                ButtonStartBuild buttonScript = buildButton.GetComponent<ButtonStartBuild>();
-                if (buttonScript != null)
-                {
-                    buttonScript.SetBuildingName(buildingInfo.Name);
-                }
-            }
+            //Button buildButton = buildUIPanel.Find("Button")?.GetComponent<Button>();
+            //if (buildButton != null)
+            //{
+                //ButtonStartBuild buttonScript = buildButton.GetComponent<ButtonStartBuild>();
+                //if (buttonScript != null)
+                //{
+                    //buttonScript.SetBuildingName(buildingInfo.Name);
+                //}
+            //}
         }
 
         private void ClearAndUpdateResources(Transform resourceContainer, BuildingInfo buildingInfo)
