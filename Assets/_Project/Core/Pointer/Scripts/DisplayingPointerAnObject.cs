@@ -8,10 +8,16 @@ namespace Core.Pointer
     {
         [SerializeField] private Sprite _iconObject;
         [Inject] private CreaterPointer _createrPointer;
+        private GameObject _pointer;
 
         public void CreatePointer()
         {
-            _createrPointer.CreatePointer(transform, _iconObject);
+            _pointer = _createrPointer.CreatePointer(transform, _iconObject);
+        }
+
+        public void DelitePointer()
+        {
+            Destroy(_pointer);
         }
     }
 }

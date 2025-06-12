@@ -26,6 +26,7 @@ namespace Core.Mining
         private void OnDisable()
         {
             _checkerResourceClick.OnToolSelected -= PrepForMining;
+            _autoMoveToResource.StopedAgent -= StopProcess;
         }
 
         private void PrepForMining(ResourceNode resourceNode)
@@ -42,6 +43,7 @@ namespace Core.Mining
                 yield return null;
 
             _autoMoveToResource.Stop();
+            _autoMoveToResource.StopedAgent += StopProcess;
             StartCoroutine(RotatePlayer());
         }
 
@@ -56,7 +58,14 @@ namespace Core.Mining
 
         private void StartMining()
         {
+            _autoMoveToResource.StopedAgent -= StopProcess;
             _miningController.HandleMining(_resourceNode);
+        }
+
+        private void StopProcess()
+        {
+            _autoMoveToResource.StopedAgent -= StopProcess;
+            StopAllCoroutines();
         }
     }
 }

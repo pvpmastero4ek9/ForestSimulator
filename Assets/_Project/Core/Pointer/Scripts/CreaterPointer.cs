@@ -8,9 +8,10 @@ namespace Core.Pointer
         [SerializeField] private Canvas _canvas;
         [SerializeField] private PointerContainerForUI Pointer_PREFAB;
 
-        public void CreatePointer(Transform target, Sprite sprite)
+        public GameObject CreatePointer(Transform target, Sprite sprite)
         {
-            Instantiate(Pointer_PREFAB, _canvas.transform).Init(target, sprite);
+            PointerContainerForUI pointer = Instantiate(Pointer_PREFAB, _canvas.transform).Init(target, sprite);
+            return pointer.gameObject;
         }
     }
 }
