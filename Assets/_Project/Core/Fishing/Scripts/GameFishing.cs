@@ -119,6 +119,7 @@ namespace Core.Fishing
             else
             {
                 StopAllCoroutines();
+                _countdownTimer.Cancel();
                 StopedFishing?.Invoke();
             }
 
