@@ -14,7 +14,7 @@ namespace Ui.Building
         [SerializeField] private GameObject _interfacePrefab;
         [SerializeField] private Transform _parent;
         [SerializeField] private BuildingContainerForUI _buildingContainer;
-        [SerializeField] private GameObject resourceSlotPrefab;
+        //[SerializeField] private GameObject resourceSlotPrefab;
 
         private DiContainer _container;
         private GameObject _currentInterface;
@@ -78,39 +78,39 @@ namespace Ui.Building
                 return; 
             }
 
-            for (int i = 0; i < buildingInfo.Costs.Count; i++)
-            {
-                Transform resourceSlot = i < resourceContainer.childCount ?
-                    resourceContainer.GetChild(i) : CreateResourceSlot(resourceContainer);
+            //for (int i = 0; i < buildingInfo.Costs.Count; i++)
+            //{
+                //Transform resourceSlot = i < resourceContainer.childCount ?
+                    //resourceContainer.GetChild(i) : CreateResourceSlot(resourceContainer);
 
-                if (resourceSlot != null)
-                {
-                    resourceSlot.gameObject.SetActive(true);
+                //if (resourceSlot != null)
+                //{
+                    //resourceSlot.gameObject.SetActive(true);
 
-                    ResourceCost cost = buildingInfo.Costs[i];
-                    Image iconImage = resourceSlot.Find("ResourceIcon")?.GetComponent<Image>();
-                    TMP_Text amountText = resourceSlot.Find("ResourceAmount")?.GetComponent<TMP_Text>();
+                    //ResourceCost cost = buildingInfo.Costs[i];
+                    //Image iconImage = resourceSlot.Find("ResourceIcon")?.GetComponent<Image>();
+                    //TMP_Text amountText = resourceSlot.Find("ResourceAmount")?.GetComponent<TMP_Text>();
 
-                    if (iconImage != null && amountText != null)
-                    {
-                        Sprite resourceIcon = GetResourceIcon(cost.ResourceType);
-                        if (resourceIcon != null)
-                        {
-                            iconImage.sprite = resourceIcon;
-                            iconImage.preserveAspect = true;
-                        }
-                        amountText.text = cost.Amount.ToString();
-                    }
-                }
-            }
+                    //if (iconImage != null && amountText != null)
+                    //{
+                        //Sprite resourceIcon = GetResourceIcon(cost.ResourceType);
+                        //if (resourceIcon != null)
+                        //{
+                            //iconImage.sprite = resourceIcon;
+                            //iconImage.preserveAspect = true;
+                        //}
+                        //amountText.text = cost.Amount.ToString();
+                    //}
+                //}
+            //}
         }
 
-        private Transform CreateResourceSlot(Transform parent)
-        {
-            GameObject slot = Instantiate(resourceSlotPrefab, parent, false);
-            slot.name = $"ResourceSlot_{parent.childCount}";
-            return slot.transform;
-        }
+        //private Transform CreateResourceSlot(Transform parent)
+        //{
+            //GameObject slot = Instantiate(resourceSlotPrefab, parent, false);
+            //slot.name = $"ResourceSlot_{parent.childCount}";
+            //return slot.transform;
+        //}
 
         public void HideUI()
         {

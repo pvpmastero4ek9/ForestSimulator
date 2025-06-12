@@ -57,7 +57,7 @@ namespace Core.Building
             {
                 _isPlayerInside = false;
                 Debug.Log("Player exited trigger for " + _buildingName);
-                _uiController?.HideUI(); // Убедимся, что UI скрывается при выходе
+                _uiController?.HideUI();
                 HideBuildIndicator();
             }
         }
@@ -72,8 +72,8 @@ namespace Core.Building
                 if (info != null)
                 {
                     SpawnBuilding(info);
-                    _uiController?.HideUI(); // Скрываем UI после постройки
-                    Destroy(gameObject); // Уничтожаем BuildPoint
+                    _uiController?.HideUI(); 
+                    Destroy(gameObject); 
                 }
             }
             else if (newState == BuildingState.Destroyed && _currentBuilding != null)

@@ -13,7 +13,7 @@ namespace Core.Building
         private readonly IWalletService _walletService;
         private readonly IResourceChecker _resourceChecker;
 
-        public UnityEvent<string, BuildingState> OnStateChanged { get; private set; } // Реализация свойства
+        public UnityEvent<string, BuildingState> OnStateChanged { get; private set; } 
 
         [Inject]
         public HandlerInfoBuilding(IBuildingData buildingData, IWalletService walletService, IResourceChecker resourceChecker)
