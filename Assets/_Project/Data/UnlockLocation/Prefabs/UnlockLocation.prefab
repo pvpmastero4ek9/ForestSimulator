@@ -645,17 +645,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 675624058702592493}
     m_Modifications:
+    - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: _localizationString.m_TableEntryReference.m_KeyId
+      value: 4386684928
+      objectReference: {fileID: 0}
+    - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: _localizationString.m_TableReference.m_TableCollectionName
+      value: GUID:2f015f35d29b0d842bccace2b9764066
+      objectReference: {fileID: 0}
     - target: {fileID: 460174884517790528, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_Name
       value: Title
       objectReference: {fileID: 0}
     - target: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_text
-      value: Open location
+      value: "\u041E\u043A\u0440\u044B\u0442\u044C \u043B\u043E\u043A\u0430\u0446\u0438\u044E"
       objectReference: {fileID: 0}
     - target: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_fontSize
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: m_margin.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: m_margin.z
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_fontColor.b
@@ -676,6 +692,10 @@ PrefabInstance:
     - target: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5505193900064384869, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_Pivot.x
@@ -914,6 +934,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8135459383504310352}
     m_Modifications:
+    - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: _localizationString.m_TableEntryReference.m_KeyId
+      value: 146196103168
+      objectReference: {fileID: 0}
+    - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: _localizationString.m_TableReference.m_TableCollectionName
+      value: GUID:2f015f35d29b0d842bccace2b9764066
+      objectReference: {fileID: 0}
     - target: {fileID: 460174884517790528, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_Name
       value: Text (TMP)
@@ -1044,6 +1072,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5908301036245687036}
     m_Modifications:
+    - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: _localizationString.m_TableEntryReference.m_KeyId
+      value: 146196103168
+      objectReference: {fileID: 0}
+    - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: _localizationString.m_TableReference.m_TableCollectionName
+      value: GUID:2f015f35d29b0d842bccace2b9764066
+      objectReference: {fileID: 0}
     - target: {fileID: 460174884517790528, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_Name
       value: Text (TMP)

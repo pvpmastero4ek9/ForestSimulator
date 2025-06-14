@@ -863,6 +863,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6848678691396776142}
     m_Modifications:
+    - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: _localizationString.m_TableEntryReference.m_KeyId
+      value: 187971371008
+      objectReference: {fileID: 0}
+    - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: _localizationString.m_TableReference.m_TableCollectionName
+      value: GUID:8c22ba614e51f3645af07aec3faaa3b7
+      objectReference: {fileID: 0}
     - target: {fileID: 460174884517790528, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_Name
       value: Text (TMP)
@@ -993,6 +1001,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7911648210549245349}
     m_Modifications:
+    - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: _localizationString.m_TableEntryReference.m_KeyId
+      value: 187971371008
+      objectReference: {fileID: 0}
+    - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: _localizationString.m_TableReference.m_TableCollectionName
+      value: GUID:8c22ba614e51f3645af07aec3faaa3b7
+      objectReference: {fileID: 0}
     - target: {fileID: 460174884517790528, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_Name
       value: Text (TMP)
@@ -1225,17 +1241,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 603647403984586002}
     m_Modifications:
+    - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: _localizationString.m_TableEntryReference.m_KeyId
+      value: 3891757056
+      objectReference: {fileID: 0}
+    - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: _localizationString.m_TableReference.m_TableCollectionName
+      value: GUID:8c22ba614e51f3645af07aec3faaa3b7
+      objectReference: {fileID: 0}
     - target: {fileID: 460174884517790528, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_Name
       value: Title
       objectReference: {fileID: 0}
     - target: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_text
-      value: Open location
+      value: "\u041F\u043E\u0441\u0442\u0440\u043E\u0439\u043A\u0430"
       objectReference: {fileID: 0}
     - target: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_fontSize
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: m_margin.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+      propertyPath: m_margin.z
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_fontColor.b
