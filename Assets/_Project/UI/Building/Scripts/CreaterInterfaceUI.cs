@@ -1,7 +1,5 @@
 using Core.Building;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using Zenject;
 using Data.Building;
 using Core.Wallets;
@@ -14,7 +12,6 @@ namespace Ui.Building
         [SerializeField] private GameObject _interfacePrefab;
         [SerializeField] private Transform _parent;
         [SerializeField] private BuildingContainerForUI _buildingContainer;
-        //[SerializeField] private GameObject resourceSlotPrefab;
 
         private DiContainer _container;
         private GameObject _currentInterface;
@@ -37,33 +34,24 @@ namespace Ui.Building
             _currentInterface = _container.InstantiatePrefab(_interfacePrefab, _parent);
 
             string buildingId = _buildingContainer.BuildingId;
-
             BuildingInfo buildingInfo = _buildingData.GetByName(buildingId);
 
-            //Transform buildUIPanel = _currentInterface.transform.Find("BuildUIPanel");
+            if (buildingInfo != null)
+            {
+               
+                ButtonStartBuild buildButton = _currentInterface.GetComponentInChildren<ButtonStartBuild>();
+                if (buildButton != null)
+                {
+                    buildButton.SetBuildingName(buildingId);
+                }
 
-            
-            //TMP_Text titleText = buildUIPanel.Find("TitleText")?.GetComponent<TMP_Text>();
-            //if (titleText != null)
-            //{
-                //titleText.text = buildingInfo.Name;
-                //titleText.enabled = true; 
-            //}
-
-           
-            //Transform resourceContainer = buildUIPanel.Find("ResourceContainer");
-            
-            //ClearAndUpdateResources(resourceContainer, buildingInfo);
-
-            //Button buildButton = buildUIPanel.Find("Button")?.GetComponent<Button>();
-            //if (buildButton != null)
-            //{
-                //ButtonStartBuild buttonScript = buildButton.GetComponent<ButtonStartBuild>();
-                //if (buttonScript != null)
-                //{
-                    //buttonScript.SetBuildingName(buildingInfo.Name);
-                //}
-            //}
+                
+                CloseButton closeButton = _currentInterface.GetComponentInChildren<CloseButton>();
+                if (closeButton != null)
+                {
+                    closeButton.Initialize(); 
+                }
+            }
         }
 
         private void ClearAndUpdateResources(Transform resourceContainer, BuildingInfo buildingInfo)
@@ -75,42 +63,9 @@ namespace Ui.Building
 
             if (buildingInfo.Costs == null || buildingInfo.Costs.Count == 0)
             {
-                return; 
+                return;
             }
-
-            //for (int i = 0; i < buildingInfo.Costs.Count; i++)
-            //{
-                //Transform resourceSlot = i < resourceContainer.childCount ?
-                    //resourceContainer.GetChild(i) : CreateResourceSlot(resourceContainer);
-
-                //if (resourceSlot != null)
-                //{
-                    //resourceSlot.gameObject.SetActive(true);
-
-                    //ResourceCost cost = buildingInfo.Costs[i];
-                    //Image iconImage = resourceSlot.Find("ResourceIcon")?.GetComponent<Image>();
-                    //TMP_Text amountText = resourceSlot.Find("ResourceAmount")?.GetComponent<TMP_Text>();
-
-                    //if (iconImage != null && amountText != null)
-                    //{
-                        //Sprite resourceIcon = GetResourceIcon(cost.ResourceType);
-                        //if (resourceIcon != null)
-                        //{
-                            //iconImage.sprite = resourceIcon;
-                            //iconImage.preserveAspect = true;
-                        //}
-                        //amountText.text = cost.Amount.ToString();
-                    //}
-                //}
-            //}
         }
-
-        //private Transform CreateResourceSlot(Transform parent)
-        //{
-            //GameObject slot = Instantiate(resourceSlotPrefab, parent, false);
-            //slot.name = $"ResourceSlot_{parent.childCount}";
-            //return slot.transform;
-        //}
 
         public void HideUI()
         {
@@ -147,4 +102,28 @@ namespace Ui.Building
         }
     }
 
+    public class CloseButton : MonoBehaviour
+    {
+        private IUIController _uiController;
+
+        [Inject]
+        public void Construct(IUIController uiController)
+        {
+            _uiController = uiController;
+        }
+
+        public void Initialize()
+        {
+            UnityEngine.UI.Button button = GetComponent<UnityEngine.UI.Button>();
+            if (button != null)
+            {
+                button.onClick.AddListener(HideUI);
+            }
+        }
+
+        private void HideUI()
+        {
+            _uiController?.HideUI();
+        }
+    }
 }

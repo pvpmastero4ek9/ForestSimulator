@@ -3267,7 +3267,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7786422238354268200, guid: 69ec2098d6e57bf4ca60dcefbbfae79c, type: 3}
       propertyPath: _buildOffset.x
-      value: 1
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786422238354268200, guid: 69ec2098d6e57bf4ca60dcefbbfae79c, type: 3}
+      propertyPath: _buildOffset.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786422238354268200, guid: 69ec2098d6e57bf4ca60dcefbbfae79c, type: 3}
+      propertyPath: _indicatorScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786422238354268200, guid: 69ec2098d6e57bf4ca60dcefbbfae79c, type: 3}
+      propertyPath: _indicatorScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786422238354268200, guid: 69ec2098d6e57bf4ca60dcefbbfae79c, type: 3}
+      propertyPath: _indicatorScale.z
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7786422238354268200, guid: 69ec2098d6e57bf4ca60dcefbbfae79c, type: 3}
       propertyPath: _buildingContainer

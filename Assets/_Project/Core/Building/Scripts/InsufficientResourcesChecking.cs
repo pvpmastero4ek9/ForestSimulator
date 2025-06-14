@@ -15,8 +15,6 @@ namespace Core.Building
         [Inject]
         public InsufficientResourcesChecking(IWalletService walletService, IBuildingData buildingData)
         {
-            if (walletService == null) Debug.LogError("IWalletService is null");
-            if (buildingData == null) Debug.LogError("IBuildingData is null");
             _walletService = walletService;
             _buildingData = buildingData;
         }

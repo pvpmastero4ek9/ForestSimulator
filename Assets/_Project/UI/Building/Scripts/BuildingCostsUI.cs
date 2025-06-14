@@ -4,6 +4,7 @@ using Data.Building;
 using System.Collections.Generic;
 using Core.Building;
 using UI.UnlockLocations;
+using TMPro; 
 
 namespace UI.Building
 {
@@ -12,12 +13,23 @@ namespace UI.Building
         [SerializeField] private BuildingContainerForUI _buildingContainer;
         [SerializeField] private CoastLocationItem CoastLocationItem_PREFAB;
         [SerializeField] private BuildingData _buildingData;
+        [SerializeField] private TMP_Text buildingNameText; 
 
         private BuildingInfo _buildingInfo;
 
         private void OnEnable()
         {
+            UpdateBuildingName();
             CreateCostItems();
+        }
+
+        private void UpdateBuildingName()
+        {
+            _buildingInfo = _buildingData.GetByName(_buildingContainer.BuildingId);
+            if (_buildingInfo != null && buildingNameText != null)
+            {
+                buildingNameText.text = _buildingInfo.Name; 
+            }
         }
 
         private void CreateCostItems()

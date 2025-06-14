@@ -35,7 +35,7 @@ namespace UI.Building
 
             if (_resourcesChecker.HasEnoughResources(_buildingName, currentState))
             {
-                _handlerInfo.ChangeState(_buildingName);
+                _handlerInfo.ChangeState(_buildingName, true); 
             }
         }
     }

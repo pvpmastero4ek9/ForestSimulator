@@ -28,11 +28,6 @@ namespace UI.Building
 
         private void ActivatedStateButton()
         {
-            if (_info == null)
-            {
-                Debug.LogWarning("BuildingInfo не найден по ID: " + _buildingContainer.BuildingId);
-                return;
-            }
 
             _tabsButtons[StateButton.ActiveButton].Enable();
 

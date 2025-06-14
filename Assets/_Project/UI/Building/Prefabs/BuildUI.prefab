@@ -500,6 +500,7 @@ MonoBehaviour:
   _buildingContainer: {fileID: 5205793130571161443}
   CoastLocationItem_PREFAB: {fileID: 5220285169654804507, guid: c38dedfa02ffd8542a63f15524f20355, type: 3}
   _buildingData: {fileID: 11400000, guid: a9dc90fbf8d8d0a4caf74357d1bad389, type: 2}
+  buildingNameText: {fileID: 7780835399770654872}
 --- !u!1 &4530969022985860235
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,7 +623,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3822397980747481119}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5259736822282714273}
+        m_TargetAssemblyTypeName: UI.Building.ButtonStartBuild, Ui.Building
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6358019781353112942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,19 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enabled:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5259736822282714273}
-        m_TargetAssemblyTypeName: UI.Building.ButtonStartBuild, Ui.Building
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &5259736822282714273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1380,3 +1381,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!114 &7780835399770654872 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4261965415471859192, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
+  m_PrefabInstance: {fileID: 5827269122902068576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6249941826159201824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

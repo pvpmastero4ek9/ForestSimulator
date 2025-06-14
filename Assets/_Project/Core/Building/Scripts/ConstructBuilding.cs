@@ -18,11 +18,16 @@ namespace Core.Building
             var info = _buildingData.GetByName(name);
             if (info == null)
             {
-                _buildingData.AddOrUpdate(new BuildingInfo
+                (_buildingData as BuildingRuntimeData)?.AddOrUpdate(new BuildingInfo
                 {
                     Name = name,
                     State = BuildingState.Built
                 });
+                
+                if (_buildingData is IBuildingStateManager stateManager)
+                {
+                    stateManager.ChangeState(name, false); 
+                }
             }
         }
     }

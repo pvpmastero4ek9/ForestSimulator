@@ -12,6 +12,7 @@ namespace Core.Building
         private readonly IBuildingData _buildingData;
         private readonly IWalletService _walletService;
         private readonly IResourceChecker _resourceChecker;
+        private bool _isUIInitiatedChange = false;
 
         public UnityEvent<string, BuildingState> OnStateChanged { get; private set; } 
 
@@ -30,13 +31,14 @@ namespace Core.Building
             return info != null ? info.State : BuildingState.Notbuilt;
         }
 
-        public void ChangeState(string name)
+        public void ChangeState(string name, bool isUIInitiated = false)
         {
             BuildingInfo info = _buildingData.GetByName(name);
             if (info == null)
             {
                 return;
             }
+
 
             BuildingState currentState = info.State;
             if (!_resourceChecker.HasEnoughResources(name, currentState))
@@ -63,7 +65,6 @@ namespace Core.Building
                     break;
             }
             info.State = newState;
-            UnityEngine.Debug.Log($"State changed to {newState} for building {name}");
             OnStateChanged?.Invoke(name, newState);
         }
 
