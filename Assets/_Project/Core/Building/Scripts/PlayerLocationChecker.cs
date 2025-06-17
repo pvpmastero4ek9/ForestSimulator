@@ -10,13 +10,14 @@ namespace Core.Building
         [SerializeField] private BuildingContainerForUI _buildingContainer;
         [SerializeField] private GameObject _buildIndicatorPrefab;
         [SerializeField] private Vector3 _buildOffset = new Vector3(0, 0, 2);
-        [SerializeField] private Vector3 _indicatorScale = new Vector3(0.5f, 0.5f, 0.5f); // Новый параметр для масштаба
+        [SerializeField] private Vector3 _indicatorScale = new Vector3(0.5f, 0.5f, 0.5f); // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+
+        public bool IsPlayerInside { get; private set; }
 
         private IUIController _uiController;
         private IBuildingData _buildingData;
         private IBuildingStateManager _stateManager;
         private GameObject _currentBuilding;
-        private bool _isPlayerInside;
         private GameObject _currentIndicator;
 
         [Inject]
@@ -40,9 +41,9 @@ namespace Core.Building
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player") && !_isPlayerInside)
+            if (other.CompareTag("Player") && !IsPlayerInside)
             {
-                _isPlayerInside = true;
+                IsPlayerInside = true;
                 _uiController?.CreateUI();
                 ShowBuildIndicator(other.transform);
             }
@@ -50,9 +51,9 @@ namespace Core.Building
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Player") && _isPlayerInside)
+            if (other.CompareTag("Player") && IsPlayerInside)
             {
-                _isPlayerInside = false;
+                IsPlayerInside = false;
                 _uiController?.HideUI();
                 HideBuildIndicator();
             }
