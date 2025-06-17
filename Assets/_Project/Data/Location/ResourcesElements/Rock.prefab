@@ -130,7 +130,7 @@ MonoBehaviour:
   <CurrencyType>k__BackingField: 0
   <RewardAmount>k__BackingField: 10
   _startDurability: 3
-  RecoveryTimeMinutes: 1
+  RecoveryTimeMinutes: 0.9
 --- !u!208 &8243902815169488281
 NavMeshObstacle:
   m_ObjectHideFlags: 0

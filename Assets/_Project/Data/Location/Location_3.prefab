@@ -1278,7 +1278,7 @@ MonoBehaviour:
       - Key: 2
         Value: 20
       - Key: 1
-        Value: 400
+        Value: 320
       - Key: 4
         Value: 10
       - Key: 5
@@ -3062,30 +3062,6 @@ PrefabInstance:
       propertyPath: _timer_PREFAB
       value: 
       objectReference: {fileID: 3144311986443698738, guid: b1ff199849e98c147b44d70854a24543, type: 3}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Size.x
-      value: 0.79238003
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Size.y
-      value: 7.437406
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Size.z
-      value: 0.6206396
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Center.x
-      value: 0.39464098
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Center.y
-      value: -4.8585796
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Center.z
-      value: -1.1504249e-14
-      objectReference: {fileID: 0}
     - target: {fileID: 8614267320872570068, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
       propertyPath: m_Name
       value: Branch (2)
@@ -3406,30 +3382,6 @@ PrefabInstance:
       propertyPath: _timer_PREFAB
       value: 
       objectReference: {fileID: 3144311986443698738, guid: b1ff199849e98c147b44d70854a24543, type: 3}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Size.x
-      value: 0.79238003
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Size.y
-      value: 7.437406
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Size.z
-      value: 0.6206396
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Center.x
-      value: 0.39464098
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Center.y
-      value: -4.8585796
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Center.z
-      value: -1.1504249e-14
-      objectReference: {fileID: 0}
     - target: {fileID: 8614267320872570068, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
       propertyPath: m_Name
       value: Branch
@@ -3586,30 +3538,6 @@ PrefabInstance:
       propertyPath: _timer_PREFAB
       value: 
       objectReference: {fileID: 3144311986443698738, guid: b1ff199849e98c147b44d70854a24543, type: 3}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Size.x
-      value: 0.79238003
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Size.y
-      value: 7.437406
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Size.z
-      value: 0.6206396
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Center.x
-      value: 0.39464098
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Center.y
-      value: -4.8585796
-      objectReference: {fileID: 0}
-    - target: {fileID: 7743589033520254846, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
-      propertyPath: m_Center.z
-      value: -1.1504249e-14
-      objectReference: {fileID: 0}
     - target: {fileID: 8614267320872570068, guid: 68dab57166129f1478e7af01b62d826a, type: 3}
       propertyPath: m_Name
       value: Branch (1)
@@ -3772,7 +3700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6239487249203805515, guid: f51c5b26ffabe9a44be70db7c578ae34, type: 3}
       propertyPath: RecoveryTimeMinutes
-      value: 1.3
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6239487249203805515, guid: f51c5b26ffabe9a44be70db7c578ae34, type: 3}
       propertyPath: <Durability>k__BackingField

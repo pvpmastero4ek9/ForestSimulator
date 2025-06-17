@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 7087816704
-    m_Localized: Music value
+    m_Localized: Music volume
     m_Metadata:
       m_Items: []
   - m_Id: 793591119872
-    m_Localized: Sound value
+    m_Localized: Sound volume
     m_Metadata:
       m_Items: []
   - m_Id: 25598985994240

@@ -16,11 +16,11 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: a38d8238a99753c45a51387d60954213
   m_Entries:
   - m_Id: 7087816704
-    m_Key: Music value
+    m_Key: Music volume
     m_Metadata:
       m_Items: []
   - m_Id: 793591119872
-    m_Key: Sound value
+    m_Key: Sound volume
     m_Metadata:
       m_Items: []
   - m_Id: 25598985994240
