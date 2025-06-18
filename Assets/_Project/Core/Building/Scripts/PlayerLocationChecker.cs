@@ -11,12 +11,14 @@ namespace Core.Building
         [SerializeField] private GameObject _buildIndicatorPrefab;
         [SerializeField] private Vector3 _buildOffset = new Vector3(0, 0, 2);
         [SerializeField] private Vector3 _indicatorScale = new Vector3(0.5f, 0.5f, 0.5f);
+        [SerializeField] private Vector3 _indicatorScale = new Vector3(0.5f, 0.5f, 0.5f); // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+
+        public bool IsPlayerInside { get; private set; }
 
         private IUIController _uiController;
         private IBuildingData _buildingData;
         private IBuildingStateManager _stateManager;
         private GameObject _currentBuilding;
-        private bool _isPlayerInside;
         private GameObject _currentIndicator;
 
         [Inject]
@@ -43,7 +45,7 @@ namespace Core.Building
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player") && !_isPlayerInside)
+            if (other.CompareTag("Player") && !IsPlayerInside)
             {
                 _isPlayerInside = true;
                 Debug.Log("Player entered trigger for " + _buildingName);
@@ -56,18 +58,21 @@ namespace Core.Building
 
                 if (_uiController != null)
                 {
-                    _uiController.CreateUI(_buildingName); // Передаём buildingName
+                    _uiController.CreateUI(_buildingName); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ buildingName
                 }
+                IsPlayerInside = true;
+                _uiController?.CreateUI();
                 ShowBuildIndicator(other.transform);
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Player") && _isPlayerInside)
+            if (other.CompareTag("Player") && IsPlayerInside)
             {
                 _isPlayerInside = false;
                 Debug.Log("Player exited trigger for " + _buildingName);
+                IsPlayerInside = false;
                 _uiController?.HideUI();
                 HideBuildIndicator();
             }

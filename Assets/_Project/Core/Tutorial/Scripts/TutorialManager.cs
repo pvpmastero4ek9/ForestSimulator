@@ -5,6 +5,8 @@ using AYellowpaper.SerializedCollections;
 using System;
 using Zenject;
 using Core.Wallets;
+using Core.Building;
+using Core.UnlockLocations;
 
 namespace Core.Tutorial
 {
@@ -21,6 +23,8 @@ namespace Core.Tutorial
 
         private GameObject _stone;
         private GameObject _tree;
+        private GameObject _build;
+        private GameObject _location;
 
         private void Update()
         {
@@ -82,19 +86,38 @@ namespace Core.Tutorial
             }
             else if (_elementsTutorialIndex == 8)
             {
-
+                _build = _objectsTutotialDictionary[GameObjectDestinationName.Build];
+                _build.GetComponent<DisplayingPointerAnObject>().CreatePointer();
+                _elementsTutorialIndex++;
             }
             else if (_elementsTutorialIndex == 9)
             {
-
+                if (_build.GetComponent<PlayerLocationChecker>().IsPlayerInside)
+                {
+                    _build.GetComponent<DisplayingPointerAnObject>().DelitePointer();
+                    _elementsTutorialIndex++;
+                }
             }
             else if (_elementsTutorialIndex == 10)
             {
-
+                if (!_build.GetComponent<PlayerLocationChecker>().IsPlayerInside)
+                {
+                    _elementsTutorialIndex++;
+                }
             }
             else if (_elementsTutorialIndex == 11)
             {
-
+                _location = _objectsTutotialDictionary[GameObjectDestinationName.Location];
+                _location.GetComponent<DisplayingPointerAnObject>().CreatePointer();
+                _elementsTutorialIndex++;
+            }
+            else if (_elementsTutorialIndex == 12)
+            {
+                if (_location.GetComponent<CheckerPlayerTouch>().IsPlayerTouch)
+                {
+                    _location.GetComponent<DisplayingPointerAnObject>().DelitePointer();
+                    Destroy(gameObject);
+                }
             }
         }
 
@@ -104,6 +127,8 @@ namespace Core.Tutorial
             Axe,
             Stone,
             Tree,
+            Build,
+            Location
         }
     }
 }

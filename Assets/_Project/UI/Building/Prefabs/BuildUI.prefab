@@ -1241,7 +1241,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7743423401918668649, guid: 7ace4a057562cc94fa6fa04d04d60060, type: 3}
       propertyPath: _localizationString.m_TableEntryReference.m_KeyId
