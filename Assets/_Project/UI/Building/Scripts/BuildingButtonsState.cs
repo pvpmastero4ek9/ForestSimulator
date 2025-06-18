@@ -4,7 +4,6 @@ using Core.Wallets;
 using Data.Building;
 using UI.Common;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace UI.Building
@@ -12,10 +11,8 @@ namespace UI.Building
     public class BuildingButtonsState : MonoBehaviour
     {
         [Inject] private Wallet _wallet;
-        [Inject] private IBuildingData _buildingData;
-
-        [SerializeField] private GameObject _containerForUIObject;
-        private BuildingContainerForUI _buildingContainer;
+        [SerializeField] private BuildingData _buildingData;
+        [SerializeField] private BuildingContainerForUI _buildingContainer;
 
         [SerializedDictionary("ButtonState", "Tab")]
         [SerializeField] private SerializedDictionary<StateButton, Tab> _tabsButtons;
@@ -24,50 +21,22 @@ namespace UI.Building
 
         private void OnEnable()
         {
-            _buildingContainer = _containerForUIObject.GetComponent<BuildingContainerForUI>();
-            if (_buildingContainer != null)
-            {
-                _buildingContainer.Inited += UpdateButtonState;
-                UpdateButtonState();
-            }
+            ActivatedStateButton();
         }
 
-        private void OnDisable()
+        private void ActivatedStateButton()
         {
-            if (_buildingContainer != null)
-            {
-                _buildingContainer.Inited -= UpdateButtonState;
-            }
-        }
+            if (_info == null) return;
 
-        private void UpdateButtonState()
-        {
-            if (_buildingContainer != null && _buildingData != null && _tabsButtons != null)
+            _tabsButtons[StateButton.ActiveButton].Enable();
+
+            foreach (ResourceCost cost in _info.Costs)
             {
-                BuildingInfo info = _info;
-                if (info != null)
+                Currency currency = _wallet.GetCurrency(cost.ResourceType);
+                if (currency.Value < cost.Amount)
                 {
-                    Button buildButton = GetComponentInChildren<Button>();
-                    if (buildButton != null)
-                    {
-                        bool hasEnoughResources = true;
-                        foreach (ResourceCost cost in info.Costs)
-                        {
-                            Currency currency = _wallet.GetCurrency(cost.ResourceType);
-                            if (currency == null || currency.Value < cost.Amount)
-                            {
-                                hasEnoughResources = false;
-                                break;
-                            }
-                        }
-
-                        if (_tabsButtons.ContainsKey(StateButton.ActiveButton) && _tabsButtons.ContainsKey(StateButton.NotActiveButton))
-                        {
-                            _tabsButtons[StateButton.ActiveButton].gameObject.SetActive(hasEnoughResources);
-                            _tabsButtons[StateButton.NotActiveButton].gameObject.SetActive(!hasEnoughResources);
-                            buildButton.interactable = hasEnoughResources;
-                        }
-                    }
+                    _tabsButtons[StateButton.NotActiveButton].Enable();
+                    break;
                 }
             }
         }

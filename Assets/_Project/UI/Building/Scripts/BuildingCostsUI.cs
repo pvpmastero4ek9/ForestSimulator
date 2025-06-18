@@ -10,66 +10,26 @@ namespace UI.Building
 {
     public class BuildingCostsUI : MonoBehaviour
     {
+        [SerializeField] private BuildingContainerForUI _buildingContainer;
         [SerializeField] private CoastLocationItem CoastLocationItem_PREFAB;
         [SerializeField] private BuildingData _buildingData;
-        [SerializeField] private TMP_Text buildingNameText;
 
-        private BuildingContainerForUI _buildingContainer;
         private BuildingInfo _buildingInfo;
 
         private void OnEnable()
         {
-            _buildingContainer = GetComponentInParent<BuildingContainerForUI>();
-            if (_buildingContainer != null)
-            {
-                _buildingContainer.Inited += UpdateUI;
-            }
-            UpdateUI();
-        }
-
-        private void OnDisable()
-        {
-            if (_buildingContainer != null)
-            {
-                _buildingContainer.Inited -= UpdateUI;
-            }
-        }
-
-        private void UpdateUI()
-        {
-            if (_buildingContainer != null && _buildingData != null)
-            {
-                _buildingInfo = _buildingData.GetByName(_buildingContainer.BuildingId);
-                if (_buildingInfo != null)
-                {
-                    UpdateBuildingName();
-                    CreateCostItems();
-                }
-            }
-        }
-
-        private void UpdateBuildingName()
-        {
-            if (buildingNameText != null)
-            {
-                buildingNameText.text = _buildingInfo.Name;
-            }
+            CreateCostItems();
         }
 
         private void CreateCostItems()
         {
-            foreach (Transform child in transform)
-            {
-                Destroy(child.gameObject);
-            }
+            _buildingInfo = _buildingData.GetByName(_buildingContainer.BuildingId);
+            if (_buildingInfo == null) return;
 
-            if (_buildingInfo != null)
+            foreach (ResourceCost cost in _buildingInfo.Costs)
             {
-                foreach (ResourceCost cost in _buildingInfo.Costs)
-                {
-                    CoastLocationItem item = Instantiate(CoastLocationItem_PREFAB, transform);
-                    item.Init(cost.ResourceType, cost.Amount);
-                }
+                Instantiate(CoastLocationItem_PREFAB, transform)
+                    .Init(cost.ResourceType, cost.Amount);
             }
         }
     }
