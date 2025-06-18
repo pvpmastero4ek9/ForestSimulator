@@ -1,42 +1,45 @@
-using Core.Building;
-using Data.Building;
 using UnityEngine;
-using Zenject;
+using UnityEngine.UI;
+using Core.Building;
 
 namespace UI.Building
 {
-    public class ButtonStartBuild : MonoBehaviour, IBuildButton
+    public class ButtonStartBuild : MonoBehaviour
     {
-        [SerializeField] private string _buildingName;
+        [SerializeField] private Button _button;
+        public BuildingContainerForUI _buildingContainer; // Сделали публичным для инициализации
 
-        private IResourceChecker _resourcesChecker;
-        private IBuildingStateManager _handlerInfo;
-
-        [Inject]
-        public void Construct(IResourceChecker resourcesChecker, IBuildingStateManager handlerInfo)
+        private void Awake()
         {
-            _resourcesChecker = resourcesChecker;
-            _handlerInfo = handlerInfo;
-        }
-
-        public void SetBuildingName(string buildingName)
-        {
-            _buildingName = buildingName;
-        }
-
-        public void OnClick()
-        {
-            if (_resourcesChecker == null || _handlerInfo == null)
+            if (_button == null)
             {
+                _button = GetComponent<Button>();
+                if (_button == null)
+                {
+                    Debug.LogError("Button component not found on ButtonStartBuild");
+                    return;
+                }
+            }
+            _button.onClick.AddListener(OnClick);
+        }
+
+        public void Initialize(BuildingContainerForUI container)
+        {
+            _buildingContainer = container;
+            Debug.Log("ButtonStartBuild initialized with BuildingContainer: " + (_buildingContainer != null));
+        }
+
+        private void OnClick()
+        {
+            if (_buildingContainer == null)
+            {
+                Debug.LogError("One or more dependencies are null in ButtonStartBuild");
                 return;
             }
 
-            BuildingState currentState = _handlerInfo.GetCurrentState(_buildingName);
-
-            if (_resourcesChecker.HasEnoughResources(_buildingName, currentState))
-            {
-                _handlerInfo.ChangeState(_buildingName, true); 
-            }
+            // Логика начала строительства
+            Debug.Log("Starting build for BuildingId: " + _buildingContainer.BuildingId);
+            // Здесь добавьте вашу логику строительства
         }
     }
 }

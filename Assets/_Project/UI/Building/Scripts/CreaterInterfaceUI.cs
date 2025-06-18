@@ -3,9 +3,11 @@ using UnityEngine;
 using Zenject;
 using Data.Building;
 using Core.Wallets;
+using UnityEngine.UI;
 using UI.Building;
+using TMPro;
 
-namespace Ui.Building
+namespace UI.Building
 {
     public class CreaterInterfaceUI : MonoBehaviour, IUIController
     {
@@ -13,57 +15,179 @@ namespace Ui.Building
         [SerializeField] private Transform _parent;
         [SerializeField] private BuildingContainerForUI _buildingContainer;
 
-        private DiContainer _container;
         private GameObject _currentInterface;
         private IBuildingData _buildingData;
 
         [Inject]
-        public void Construct(DiContainer container, IBuildingData buildingData)
+        public void Construct(IBuildingData buildingData)
         {
-            _container = container;
             _buildingData = buildingData;
         }
 
         public void CreateUI()
+        {
+            CreateUI(null); // Вызов перегрузки с параметром по умолчанию
+        }
+
+        public void CreateUI(string buildingName)
         {
             if (_currentInterface != null)
             {
                 Destroy(_currentInterface);
             }
 
-            _currentInterface = _container.InstantiatePrefab(_interfacePrefab, _parent);
-
-            string buildingId = _buildingContainer.BuildingId;
-            BuildingInfo buildingInfo = _buildingData.GetByName(buildingId);
-
-            if (buildingInfo != null)
+            if (_interfacePrefab == null)
             {
-               
+                Debug.LogError("Interface Prefab is not assigned in CreaterInterfaceUI");
+                return;
+            }
+
+            _currentInterface = Instantiate(_interfacePrefab, _parent);
+            Debug.Log("Interface instantiated: " + _currentInterface.name);
+
+            if (_buildingContainer != null)
+            {
+                string buildingId = string.IsNullOrEmpty(buildingName) ? _buildingContainer.BuildingId : buildingName;
+                _buildingContainer.BuildingId = buildingId;
+                Debug.Log("Set BuildingId to " + buildingId + " in BuildUI instance");
+
+                BuildingContainerForUI instanceContainer = _currentInterface.GetComponent<BuildingContainerForUI>();
+                if (instanceContainer != null)
+                {
+                    instanceContainer.BuildingId = buildingId;
+                }
+                else
+                {
+                    instanceContainer = _currentInterface.AddComponent<BuildingContainerForUI>();
+                    instanceContainer.BuildingId = buildingId;
+                    Debug.LogWarning("BuildingContainerForUI not found, added dynamically with BuildingId: " + buildingId);
+                }
+
+                BuildingCostsUI costsUI = _currentInterface.GetComponentInChildren<BuildingCostsUI>();
+                if (costsUI != null)
+                {
+                    //costsUI.Initialize(_buildingContainer);
+                }
+                else
+                {
+                    Debug.LogError("BuildingCostsUI not found in instantiated BuildUI");
+                }
+
                 ButtonStartBuild buildButton = _currentInterface.GetComponentInChildren<ButtonStartBuild>();
                 if (buildButton != null)
                 {
-                    buildButton.SetBuildingName(buildingId);
+                    buildButton.Initialize(_buildingContainer);
+                }
+                else
+                {
+                    Debug.LogError("ButtonStartBuild not found in instantiated BuildUI");
                 }
 
-                
-                CloseButton closeButton = _currentInterface.GetComponentInChildren<CloseButton>();
-                if (closeButton != null)
+                BuildingButtonsState buttonsState = _currentInterface.GetComponentInChildren<BuildingButtonsState>();
+                if (buttonsState != null)
                 {
-                    closeButton.Initialize(); 
+                    buttonsState.Initialize(_buildingContainer);
                 }
+                else
+                {
+                    Debug.LogError("BuildingButtonsState not found in instantiated BuildUI");
+                }
+
+                UpdateUIComponents(_currentInterface, buildingId);
+            }
+            else
+            {
+                Debug.LogError("BuildingContainer is null in CreaterInterfaceUI");
             }
         }
 
-        private void ClearAndUpdateResources(Transform resourceContainer, BuildingInfo buildingInfo)
+        public void UpdateUI(string buildingName)
         {
-            foreach (Transform child in resourceContainer)
+            if (_currentInterface != null && _buildingContainer != null)
             {
-                child.gameObject.SetActive(false);
-            }
+                string buildingId = string.IsNullOrEmpty(buildingName) ? _buildingContainer.BuildingId : buildingName;
+                _buildingContainer.BuildingId = buildingId;
+                Debug.Log("Updating UI with BuildingId: " + buildingId);
 
-            if (buildingInfo.Costs == null || buildingInfo.Costs.Count == 0)
+                BuildingContainerForUI instanceContainer = _currentInterface.GetComponent<BuildingContainerForUI>();
+                if (instanceContainer != null)
+                {
+                    instanceContainer.BuildingId = buildingId;
+                    Debug.Log("Updated BuildingId to " + buildingId + " in BuildUI instance");
+                }
+                else
+                {
+                    instanceContainer = _currentInterface.AddComponent<BuildingContainerForUI>();
+                    instanceContainer.BuildingId = buildingId;
+                    Debug.LogWarning("BuildingContainerForUI not found, added dynamically with BuildingId: " + buildingId);
+                }
+
+                BuildingCostsUI costsUI = _currentInterface.GetComponentInChildren<BuildingCostsUI>();
+                if (costsUI != null)
+                {
+                    //costsUI.Initialize(_buildingContainer);
+                }
+
+                ButtonStartBuild buildButton = _currentInterface.GetComponentInChildren<ButtonStartBuild>();
+                if (buildButton != null)
+                {
+                    buildButton.Initialize(_buildingContainer);
+                }
+
+                BuildingButtonsState buttonsState = _currentInterface.GetComponentInChildren<BuildingButtonsState>();
+                if (buttonsState != null)
+                {
+                    buttonsState.Initialize(_buildingContainer);
+                }
+
+                UpdateUIComponents(_currentInterface, buildingId);
+            }
+        }
+
+        private void UpdateUIComponents(GameObject uiInstance, string buildingId)
+        {
+            BuildingInfo buildingInfo = _buildingData.GetByName(buildingId);
+            if (buildingInfo != null)
             {
-                return;
+                BuildingCostsUI costsUI = uiInstance.GetComponentInChildren<BuildingCostsUI>();
+                if (costsUI != null)
+                {
+                    costsUI.UpdateBuildingName();
+                    costsUI.CreateCostItems();
+                    Debug.Log("BuildingCostsUI updated with: " + buildingId);
+                }
+                else
+                {
+                    Debug.LogWarning("BuildingCostsUI not found in children of " + uiInstance.name);
+                }
+
+                ButtonStartBuild buildButton = uiInstance.GetComponentInChildren<ButtonStartBuild>();
+                if (buildButton != null)
+                {
+                    if (buildButton._buildingContainer == null)
+                    {
+                        buildButton._buildingContainer = _buildingContainer;
+                        Debug.LogWarning("BuildingContainer manually assigned to ButtonStartBuild");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("ButtonStartBuild component not found in children of " + uiInstance.name);
+                }
+
+                CloseButton closeButton = uiInstance.GetComponentInChildren<CloseButton>();
+                if (closeButton != null)
+                {
+                    closeButton.Initialize();
+                }
+                else
+                {
+                    Debug.LogWarning("CloseButton component not found in children of " + uiInstance.name);
+                }
+            }
+            else
+            {
+                Debug.LogWarning("BuildingInfo not found for BuildingId: " + buildingId);
             }
         }
 
@@ -118,6 +242,10 @@ namespace Ui.Building
             if (button != null)
             {
                 button.onClick.AddListener(HideUI);
+            }
+            else
+            {
+                Debug.LogError("Button component not found on CloseButton");
             }
         }
 

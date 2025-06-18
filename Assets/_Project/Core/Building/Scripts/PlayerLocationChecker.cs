@@ -10,7 +10,7 @@ namespace Core.Building
         [SerializeField] private BuildingContainerForUI _buildingContainer;
         [SerializeField] private GameObject _buildIndicatorPrefab;
         [SerializeField] private Vector3 _buildOffset = new Vector3(0, 0, 2);
-        [SerializeField] private Vector3 _indicatorScale = new Vector3(0.5f, 0.5f, 0.5f); // Новый параметр для масштаба
+        [SerializeField] private Vector3 _indicatorScale = new Vector3(0.5f, 0.5f, 0.5f);
 
         private IUIController _uiController;
         private IBuildingData _buildingData;
@@ -25,6 +25,9 @@ namespace Core.Building
             _uiController = uiController;
             _buildingData = buildingData;
             _stateManager = stateManager;
+            Debug.Log("PlayerLocationChecker constructed with UIController: " + (_uiController != null));
+            Debug.Log("BuildingData injected: " + (_buildingData != null));
+            Debug.Log("StateManager injected: " + (_stateManager != null));
         }
 
         private void Start()
@@ -43,7 +46,18 @@ namespace Core.Building
             if (other.CompareTag("Player") && !_isPlayerInside)
             {
                 _isPlayerInside = true;
-                _uiController?.CreateUI();
+                Debug.Log("Player entered trigger for " + _buildingName);
+
+                if (_buildingContainer != null && !string.IsNullOrEmpty(_buildingName))
+                {
+                    _buildingContainer.BuildingId = _buildingName;
+                    Debug.Log("Updated BuildingId to " + _buildingName);
+                }
+
+                if (_uiController != null)
+                {
+                    _uiController.CreateUI(_buildingName); // Передаём buildingName
+                }
                 ShowBuildIndicator(other.transform);
             }
         }
@@ -53,6 +67,7 @@ namespace Core.Building
             if (other.CompareTag("Player") && _isPlayerInside)
             {
                 _isPlayerInside = false;
+                Debug.Log("Player exited trigger for " + _buildingName);
                 _uiController?.HideUI();
                 HideBuildIndicator();
             }
@@ -85,7 +100,7 @@ namespace Core.Building
             {
                 Vector3 indicatorPosition = player.position + _buildOffset;
                 _currentIndicator = Instantiate(_buildIndicatorPrefab, indicatorPosition, Quaternion.identity);
-                _currentIndicator.transform.localScale = _indicatorScale; 
+                _currentIndicator.transform.localScale = _indicatorScale;
             }
         }
 
@@ -104,6 +119,11 @@ namespace Core.Building
             {
                 Destroy(_currentBuilding);
             }
+            if (info.Prefab == null)
+            {
+                Debug.LogError($"Prefab for building {info.Name} is null");
+                return;
+            }
             if (_currentIndicator != null)
             {
                 _currentBuilding = Instantiate(info.Prefab, _currentIndicator.transform.position, _currentIndicator.transform.rotation);
@@ -112,8 +132,10 @@ namespace Core.Building
             }
             else
             {
+                Debug.LogWarning("Build indicator not found, using default position");
                 _currentBuilding = Instantiate(info.Prefab, transform.position, transform.rotation);
             }
+            Debug.Log($"Building {info.Name} spawned at {_currentBuilding.transform.position}");
         }
 
         private void OnDestroy()
