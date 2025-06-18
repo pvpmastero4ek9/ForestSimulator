@@ -23,10 +23,10 @@ namespace Core.Building
                     Name = name,
                     State = BuildingState.Built
                 });
-                
+
                 if (_buildingData is IBuildingStateManager stateManager)
                 {
-                    stateManager.ChangeState(name, false); 
+                    stateManager.ChangeState(name, false);
                 }
             }
         }

@@ -30,7 +30,7 @@ namespace Core.Building
                     Reward = building.Reward,
                     State = building.State,
                     Health = building.Health,
-                    Costs = new List<ResourceCost>(building.Costs) 
+                    Costs = new List<ResourceCost>(building.Costs)
                 };
             }
         }
@@ -53,7 +53,7 @@ namespace Core.Building
                     Reward = template.Reward,
                     State = template.State,
                     Health = template.Health,
-                    Costs = new List<ResourceCost>(template.Costs) 
+                    Costs = new List<ResourceCost>(template.Costs)
                 };
                 return _runtimeBuildings[name];
             }
@@ -73,7 +73,7 @@ namespace Core.Building
             existing.Reward = info.Reward;
             existing.State = info.State;
             existing.Health = info.Health;
-            existing.Costs = new List<ResourceCost>(info.Costs); 
+            existing.Costs = new List<ResourceCost>(info.Costs);
         }
 
         public void ChangeState(string name, BuildingState newState)

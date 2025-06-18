@@ -4,7 +4,7 @@ namespace Core.Building
     {
         void CreateUI();
         void CreateUI(string buildingName);
-        void UpdateUI(string buildingName); 
+        void UpdateUI(string buildingName);
         void HideUI();
     }
 }

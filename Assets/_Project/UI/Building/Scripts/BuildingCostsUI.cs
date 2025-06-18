@@ -1,10 +1,10 @@
 using UnityEngine;
+using Core.Building;
 using Core.Wallets;
 using Data.Building;
 using System.Collections.Generic;
-using Core.Building;
-using UI.UnlockLocations;
 using TMPro;
+using UI.UnlockLocations;
 
 namespace UI.Building
 {
@@ -17,52 +17,60 @@ namespace UI.Building
         private BuildingContainerForUI _buildingContainer;
         private BuildingInfo _buildingInfo;
 
-        public void Initialize(BuildingContainerForUI container)
+        private void OnEnable()
         {
-            _buildingContainer = container;
-            UpdateBuildingName();
-            CreateCostItems();
+            _buildingContainer = GetComponentInParent<BuildingContainerForUI>();
+            if (_buildingContainer != null)
+            {
+                _buildingContainer.Inited += UpdateUI;
+            }
+            UpdateUI();
         }
 
-        public void UpdateBuildingName()
+        private void OnDisable()
         {
-            if (_buildingContainer != null && buildingNameText != null)
+            if (_buildingContainer != null)
+            {
+                _buildingContainer.Inited -= UpdateUI;
+            }
+        }
+
+        private void UpdateUI()
+        {
+            if (_buildingContainer != null && _buildingData != null)
             {
                 _buildingInfo = _buildingData.GetByName(_buildingContainer.BuildingId);
                 if (_buildingInfo != null)
                 {
-                    buildingNameText.text = _buildingInfo.Name;
-                    Debug.Log("Building name updated to: " + _buildingInfo.Name);
+                    UpdateBuildingName();
+                    CreateCostItems();
                 }
             }
         }
 
-        public void CreateCostItems()
+        private void UpdateBuildingName()
         {
-            // Очищаем предыдущие элементы
+            if (buildingNameText != null)
+            {
+                buildingNameText.text = _buildingInfo.Name;
+            }
+        }
+
+        private void CreateCostItems()
+        {
             foreach (Transform child in transform)
             {
                 Destroy(child.gameObject);
             }
 
-            if (_buildingContainer != null)
+            if (_buildingInfo != null)
             {
-                _buildingInfo = _buildingData.GetByName(_buildingContainer.BuildingId);
-                if (_buildingInfo == null) return;
-
                 foreach (ResourceCost cost in _buildingInfo.Costs)
                 {
                     CoastLocationItem item = Instantiate(CoastLocationItem_PREFAB, transform);
                     item.Init(cost.ResourceType, cost.Amount);
-                    Debug.Log($"Created cost item: {cost.ResourceType} - {cost.Amount}");
                 }
             }
-        }
-
-        private void OnEnable()
-        {
-            UpdateBuildingName();
-            CreateCostItems();
         }
     }
 }

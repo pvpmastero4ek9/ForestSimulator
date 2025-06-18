@@ -14,7 +14,7 @@ namespace Core.Building
         private readonly IResourceChecker _resourceChecker;
         private bool _isUIInitiatedChange = false;
 
-        public UnityEvent<string, BuildingState> OnStateChanged { get; private set; } 
+        public UnityEvent<string, BuildingState> OnStateChanged { get; private set; }
 
         [Inject]
         public HandlerInfoBuilding(IBuildingData buildingData, IWalletService walletService, IResourceChecker resourceChecker)
@@ -38,7 +38,6 @@ namespace Core.Building
             {
                 return;
             }
-
 
             BuildingState currentState = info.State;
             if (!_resourceChecker.HasEnoughResources(name, currentState))

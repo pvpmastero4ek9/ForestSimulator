@@ -13,7 +13,7 @@ namespace Core.Building
             set
             {
                 _buildingId = value;
-                Inited?.Invoke(); // Используем правильное имя события Inited
+                Inited?.Invoke();
             }
         }
 

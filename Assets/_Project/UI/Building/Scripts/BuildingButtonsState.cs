@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using Core.Building;
 using Core.Wallets;
@@ -15,33 +14,21 @@ namespace UI.Building
         [Inject] private Wallet _wallet;
         [Inject] private IBuildingData _buildingData;
 
-        [SerializeField] private Button _buildButton; // Ссылка на кнопку "Строить"
-
-        [SerializeField] public BuildingContainerForUI _buildingContainer;
+        [SerializeField] private GameObject _containerForUIObject;
+        private BuildingContainerForUI _buildingContainer;
 
         [SerializedDictionary("ButtonState", "Tab")]
         [SerializeField] private SerializedDictionary<StateButton, Tab> _tabsButtons;
 
-        private BuildingInfo _info => _buildingData?.GetByName(_buildingContainer?.BuildingId);
-
-        private void Awake()
-        {
-            if (_buildButton == null)
-            {
-                _buildButton = GetComponentInChildren<Button>();
-                if (_buildButton == null)
-                {
-                    Debug.LogError("Build button not found in BuildingButtonsState");
-                }
-            }
-        }
+        private BuildingInfo _info => _buildingData.GetByName(_buildingContainer.BuildingId);
 
         private void OnEnable()
         {
+            _buildingContainer = _containerForUIObject.GetComponent<BuildingContainerForUI>();
             if (_buildingContainer != null)
             {
                 _buildingContainer.Inited += UpdateButtonState;
-                UpdateButtonState(); // Вызов при активации
+                UpdateButtonState();
             }
         }
 
@@ -55,37 +42,32 @@ namespace UI.Building
 
         private void UpdateButtonState()
         {
-            if (_buildingContainer == null || string.IsNullOrEmpty(_buildingContainer.BuildingId) || _buildingData == null || _tabsButtons == null)
+            if (_buildingContainer != null && _buildingData != null && _tabsButtons != null)
             {
-                return;
-            }
-
-            BuildingInfo info = _info;
-            if (info == null)
-            {
-                return;
-            }
-
-            bool hasEnoughResources = true;
-            foreach (ResourceCost cost in info.Costs)
-            {
-                Currency currency = _wallet.GetCurrency(cost.ResourceType);
-                if (currency == null || currency.Value < cost.Amount)
+                BuildingInfo info = _info;
+                if (info != null)
                 {
-                    hasEnoughResources = false;
-                    break;
-                }
-            }
+                    Button buildButton = GetComponentInChildren<Button>();
+                    if (buildButton != null)
+                    {
+                        bool hasEnoughResources = true;
+                        foreach (ResourceCost cost in info.Costs)
+                        {
+                            Currency currency = _wallet.GetCurrency(cost.ResourceType);
+                            if (currency == null || currency.Value < cost.Amount)
+                            {
+                                hasEnoughResources = false;
+                                break;
+                            }
+                        }
 
-            if (_tabsButtons.ContainsKey(StateButton.ActiveButton) && _tabsButtons.ContainsKey(StateButton.NotActiveButton))
-            {
-                _tabsButtons[StateButton.ActiveButton].gameObject.SetActive(hasEnoughResources);
-                _tabsButtons[StateButton.NotActiveButton].gameObject.SetActive(!hasEnoughResources);
-
-                if (_buildButton != null)
-                {
-                    _buildButton.interactable = hasEnoughResources;
-                    Debug.Log($"Build button set to interactable: {hasEnoughResources} for BuildingId: {_buildingContainer.BuildingId}");
+                        if (_tabsButtons.ContainsKey(StateButton.ActiveButton) && _tabsButtons.ContainsKey(StateButton.NotActiveButton))
+                        {
+                            _tabsButtons[StateButton.ActiveButton].gameObject.SetActive(hasEnoughResources);
+                            _tabsButtons[StateButton.NotActiveButton].gameObject.SetActive(!hasEnoughResources);
+                            buildButton.interactable = hasEnoughResources;
+                        }
+                    }
                 }
             }
         }

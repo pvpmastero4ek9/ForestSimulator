@@ -37,7 +37,6 @@ namespace Core.Building
                 return false;
             }
 
-           
             var costDictionary = buildingInfo.Costs.ToDictionary(rc => rc.ResourceType, rc => rc.Amount);
 
             foreach (KeyValuePair<CurrencyType, int> costEntry in costDictionary)
