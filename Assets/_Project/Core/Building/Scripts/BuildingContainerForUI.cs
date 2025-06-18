@@ -1,34 +1,30 @@
 using UnityEngine;
-using TMPro; 
+using System;
 
 namespace Core.Building
 {
     public class BuildingContainerForUI : MonoBehaviour
     {
         [SerializeField] private string _buildingId;
-        
 
-        public GameObject Target { get; set; }
         public string BuildingId
         {
             get => _buildingId;
             set
             {
                 _buildingId = value;
-                
+                Inited?.Invoke(); // Используем правильное имя события Inited
             }
         }
 
-        
+        public event Action Inited;
 
         private void OnValidate()
         {
-           
-        }
-
-        private void Start()
-        {
-            
+            if (string.IsNullOrEmpty(_buildingId))
+            {
+                _buildingId = "Default";
+            }
         }
     }
 }

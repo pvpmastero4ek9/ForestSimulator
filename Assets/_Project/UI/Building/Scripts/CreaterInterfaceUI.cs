@@ -66,7 +66,7 @@ namespace UI.Building
                 BuildingCostsUI costsUI = _currentInterface.GetComponentInChildren<BuildingCostsUI>();
                 if (costsUI != null)
                 {
-                    //costsUI.Initialize(_buildingContainer);
+                    costsUI.Initialize(_buildingContainer);
                 }
                 else
                 {
@@ -86,7 +86,15 @@ namespace UI.Building
                 BuildingButtonsState buttonsState = _currentInterface.GetComponentInChildren<BuildingButtonsState>();
                 if (buttonsState != null)
                 {
-                    buttonsState.Initialize(_buildingContainer);
+                    BuildingContainerForUI stateContainer = _currentInterface.GetComponent<BuildingContainerForUI>();
+                    if (stateContainer != null)
+                    {
+                        buttonsState._buildingContainer = stateContainer;
+                    }
+                    else
+                    {
+                        Debug.LogError("BuildingContainerForUI not found for BuildingButtonsState");
+                    }
                 }
                 else
                 {
@@ -125,7 +133,7 @@ namespace UI.Building
                 BuildingCostsUI costsUI = _currentInterface.GetComponentInChildren<BuildingCostsUI>();
                 if (costsUI != null)
                 {
-                    //costsUI.Initialize(_buildingContainer);
+                    costsUI.Initialize(_buildingContainer);
                 }
 
                 ButtonStartBuild buildButton = _currentInterface.GetComponentInChildren<ButtonStartBuild>();
@@ -137,7 +145,11 @@ namespace UI.Building
                 BuildingButtonsState buttonsState = _currentInterface.GetComponentInChildren<BuildingButtonsState>();
                 if (buttonsState != null)
                 {
-                    buttonsState.Initialize(_buildingContainer);
+                    BuildingContainerForUI stateContainer = _currentInterface.GetComponent<BuildingContainerForUI>();
+                    if (stateContainer != null)
+                    {
+                        buttonsState._buildingContainer = stateContainer;
+                    }
                 }
 
                 UpdateUIComponents(_currentInterface, buildingId);

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using Core.Building;
 using UI.UnlockLocations;
 using TMPro;
-using Zenject;
 
 namespace UI.Building
 {
@@ -18,10 +17,9 @@ namespace UI.Building
         private BuildingContainerForUI _buildingContainer;
         private BuildingInfo _buildingInfo;
 
-        [Inject]
-        public void Construct(BuildingContainerForUI buildingContainer)
+        public void Initialize(BuildingContainerForUI container)
         {
-            _buildingContainer = buildingContainer;
+            _buildingContainer = container;
             UpdateBuildingName();
             CreateCostItems();
         }

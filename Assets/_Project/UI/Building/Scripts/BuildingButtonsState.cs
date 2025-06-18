@@ -17,16 +17,15 @@ namespace UI.Building
 
         [SerializeField] private Button _buildButton; // Ссылка на кнопку "Строить"
 
-        private BuildingContainerForUI _buildingContainer;
+        [SerializeField] public BuildingContainerForUI _buildingContainer;
 
         [SerializedDictionary("ButtonState", "Tab")]
         [SerializeField] private SerializedDictionary<StateButton, Tab> _tabsButtons;
 
         private BuildingInfo _info => _buildingData?.GetByName(_buildingContainer?.BuildingId);
 
-        public void Initialize(BuildingContainerForUI container)
+        private void Awake()
         {
-            _buildingContainer = container;
             if (_buildButton == null)
             {
                 _buildButton = GetComponentInChildren<Button>();
@@ -35,12 +34,23 @@ namespace UI.Building
                     Debug.LogError("Build button not found in BuildingButtonsState");
                 }
             }
-            UpdateButtonState();
         }
 
         private void OnEnable()
         {
-            UpdateButtonState();
+            if (_buildingContainer != null)
+            {
+                _buildingContainer.Inited += UpdateButtonState;
+                UpdateButtonState(); // Вызов при активации
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (_buildingContainer != null)
+            {
+                _buildingContainer.Inited -= UpdateButtonState;
+            }
         }
 
         private void UpdateButtonState()
