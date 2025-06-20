@@ -2,7 +2,8 @@
     "name": "Data.Building",
     "rootNamespace": "Data.Building",
     "references": [
-        "GUID:20669b6dd456c7941ababc233f1ba27f"
+        "GUID:20669b6dd456c7941ababc233f1ba27f",
+        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

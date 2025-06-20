@@ -1,30 +1,22 @@
 using UnityEngine;
 using System;
+using Data.Building;
 
 namespace Core.Building
 {
     public class BuildingContainerForUI : MonoBehaviour
     {
-        [SerializeField] private string _buildingId;
-
-        public string BuildingId
-        {
-            get => _buildingId;
-            set
-            {
-                _buildingId = value;
-                Inited?.Invoke();
-            }
-        }
-
+        public BuildingInfo BuildingInfo { get; private set; }
+        public ConstructBuilding ConstructBuilding { get; private set; }
         public event Action Inited;
 
-        private void OnValidate()
+        public BuildingContainerForUI Init(BuildingInfo buildingInfo, ConstructBuilding constructBuilding)
         {
-            if (string.IsNullOrEmpty(_buildingId))
-            {
-                _buildingId = "Default";
-            }
+            BuildingInfo = buildingInfo;
+            ConstructBuilding = constructBuilding;
+
+            Inited?.Invoke();
+            return this;
         }
     }
 }

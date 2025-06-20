@@ -23,6 +23,14 @@ MonoBehaviour:
     m_Key: Build
     m_Metadata:
       m_Items: []
+  - m_Id: 2182441493561344
+    m_Key: Tent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2182444177915904
+    m_Key: House
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

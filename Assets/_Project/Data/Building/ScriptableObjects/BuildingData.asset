@@ -13,12 +13,18 @@ MonoBehaviour:
   m_Name: BuildingData
   m_EditorClassIdentifier: 
   _buildings:
-  - Name: "\u041F\u0430\u043B\u0430\u0442\u043A\u0430"
+  - Building: 0
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:8c22ba614e51f3645af07aec3faaa3b7
+      m_TableEntryReference:
+        m_KeyId: 2182441493561344
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     Prefab: {fileID: 3108769267366489753, guid: 6d095be3f72d76e418689e9774fe0a29, type: 3}
     Description: Eden Zdanitse
-    Reward: 50
-    State: 0
-    Health: 100
     Costs:
     - ResourceType: 0
       Amount: 2
@@ -26,12 +32,18 @@ MonoBehaviour:
       Amount: 2
     - ResourceType: 2
       Amount: 1
-  - Name: "\u0425\u0438\u0436\u0438\u043D\u0430"
+  - Building: 1
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:8c22ba614e51f3645af07aec3faaa3b7
+      m_TableEntryReference:
+        m_KeyId: 2182444177915904
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
     Prefab: {fileID: 2213933528497739909, guid: a7be1a797c04d934fa6ab5f36992c46a, type: 3}
     Description: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0437\u0434\u0430\u043D\u0438\u0435"
-    Reward: 50
-    State: 0
-    Health: 250
     Costs:
     - ResourceType: 0
       Amount: 25
@@ -39,3 +51,6 @@ MonoBehaviour:
       Amount: 25
     - ResourceType: 2
       Amount: 15
+  references:
+    version: 2
+    RefIds: []

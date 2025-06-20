@@ -1,34 +1,32 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Core.Building;
+using UI.Common;
 
 namespace UI.Building
 {
     public class ButtonStartBuild : MonoBehaviour
     {
         [SerializeField] private Button _button;
-        public BuildingContainerForUI _buildingContainer;
+        [SerializeField] private CloseButton _buttonClose;
+        [SerializeField] BuildingContainerForUI _buildingContainer;
 
-        private void Awake()
+        private void OnEnable()
         {
-            if (_button == null)
-            {
-                _button = GetComponent<Button>();
-            }
-            _button.onClick.AddListener(OnClick);
+            _button.onClick.AddListener(CreateBuild);
         }
 
-        public void Initialize(BuildingContainerForUI container)
+        private void OnDisable()
         {
-            _buildingContainer = container;
+            _button.onClick.RemoveListener(CreateBuild);
         }
 
-        private void OnClick()
+        private void CreateBuild()
         {
-            if (_buildingContainer != null)
-            {
-                Debug.Log("Starting build for BuildingId: " + _buildingContainer.BuildingId);
-            }
+            _buildingContainer.ConstructBuilding.Createbuilding(_buildingContainer.BuildingInfo.Prefab, _buildingContainer.BuildingInfo.Costs);
+            Destroy(_buildingContainer.ConstructBuilding.gameObject);
+
+            _buttonClose.CloseObject();
         }
     }
 }

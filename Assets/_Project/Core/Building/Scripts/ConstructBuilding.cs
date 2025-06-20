@@ -1,34 +1,30 @@
+using System;
+using System.Collections.Generic;
+using Core.Wallets;
 using Data.Building;
+using UnityEngine;
 using Zenject;
 
 namespace Core.Building
 {
-    public class ConstructBuilding : IConstructBuilding
+    public class ConstructBuilding : MonoBehaviour
     {
-        private readonly IBuildingData _buildingData;
+        [Inject] private Wallet _wallet;
 
-        [Inject]
-        public ConstructBuilding(IBuildingData buildingData)
-        {
-            _buildingData = buildingData;
-        }
+        [SerializeField] private Transform _positionSpawn;
 
-        public void Build(string name)
+        public event Action CreatedBuilding;
+
+        public void Createbuilding(GameObject buildingPrefab, List<ResourceCost> resourceCostList)
         {
-            var info = _buildingData.GetByName(name);
-            if (info == null)
+            foreach (ResourceCost resourceCost in resourceCostList)
             {
-                (_buildingData as BuildingRuntimeData)?.AddOrUpdate(new BuildingInfo
-                {
-                    Name = name,
-                    State = BuildingState.Built
-                });
-
-                if (_buildingData is IBuildingStateManager stateManager)
-                {
-                    stateManager.ChangeState(name, false);
-                }
+                _wallet.GetCurrency(resourceCost.ResourceType).Value -= resourceCost.Amount;
             }
+
+            Instantiate(buildingPrefab, _positionSpawn.position, _positionSpawn.rotation);
+
+            CreatedBuilding?.Invoke();
         }
     }
 }

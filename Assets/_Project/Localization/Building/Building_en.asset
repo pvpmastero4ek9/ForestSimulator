@@ -26,6 +26,14 @@ MonoBehaviour:
     m_Localized: Build
     m_Metadata:
       m_Items: []
+  - m_Id: 2182441493561344
+    m_Localized: Tent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2182444177915904
+    m_Localized: House
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

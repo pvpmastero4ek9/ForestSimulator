@@ -1,7 +1,6 @@
 using AYellowpaper.SerializedCollections;
 using Core.Building;
 using Core.Wallets;
-using Data.Building;
 using UI.Common;
 using UnityEngine;
 using Zenject;
@@ -11,34 +10,28 @@ namespace UI.Building
     public class BuildingButtonsState : MonoBehaviour
     {
         [Inject] private Wallet _wallet;
-        [SerializeField] private BuildingData _buildingData;
+
         [SerializeField] private BuildingContainerForUI _buildingContainer;
 
         [SerializedDictionary("ButtonState", "Tab")]
         [SerializeField] private SerializedDictionary<StateButton, Tab> _tabsButtons;
 
-        private BuildingInfo _info => _buildingData.GetByName(_buildingContainer.BuildingId);
+        private InsufficientResourcesChecking _insufficientResourcesChecking = new();
 
         private void OnEnable()
         {
-            ActivatedStateButton();
+            _buildingContainer.Inited += ActivatedStateButton;
+        }
+
+        private void OnDisable()
+        {
+            _buildingContainer.Inited -= ActivatedStateButton;
         }
 
         private void ActivatedStateButton()
         {
-            if (_info == null) return;
-
-            _tabsButtons[StateButton.ActiveButton].Enable();
-
-            foreach (ResourceCost cost in _info.Costs)
-            {
-                Currency currency = _wallet.GetCurrency(cost.ResourceType);
-                if (currency.Value < cost.Amount)
-                {
-                    _tabsButtons[StateButton.NotActiveButton].Enable();
-                    break;
-                }
-            }
+            Tab State = _insufficientResourcesChecking.CheckCurrency(_buildingContainer.BuildingInfo.Costs, _wallet) ? _tabsButtons[StateButton.ActiveButton] : _tabsButtons[StateButton.NotActiveButton];
+            State.Enable();
         }
     }
 

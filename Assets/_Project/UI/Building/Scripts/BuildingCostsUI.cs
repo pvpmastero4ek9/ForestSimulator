@@ -1,9 +1,6 @@
 using UnityEngine;
 using Core.Building;
-using Core.Wallets;
 using Data.Building;
-using System.Collections.Generic;
-using TMPro;
 using UI.UnlockLocations;
 
 namespace UI.Building
@@ -12,19 +9,22 @@ namespace UI.Building
     {
         [SerializeField] private BuildingContainerForUI _buildingContainer;
         [SerializeField] private CoastLocationItem CoastLocationItem_PREFAB;
-        [SerializeField] private BuildingData _buildingData;
 
         private BuildingInfo _buildingInfo;
 
         private void OnEnable()
         {
-            CreateCostItems();
+            _buildingContainer.Inited += CreateCostItems;
+        }
+
+        private void OnDisable()
+        {
+            _buildingContainer.Inited -= CreateCostItems;
         }
 
         private void CreateCostItems()
         {
-            _buildingInfo = _buildingData.GetByName(_buildingContainer.BuildingId);
-            if (_buildingInfo == null) return;
+            _buildingInfo = _buildingContainer.BuildingInfo;
 
             foreach (ResourceCost cost in _buildingInfo.Costs)
             {

@@ -20,11 +20,36 @@ namespace Core.Tutorial
         [Inject] private Wallet _wallet;
 
         private int _elementsTutorialIndex;
+        private bool _isBuildCreate = false;
 
+        private ConstructBuilding _constructBuilding;
         private GameObject _stone;
         private GameObject _tree;
         private GameObject _build;
         private GameObject _location;
+
+        private void Awake()
+        {
+            _tree = _objectsTutotialDictionary[GameObjectDestinationName.Tree];
+            _stone = _objectsTutotialDictionary[GameObjectDestinationName.Stone];
+            _build = _objectsTutotialDictionary[GameObjectDestinationName.Build];
+            _constructBuilding = _build.GetComponent<ConstructBuilding>();
+        }
+
+        private void OnEnable()
+        {
+            _constructBuilding.CreatedBuilding += BuiuldChangeState;
+        }
+
+        private void OnDisable()
+        {
+            _constructBuilding.CreatedBuilding -= BuiuldChangeState;
+        }
+
+        private void BuiuldChangeState()
+        {
+            _isBuildCreate = true;
+        }
 
         private void Update()
         {
@@ -44,7 +69,6 @@ namespace Core.Tutorial
             }
             else if (_elementsTutorialIndex == 2)
             {
-                _stone = _objectsTutotialDictionary[GameObjectDestinationName.Stone];
                 _stone.GetComponent<DisplayingPointerAnObject>().CreatePointer();
                 _elementsTutorialIndex++;
             }
@@ -72,7 +96,6 @@ namespace Core.Tutorial
             }
             else if (_elementsTutorialIndex == 6)
             {
-                _tree = _objectsTutotialDictionary[GameObjectDestinationName.Tree];
                 _tree.GetComponent<DisplayingPointerAnObject>().CreatePointer();
                 _elementsTutorialIndex++;
             }
@@ -86,7 +109,6 @@ namespace Core.Tutorial
             }
             else if (_elementsTutorialIndex == 8)
             {
-                _build = _objectsTutotialDictionary[GameObjectDestinationName.Build];
                 _build.GetComponent<DisplayingPointerAnObject>().CreatePointer();
                 _elementsTutorialIndex++;
             }
@@ -100,7 +122,7 @@ namespace Core.Tutorial
             }
             else if (_elementsTutorialIndex == 10)
             {
-                if (!_build.GetComponent<PlayerLocationChecker>().IsPlayerInside)
+                if (_isBuildCreate)
                 {
                     _elementsTutorialIndex++;
                 }
@@ -116,7 +138,6 @@ namespace Core.Tutorial
                 if (_location.GetComponent<CheckerPlayerTouch>().IsPlayerTouch)
                 {
                     _location.GetComponent<DisplayingPointerAnObject>().DelitePointer();
-                    Destroy(gameObject);
                 }
             }
         }

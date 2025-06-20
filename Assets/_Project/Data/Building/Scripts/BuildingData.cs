@@ -11,9 +11,9 @@ namespace Data.Building
 
         public IReadOnlyList<BuildingInfo> Buildings => _buildings.AsReadOnly();
 
-        public BuildingInfo GetByName(string name)
+        public BuildingInfo GetBuildingData(Buildings building)
         {
-            return _buildings.FirstOrDefault(building => building.Name == name);
+            return _buildings.FirstOrDefault(x => x.Building == building);
         }
     }
 }
