@@ -44,11 +44,13 @@ MonoBehaviour:
     Description: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0437\u0434\u0430\u043D\u0438\u0435"
     Costs:
     - ResourceType: 0
-      Amount: 25
+      Amount: 20
     - ResourceType: 1
-      Amount: 25
+      Amount: 20
     - ResourceType: 2
-      Amount: 15
+      Amount: 12
+    - ResourceType: 5
+      Amount: 5
   - Building: 3
     Name:
       m_TableReference:
@@ -67,7 +69,7 @@ MonoBehaviour:
     - ResourceType: 1
       Amount: 25
     - ResourceType: 2
-      Amount: 15
+      Amount: 5
   - Building: 2
     Name:
       m_TableReference:
@@ -82,11 +84,11 @@ MonoBehaviour:
     Description: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0437\u0434\u0430\u043D\u0438\u0435"
     Costs:
     - ResourceType: 0
-      Amount: 25
+      Amount: 10
     - ResourceType: 1
-      Amount: 25
-    - ResourceType: 2
-      Amount: 15
+      Amount: 10
+    - ResourceType: 5
+      Amount: 3
   - Building: 4
     Name:
       m_TableReference:
@@ -100,12 +102,12 @@ MonoBehaviour:
     Prefab: {fileID: 374656640451500053, guid: 062dd221728d72840986722b7032beda, type: 3}
     Description: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0437\u0434\u0430\u043D\u0438\u0435"
     Costs:
-    - ResourceType: 0
-      Amount: 25
     - ResourceType: 1
-      Amount: 25
-    - ResourceType: 2
       Amount: 15
+    - ResourceType: 2
+      Amount: 10
+    - ResourceType: 4
+      Amount: 8
   - Building: 5
     Name:
       m_TableReference:
@@ -119,12 +121,10 @@ MonoBehaviour:
     Prefab: {fileID: 647914676460648744, guid: 055871f502d350d4883fc525895a483c, type: 3}
     Description: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0437\u0434\u0430\u043D\u0438\u0435"
     Costs:
-    - ResourceType: 0
-      Amount: 25
     - ResourceType: 1
-      Amount: 25
+      Amount: 8
     - ResourceType: 2
-      Amount: 15
+      Amount: 10
   - Building: 6
     Name:
       m_TableReference:
@@ -139,11 +139,15 @@ MonoBehaviour:
     Description: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0437\u0434\u0430\u043D\u0438\u0435"
     Costs:
     - ResourceType: 0
-      Amount: 25
+      Amount: 15
     - ResourceType: 1
-      Amount: 25
+      Amount: 35
     - ResourceType: 2
       Amount: 15
+    - ResourceType: 5
+      Amount: 8
+    - ResourceType: 3
+      Amount: 5
   references:
     version: 2
     RefIds: []
