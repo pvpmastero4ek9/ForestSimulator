@@ -31,6 +31,26 @@ MonoBehaviour:
     m_Key: House
     m_Metadata:
       m_Items: []
+  - m_Id: 2602738841489408
+    m_Key: WatchTower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2603107898298368
+    m_Key: Well
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2603235476443136
+    m_Key: Schule
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2603417865752576
+    m_Key: Resourse Camp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2603621578903552
+    m_Key: Mill
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

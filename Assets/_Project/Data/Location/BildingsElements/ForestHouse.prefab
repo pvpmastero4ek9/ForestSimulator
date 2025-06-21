@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3db8ebb9021dd8f4388104a3224cdaa9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.231
+      value: -1.79
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3db8ebb9021dd8f4388104a3224cdaa9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -64,6 +64,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7872759459897489225, guid: 3db8ebb9021dd8f4388104a3224cdaa9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: -7872759459897489225, guid: 3db8ebb9021dd8f4388104a3224cdaa9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.01
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3db8ebb9021dd8f4388104a3224cdaa9, type: 3}
       propertyPath: m_Name
       value: ForestHouse
@@ -72,6 +80,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3db8ebb9021dd8f4388104a3224cdaa9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -507026817336032667}
     - targetCorrespondingSourceObject: {fileID: -2083114683108396030, guid: 3db8ebb9021dd8f4388104a3224cdaa9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8808082710542941544}
@@ -85,6 +96,27 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4794397680281978195}
   m_SourcePrefab: {fileID: 100100000, guid: 3db8ebb9021dd8f4388104a3224cdaa9, type: 3}
+--- !u!1 &2213933528497739909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3db8ebb9021dd8f4388104a3224cdaa9, type: 3}
+  m_PrefabInstance: {fileID: 1330832388403652052}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &-507026817336032667
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2213933528497739909}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7125369072228737765 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1109446356124186831, guid: 3db8ebb9021dd8f4388104a3224cdaa9, type: 3}

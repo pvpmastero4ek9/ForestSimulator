@@ -30,8 +30,6 @@ MonoBehaviour:
       Amount: 2
     - ResourceType: 1
       Amount: 2
-    - ResourceType: 2
-      Amount: 1
   - Building: 1
     Name:
       m_TableReference:
@@ -43,6 +41,101 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     Prefab: {fileID: 2213933528497739909, guid: a7be1a797c04d934fa6ab5f36992c46a, type: 3}
+    Description: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0437\u0434\u0430\u043D\u0438\u0435"
+    Costs:
+    - ResourceType: 0
+      Amount: 25
+    - ResourceType: 1
+      Amount: 25
+    - ResourceType: 2
+      Amount: 15
+  - Building: 3
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:8c22ba614e51f3645af07aec3faaa3b7
+      m_TableEntryReference:
+        m_KeyId: 2602738841489408
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Prefab: {fileID: 7967881082554914878, guid: c5a0f44aa27bef94a92c4985723f9f6c, type: 3}
+    Description: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0437\u0434\u0430\u043D\u0438\u0435"
+    Costs:
+    - ResourceType: 0
+      Amount: 25
+    - ResourceType: 1
+      Amount: 25
+    - ResourceType: 2
+      Amount: 15
+  - Building: 2
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:8c22ba614e51f3645af07aec3faaa3b7
+      m_TableEntryReference:
+        m_KeyId: 2603107898298368
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Prefab: {fileID: 39368677499412991, guid: 14a509fc92a15674b99a207912f3754b, type: 3}
+    Description: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0437\u0434\u0430\u043D\u0438\u0435"
+    Costs:
+    - ResourceType: 0
+      Amount: 25
+    - ResourceType: 1
+      Amount: 25
+    - ResourceType: 2
+      Amount: 15
+  - Building: 4
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:8c22ba614e51f3645af07aec3faaa3b7
+      m_TableEntryReference:
+        m_KeyId: 2603235476443136
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Prefab: {fileID: 374656640451500053, guid: 062dd221728d72840986722b7032beda, type: 3}
+    Description: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0437\u0434\u0430\u043D\u0438\u0435"
+    Costs:
+    - ResourceType: 0
+      Amount: 25
+    - ResourceType: 1
+      Amount: 25
+    - ResourceType: 2
+      Amount: 15
+  - Building: 5
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:8c22ba614e51f3645af07aec3faaa3b7
+      m_TableEntryReference:
+        m_KeyId: 2603417865752576
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Prefab: {fileID: 647914676460648744, guid: 055871f502d350d4883fc525895a483c, type: 3}
+    Description: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0437\u0434\u0430\u043D\u0438\u0435"
+    Costs:
+    - ResourceType: 0
+      Amount: 25
+    - ResourceType: 1
+      Amount: 25
+    - ResourceType: 2
+      Amount: 15
+  - Building: 6
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:8c22ba614e51f3645af07aec3faaa3b7
+      m_TableEntryReference:
+        m_KeyId: 2603621578903552
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Prefab: {fileID: 4176819849294468334, guid: ebb092cd3195856449934ac468f75b2d, type: 3}
     Description: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0437\u0434\u0430\u043D\u0438\u0435"
     Costs:
     - ResourceType: 0

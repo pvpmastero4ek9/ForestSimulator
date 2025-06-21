@@ -5,6 +5,11 @@ namespace Data.Building
     public enum Buildings
     {
         Tent,
-        House
+        House,
+        Well,
+        WatchTower,
+        Schule,
+        ResourseCump,
+        Mill
     }
 }
