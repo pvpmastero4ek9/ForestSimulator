@@ -4035,7 +4035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293dca700aff67346b30e6f4c55661ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _positionSpawn: {fileID: 0}
+  _positionSpawn: {fileID: 4623726242890585879}
 --- !u!114 &3634842677616042594 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7786422238354268200, guid: 69ec2098d6e57bf4ca60dcefbbfae79c, type: 3}
@@ -4747,7 +4747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293dca700aff67346b30e6f4c55661ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _positionSpawn: {fileID: 0}
+  _positionSpawn: {fileID: 6336475756882607765}
 --- !u!114 &1406061257543806203 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7786422238354268200, guid: 69ec2098d6e57bf4ca60dcefbbfae79c, type: 3}
