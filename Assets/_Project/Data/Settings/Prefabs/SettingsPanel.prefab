@@ -464,9 +464,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff3de8db682e3b4c97f7411d0bfecb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localizationToggleButton: {fileID: 1253441585099331207}
-  englishIcon: {fileID: 929962728, guid: dab89487e1776d542bb436ee00c6ac4b, type: 3}
-  russianIcon: {fileID: -1426781420, guid: 337bb7a7f0fd77b4ca753fc3649f009d, type: 3}
+  _localizationToggleButton: {fileID: 1253441585099331207}
+  _englishIcon: {fileID: 929962728, guid: dab89487e1776d542bb436ee00c6ac4b, type: 3}
+  _russianIcon: {fileID: -1426781420, guid: 337bb7a7f0fd77b4ca753fc3649f009d, type: 3}
 --- !u!1 &1348558941173048673
 GameObject:
   m_ObjectHideFlags: 0

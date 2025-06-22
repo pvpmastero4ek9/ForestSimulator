@@ -8,12 +8,12 @@ using TMPro;
 
 public class RuEnLocalize : MonoBehaviour
 {
-    public Button localizationToggleButton;
-    public Sprite englishIcon;
-    public Sprite russianIcon;
+    [SerializeField] private Button _localizationToggleButton;
+    [SerializeField] private Sprite _englishIcon;
+    [SerializeField] private Sprite _russianIcon;
 
-    private Image buttonImage;
-    private int currentLanguageIndex;
+    private Image _buttonImage;
+    private int _currentLanguageIndex;
 
     private void Start()
     {
@@ -24,32 +24,30 @@ public class RuEnLocalize : MonoBehaviour
     {
         yield return LocalizationSettings.InitializationOperation;
 
-        if (localizationToggleButton != null)
-        {
-            buttonImage = localizationToggleButton.GetComponent<Image>();
-        }
+        _buttonImage = _localizationToggleButton.GetComponent<Image>();
 
-        SafeSetLocale(currentLanguageIndex);
+        _currentLanguageIndex = GetCurrentLocaleIndex();
+        SafeSetLocale(_currentLanguageIndex);
 
-        UpdateButtonIcon(currentLanguageIndex);
+        UpdateButtonIcon(_currentLanguageIndex);
 
-        localizationToggleButton.onClick.AddListener(ToggleLocalization);
+        _localizationToggleButton.onClick.AddListener(ToggleLocalization);
     }
 
     private void ToggleLocalization()
     {
-        currentLanguageIndex = (currentLanguageIndex == 0) ? 1 : 0;
+        _currentLanguageIndex = (_currentLanguageIndex == 0) ? 1 : 0;
 
-        SafeSetLocale(currentLanguageIndex);
+        SafeSetLocale(_currentLanguageIndex);
 
-        UpdateButtonIcon(currentLanguageIndex);
+        UpdateButtonIcon(_currentLanguageIndex);
 
         StartCoroutine(UpdateLocale());
     }
 
     private void SafeSetLocale(int languageIndex)
     {
-        var localeCount = LocalizationSettings.AvailableLocales.Locales.Count;
+        int localeCount = LocalizationSettings.AvailableLocales.Locales.Count;
         if (languageIndex < 0 || languageIndex >= localeCount)
         {
             languageIndex = 1;
@@ -60,10 +58,23 @@ public class RuEnLocalize : MonoBehaviour
 
     private void UpdateButtonIcon(int languageIndex)
     {
-        if (buttonImage != null)
+        _buttonImage.sprite = (languageIndex == 0) ? _englishIcon : _russianIcon;
+    }
+
+    private int GetCurrentLocaleIndex()
+    {
+        Locale selectedLocale = LocalizationSettings.SelectedLocale;
+        var locales = LocalizationSettings.AvailableLocales.Locales;
+
+        for (int i = 0; i < locales.Count; i++)
         {
-            buttonImage.sprite = (languageIndex == 0) ? englishIcon : russianIcon;
+            if (locales[i] == selectedLocale)
+            {
+                return i;
+            }
         }
+
+        return -1; 
     }
 
     private IEnumerator UpdateLocale()
