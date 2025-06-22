@@ -2679,7 +2679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293dca700aff67346b30e6f4c55661ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _positionSpawn: {fileID: 0}
+  _positionSpawn: {fileID: 415189547994998207}
 --- !u!1001 &2322700161669635174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3166,7 +3166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293dca700aff67346b30e6f4c55661ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _positionSpawn: {fileID: 0}
+  _positionSpawn: {fileID: 1488475027908852278}
 --- !u!114 &2231484695774162830
 MonoBehaviour:
   m_ObjectHideFlags: 0
