@@ -106,6 +106,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraController: {fileID: 0}
+--- !u!1 &2308282580278872923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3074249783935149720}
+  - component: {fileID: 1692645977938975083}
+  - component: {fileID: 6965092580612497959}
+  m_Layer: 0
+  m_Name: CountdownTimer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3074249783935149720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308282580278872923}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5890255731639674272}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1692645977938975083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308282580278872923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c160e84bb402a14ca2206fc3b0eacb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6965092580612497959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308282580278872923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fd2417992d7ec49becd598fda8c780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timerManager: {fileID: 1692645977938975083}
 --- !u!1 &2452448542290298004
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +444,7 @@ Transform:
   - {fileID: 1101270517957582426}
   - {fileID: 3499832453230638279}
   - {fileID: 3480741187655426440}
+  - {fileID: 3074249783935149720}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8234001927175053516
@@ -413,6 +472,7 @@ MonoBehaviour:
   - {fileID: 7160067341348828547}
   - {fileID: 2236839613833129084}
   - {fileID: 8780733448744192564}
+  - {fileID: 6965092580612497959}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:

@@ -1,11 +1,14 @@
 using UnityEngine;
 using ListExtentions;
 using System;
+using Zenject;
 
 namespace Core.DayNightCycle
 {
     public class DayNightCycle : MonoBehaviour
     {
+        [Inject] private TimerManager _timerManager;
+
         [SerializeField] private float _dayDuractionMinutes = 1f;
         [SerializeField] private float _nightDuractionMinutes = 1f;
         public CountdownTimer CountdownTimer { get; private set; } = new();
@@ -35,9 +38,9 @@ namespace Core.DayNightCycle
             SwitchedPhase?.Invoke(phase);
         }
 
-        private async void StartTimerPhase(DateTime endTime)
+        private void StartTimerPhase(DateTime endTime)
         {
-            await CountdownTimer.WaitUntil(endTime, OnPhaseEnd);
+            _timerManager.Register(CountdownTimer, endTime, OnPhaseEnd);
         }
 
         private void OnPhaseEnd()

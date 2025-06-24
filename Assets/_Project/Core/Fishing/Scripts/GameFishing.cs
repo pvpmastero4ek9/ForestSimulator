@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Threading;
 using Core.Player;
 using ListExtentions;
 using UnityEngine;
@@ -18,6 +17,7 @@ namespace Core.Fishing
         private const float SpeedRandomMax = 2f;
 
         [Inject] private InfoPlayer _infoPlayer;
+        [Inject] private TimerManager _timerManager;
 
         public float SuccessZoneCenter { get; private set; }
         public float SuccessZoneWidth { get; private set; }
@@ -30,6 +30,7 @@ namespace Core.Fishing
         private float _successMax;
         private bool _isFishing = true;
         private bool _isEndFishing;
+        private CountdownTimer _countdownTimer = new();
 
         public event Action<float> OnValueChanged;
         public event Action OnSuccess;
@@ -41,7 +42,6 @@ namespace Core.Fishing
         [SerializeField] private float _maxValue = 1f;
         [SerializeField] private float _speed = 1f;
         [SerializeField] private float direction = 1f;
-        private CountdownTimer _countdownTimer = new();
 
         public delegate void StartedGameHandler();
         public event StartedGameHandler StartedGame;
@@ -76,12 +76,13 @@ namespace Core.Fishing
             _speed = UnityEngine.Random.Range(SpeedRandomMin, SpeedRandomMax);
         }
 
-        private async void WateWishing()
+        private void WateWishing()
         {
             _isFishing = true;
 
             DateTime dateTime = DateTime.Now + TimeSpan.FromSeconds(_wateBeforeFishingInSeconds);
-            await _countdownTimer.WaitUntil(dateTime, StartGame);
+            
+            _timerManager.Register(_countdownTimer, dateTime, StartGame);
         }
 
         private void StartGame()

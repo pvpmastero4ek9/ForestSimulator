@@ -37,10 +37,10 @@ namespace UI.Mining
 
         private void ChangeImageTimerValue()
         {
-            _timerImage.fillAmount = (float)((_countdownTimer.totalDuration.TotalSeconds - _countdownTimer.elapsedTime.TotalSeconds) / _countdownTimer.totalDuration.TotalSeconds);
+            _timerImage.fillAmount = (float)((_countdownTimer.TotalDuration.TotalSeconds - _countdownTimer.ElapsedTime.TotalSeconds) / _countdownTimer.TotalDuration.TotalSeconds);
         }
 
-        private void DeleteObject()
+        private void DeleteObject(CountdownTimer countdownTimer)
         {
             Destroy(gameObject);
         }

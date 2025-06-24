@@ -2,13 +2,14 @@ using Core.Wallets;
 using UnityEngine;
 using ListExtentions;
 using System;
-
-using UnityEngine.AI;
+using Zenject;
 
 namespace Core.Mining
 {
     public class ResourceNode : MonoBehaviour
     {
+        [Inject] private TimerManager _timerManager;
+
         [field: SerializeField] public CurrencyType CurrencyType { get; private set; }
         [field: SerializeField] public int RewardAmount { get; private set; }
         [field: SerializeField] private int _startDurability = 3;
@@ -38,10 +39,11 @@ namespace Core.Mining
             }
         }
 
-        public async void StartTimer()
+        public void StartTimer()
         {
             DateTime dateTime = DateTime.Now + TimeSpan.FromMinutes(RecoveryTimeMinutes);
-            await CountdownTimer.WaitUntil(dateTime, Recovery);
+
+            _timerManager.Register(CountdownTimer, dateTime, Recovery);
         }
 
         public void Recovery()

@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/PluginYourGames/Example/Scenes/ExampleYG2.unity
     guid: e49bf7e58fdb4db4c9df51f0ddb8f327
-  - enabled: 1
+  - enabled: 0
     path: Assets/PluginYourGames/Modules/Localization/Example/Scenes/Localization.unity
     guid: 058cfa478132af54f8ee895e24ea5a2a
   - enabled: 1

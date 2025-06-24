@@ -23,7 +23,7 @@ namespace UI.DayNightCycle
 
         private void UpdateArrow(TimeSpan timeSpan)
         {
-            float parcent = FullParcentForArrow - ((float)timeSpan.TotalSeconds / (float)_countdownTimer.totalDuration.TotalSeconds);
+            float parcent = FullParcentForArrow - ((float)timeSpan.TotalSeconds / (float)_countdownTimer.TotalDuration.TotalSeconds);
 
             float angle = _dayNightCycle.CurrentPhase == DayPhase.Day
             ? Mathf.Lerp(0f, 180f, parcent)
