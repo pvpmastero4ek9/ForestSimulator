@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace ListExtentions
@@ -10,7 +11,7 @@ namespace ListExtentions
 
         private void Update()
         {
-            foreach (CountdownTimer timer in _timersList)
+            foreach (CountdownTimer timer in _timersList.ToList())
             {
                 timer.Update();
             }

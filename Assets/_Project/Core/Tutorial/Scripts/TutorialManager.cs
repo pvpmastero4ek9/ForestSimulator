@@ -138,6 +138,7 @@ namespace Core.Tutorial
                 if (_location.GetComponent<CheckerPlayerTouch>().IsPlayerTouch)
                 {
                     _location.GetComponent<DisplayingPointerAnObject>().DelitePointer();
+                    _elementsTutorialIndex++;
                 }
             }
         }

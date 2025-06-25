@@ -29,6 +29,7 @@ namespace ListExtentions
         public void Cancel()
         {
             IsRunning = false;
+            EndedTime?.Invoke(this);
         }
 
         public void Update()
@@ -42,9 +43,9 @@ namespace ListExtentions
             {
                 ElapsedTime = TotalDuration;
                 IsRunning = false;
-                ActionFunction?.Invoke();
                 ChangedTime?.Invoke(TimeSpan.Zero);
                 EndedTime?.Invoke(this);
+                ActionFunction?.Invoke();
             }
             else
             {
