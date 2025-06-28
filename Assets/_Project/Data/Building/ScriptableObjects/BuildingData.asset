@@ -105,7 +105,7 @@ MonoBehaviour:
     - ResourceType: 1
       Amount: 15
     - ResourceType: 2
-      Amount: 10
+      Amount: 15
     - ResourceType: 4
       Amount: 8
   - Building: 5
